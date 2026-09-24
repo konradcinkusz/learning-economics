@@ -103,7 +103,8 @@ Font License 1.1 ([`fonts/andika/OFL.txt`](fonts/andika/OFL.txt)). Ver
 
 ## Estado
 
-**En obras**: el motor, el diseño y las dos primeras semanas (días
-1--10: el valor de las cosas y el trueque). Se escribe en cinco fases,
-un PR cada una, como *Aprendo los números*: ver "Las fases" en
-[`notes/01-plan.md`](notes/01-plan.md).
+**En obras**: el motor, el diseño y el otoño entero (días 1--65: el
+valor de las cosas, el trueque y el dinero, lo que es de todos,
+necesitar y querer, el ahorro y el precio), con su medalla. Se escribe
+en cinco fases, un PR cada una, como *Aprendo los números*: ver "Las
+fases" en [`notes/01-plan.md`](notes/01-plan.md).

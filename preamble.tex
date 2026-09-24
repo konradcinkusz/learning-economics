@@ -171,6 +171,8 @@
 % Las del invierno.
 \cajaActividad{cajaElige}{\lblElige}{colorResponde}
 \cajaActividad{cajaCompara}{\lblCompara}{colorDibuja}
+% La de la primavera.
+\cajaActividad{cajaCuentas}{\lblCuentas}{colorLectura}
 
 % La instrucción de cada actividad: la lee el adulto.
 \newcommand{\instruccion}[1]{{\footnotesize\color{colorGris}#1\par}}
@@ -183,6 +185,9 @@
 % El hueco en el que se escribe la respuesta (#1, el ancho).
 \newcommand{\huecoRespuesta}[1][26mm]{\raisebox{-5mm}{\tikz\draw[line width=1.1pt,
   rounded corners=2mm, fill=white] (0,0) rectangle (#1,18mm);}}
+% Una casilla más baja, para las filas del cuaderno de cuentas.
+\newcommand{\casillaCuenta}[1][22mm]{\raisebox{-4mm}{\tikz\draw[line width=1.1pt,
+  rounded corners=1.5mm, fill=white] (0,0) rectangle (#1,12.5mm);}}
 % Lo que no cabe en su sitio, encogido hasta que quepa (#1, el ancho).
 \newsavebox{\cajaAjustada}
 \newcommand{\ajustado}[2]{\sbox{\cajaAjustada}{#2}%

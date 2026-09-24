@@ -158,6 +158,38 @@
   \draw[dashed, line width=0.9pt] (-0.7,-0.42) .. controls (-0.3,0.2) and (0.1,-0.4) .. (0.5,0.22);
   \draw[line width=1.6pt] (0.46,0.18) -- (0.72,0.44) (0.46,0.44) -- (0.72,0.18);}
 
+% --- Las cosas de la primavera ----------------------------------------------
+
+% Un cartón de leche: la cara de delante con su ola de leche, el lado y
+% el tejadillo de arriba.
+\newcommand{\objLeche}{%
+  \filldraw[fill=white, line join=round] (0.3,-0.95) -- (0.6,-0.78) -- (0.6,0.5) -- (0.3,0.33) -- cycle;
+  \filldraw[fill=white, line join=round] (0.3,0.33) -- (0.6,0.5) -- (0.2,0.9) -- (-0.1,0.73) -- cycle;
+  \filldraw[fill=white, line join=round] (-0.5,-0.95) rectangle (0.3,0.33);
+  \filldraw[fill=white, line join=round] (-0.5,0.33) -- (-0.1,0.73) -- (0.3,0.33) -- cycle;
+  \draw (-0.5,-0.25) .. controls (-0.3,-0.1) and (-0.1,-0.4) .. (0.1,-0.25) .. controls (0.2,-0.17) .. (0.3,-0.2);}
+
+% Un tarro de miel: el cristal, la tapa de rayas y la etiqueta con una
+% celda del panal.
+\newcommand{\objMiel}{%
+  \filldraw[fill=white, rounded corners=2.5mm] (-0.62,-0.92) rectangle (0.62,0.42);
+  \filldraw[fill=white, rounded corners=0.8mm] (-0.52,0.42) rectangle (0.52,0.72);
+  \foreach \x in {-0.3, -0.1, 0.1, 0.3} {\draw[line width=0.7pt] (\x,0.46) -- (\x,0.68);}
+  \filldraw[fill=white, rounded corners=1mm] (-0.44,-0.56) rectangle (0.44,0.12);
+  \filldraw[fill=white] (0.2,-0.22) -- (0.1,-0.05) -- (-0.1,-0.05) -- (-0.2,-0.22) -- (-0.1,-0.39) -- (0.1,-0.39) -- cycle;}
+
+% Rayo, la tortuga de Hugo: las patas, la cabeza (que asoma por debajo
+% del caparazón), la cola y el caparazón con su celda del medio.
+\newcommand{\objTortuga}{%
+  \filldraw[fill=white, rounded corners=0.6mm] (-0.58,-0.6) rectangle (-0.32,-0.2);
+  \filldraw[fill=white, rounded corners=0.6mm] (0.28,-0.6) rectangle (0.54,-0.2);
+  \filldraw[fill=white] (0.9,-0.08) ellipse (0.24 and 0.18);
+  \fill (0.98,-0.03) circle (0.035);
+  \draw (-0.8,-0.28) -- (-0.98,-0.38);
+  \filldraw[fill=white] (-0.84,-0.28) arc[start angle=180, end angle=0, x radius=0.84, y radius=0.66] -- cycle;
+  \draw (-0.22,-0.1) -- (-0.11,0.1) -- (0.11,0.1) -- (0.22,-0.1) -- (0.11,-0.28) (-0.11,-0.28) -- (-0.22,-0.1);
+  \draw (-0.11,0.1) -- (-0.26,0.34) (0.11,0.1) -- (0.26,0.34) (-0.22,-0.1) -- (-0.6,-0.1) (0.22,-0.1) -- (0.6,-0.1);}
+
 % --- Las piezas de "Compara" ---------------------------------------------
 
 % Una tienda: la pared, el escaparate, el toldo de rayas con sus seis

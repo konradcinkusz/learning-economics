@@ -54,7 +54,7 @@ SEMANAS_POR_TRIMESTRE = 13
 # uno en verde antes de fusionarse), cuántos días tiene ya escritos: se
 # exigen exactamente esos, del 1 en adelante y sin huecos. None = el
 # cuaderno está entero, con sus 260 días.
-DIAS_ESCRITOS = 130
+DIAS_ESCRITOS = 195
 
 NOMBRE_MEDALLA = {1: "Otoño", 2: "Invierno", 3: "Primavera"}
 ULTIMO_DIA_TRIMESTRE = {1: 65, 2: 130, 3: 195, 4: 260}
@@ -122,13 +122,14 @@ DESDE_SEMANA = {
     "ordena": 12,   # el equipo: primero esto, después aquello
     "elige": 14,    # elegir: no se puede tener todo
     "compara": 16,  # el kilo: la misma fruta, en dos tiendas
+    "cuentas": 28,  # el gasto: lo que entra, lo que sale y lo que queda
 }
 
 
 # Lo que se come: al repartirlo, va en platos; lo demás, en recuadros.
 COMIDA = {"manzana", "caramelo", "galleta", "castana", "huevo", "mandarina", "fresa", "piruleta",
           "tarta", "torrija", "zanahoria", "tomate", "pan", "lechuga", "helado", "churro",
-          "uva", "racimo", "roscon"}
+          "uva", "racimo", "roscon", "leche", "miel"}
 
 
 class ErrorDeContenido(Exception):
@@ -214,6 +215,9 @@ OBJETOS = {
     "telescopio": (r"\objTelescopio", "telescopio", "telescopios", "m"),
     "antifaz": (r"\objAntifaz", "antifaz", "antifaces", "m"),
     "mapa": (r"\objMapa", "mapa", "mapas", "m"),
+    "leche": (r"\objLeche", "cartón de leche", "cartones de leche", "m"),
+    "miel": (r"\objMiel", "tarro de miel", "tarros de miel", "m"),
+    "tortuga": (r"\objTortuga", "tortuga", "tortugas", "f"),
     # Las de "Aprendo los números" (diagrams/objetos.tex).
     "manzana": (r"\objManzana", "manzana", "manzanas", "f"),
     "pelota": (r"\objPelota", "pelota", "pelotas", "f"),
@@ -588,6 +592,22 @@ def dibujo_hucha(semanas):
     return "\\begin{tikzpicture}\n" + "\n".join(piezas) + "\n\\end{tikzpicture}"
 
 
+def dibujo_cuentas(empieza, apuntes):
+    """El cuaderno de cuentas: una fila por apunte, con lo que entra o lo
+    que sale, y una casilla para lo que queda. La primera fila, lo que
+    hay al empezar, ya está escrita."""
+    filas = [f"\\lblAlEmpezar & & & {empieza}~€ \\\\ \\hline"]
+    for texto, cantidad in apuntes:
+        entra, sale = (f"{cantidad}~€", "") if cantidad > 0 else ("", f"{-cantidad}~€")
+        filas.append(f"{escapar(texto)} & {entra} & {sale} & \\casillaCuenta[26mm] \\\\ \\hline")
+    return ("{\\LARGE\\renewcommand{\\arraystretch}{2.2}"
+            "\\begin{tabularx}{\\linewidth}{@{}>{\\sinPartir\\arraybackslash}X"
+            ">{\\centering\\arraybackslash}p{24mm}>{\\centering\\arraybackslash}p{24mm}"
+            ">{\\centering\\arraybackslash}p{30mm}@{}}\n"
+            "\\textbf{\\lblQuePasa} & \\textbf{\\lblEntra} & \\textbf{\\lblSale} & \\textbf{\\lblQueda} \\\\ \\hline\n"
+            + "\n".join(filas) + "\n\\end{tabularx}}")
+
+
 def dibujo_tiendas(objeto, tiendas):
     """Dos tiendas, una al lado de la otra, con su nombre en el letrero y,
     en el escaparate, la misma cosa con su precio. En cm."""
@@ -959,6 +979,36 @@ def render_actividad(d):
             dibujo=dibujo_tiendas(a["objeto"], tiendas),
             respuesta="Me ahorro \\huecoRespuesta\\ €",
         ), ("compara", f"«{barata[0]}», {barata[1]} € y no {cara[1]} €: te ahorras {cara[1] - barata[1]} €")
+
+    if tipo == "cuentas":
+        # El cuaderno de cuentas: lo que entra, lo que sale y lo que queda.
+        campos(num, a, ["empieza", "apuntes"])
+        empieza, apuntes = a["empieza"], a["apuntes"]
+        comprobar_cantidad(num, semana, empieza, "en 'cuentas', lo que hay al empezar")
+        if not 3 <= len(apuntes) <= 5:
+            raise ErrorDeContenido(f"día {num}: 'cuentas' lleva de 3 a 5 apuntes")
+        queda, quedas = empieza, []
+        for apunte in apuntes:
+            if (len(apunte) != 2 or not isinstance(apunte[0], str) or not 0 < len(apunte[0]) <= 30
+                    or not isinstance(apunte[1], int) or apunte[1] == 0):
+                raise ErrorDeContenido(f"día {num}: cada apunte de 'cuentas' es [texto corto, cantidad], "
+                                       f"con la cantidad en positivo si entra y en negativo si sale ({apunte})")
+            comprobar_cantidad(num, semana, abs(apunte[1]), "en 'cuentas', un apunte")
+            queda += apunte[1]
+            if queda < 0:
+                raise ErrorDeContenido(f"día {num}: en 'cuentas' nunca queda menos de 0 "
+                                       f"(después de «{apunte[0]}» quedarían {queda} €)")
+            comprobar_cantidad(num, semana, queda, "en 'cuentas', lo que queda")
+            quedas.append(queda)
+        if not any(x[1] > 0 for x in apuntes) or not any(x[1] < 0 for x in apuntes):
+            raise ErrorDeContenido(f"día {num}: en 'cuentas', algo entra y algo sale")
+        return PLANTILLA_CAJA.substitute(
+            caja="cajaCuentas",
+            enunciado=escapar(a.get("pregunta", "¿Cuánto queda después de cada apunte?")),
+            instruccion="Empieza por lo que hay al principio. Si entra dinero, se suma; si sale, se resta. "
+                        "Escribe en cada casilla lo que queda.",
+            dibujo=dibujo_cuentas(empieza, apuntes),
+        ), ("cuentas", "queda: " + ", ".join(str(q) for q in quedas) + f" €; al final, {quedas[-1]} €")
 
     if tipo == "dibuja":
         campos(num, a, ["prompt"])

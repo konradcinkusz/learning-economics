@@ -1,0 +1,82 @@
+{
+  "_comentario": "Otoño (trimestre 1, días 1-65): las semanas 1-13 de «Leo con lupa», cada una con su idea y su palabra ('semanas'), y los días ('dias'): la historia del día (la lee la niña o el niño; el lunes dice la palabra de la semana), el dibujo de la caja de arriba ('objeto', de OBJETOS en tools/gen_economia.py) y una actividad. Ver notes/01-plan.md.",
+  "semanas": [
+    {"semana": 1, "palabra": "valor",
+     "definicion": "Lo que vale una cosa: porque sirve, porque es bonita, porque hay pocas o porque la queremos.",
+     "formas": ["valor", "vale", "valen", "valía", "valían"]},
+    {"semana": 2, "palabra": "trueque",
+     "definicion": "Cambiar una cosa por otra, sin usar dinero.",
+     "formas": ["trueque", "trueques"]}
+  ],
+  "dias": [
+    {
+      "dia": 1, "semana": 1, "tema": "La lupa de la abuela", "objeto": "lupa",
+      "historia": "Un sábado, la abuela Rosa le regala a Lucía una lupa muy vieja, con el mango de madera. Era de su padre, que arreglaba relojes. En una tienda costaría poco, pero para Lucía tiene mucho valor.",
+      "actividad": {"tipo": "dibuja", "prompt": "Dibuja una cosa que tiene mucho valor para ti, aunque no cueste mucho dinero."}
+    },
+    {
+      "dia": 2, "semana": 1, "tema": "La lupa de la abuela", "objeto": "hoja",
+      "historia": "El domingo, Lucía mira con la lupa una hoja del jardín, y descubre sus caminitos. La lupa sirve para ver lo más pequeño. Una cosa que sirve para algo es una cosa útil.",
+      "actividad": {"tipo": "clasifica", "pregunta": "¿Por qué vale cada cosa?",
+        "cajas": ["Vale porque sirve", "Vale porque la queremos"],
+        "cosas": [["un paraguas", 0], ["una foto de la abuela", 1], ["una cuchara", 0],
+                  ["un dibujo de Dani", 1], ["una escoba", 0], ["la carta de una amiga", 1]]}
+    },
+    {
+      "dia": 3, "semana": 1, "tema": "La lupa de la abuela", "objeto": "reloj",
+      "historia": "La abuela cuenta que en el taller de su padre había relojes de todas clases. Los más antiguos valían mucho dinero, porque ya quedaban muy pocos. Cuando hay pocas cosas iguales, valen más.",
+      "actividad": {"tipo": "vf", "frases": [
+        ["Una cosa vieja nunca vale nada.", false],
+        ["Hay cosas que valen mucho aunque cuesten poco dinero.", true],
+        ["Cuando hay muy pocas cosas iguales, valen más.", true],
+        ["Todo el mundo quiere las mismas cosas.", false]]}
+    },
+    {
+      "dia": 4, "semana": 1, "tema": "La lupa de la abuela", "objeto": "coche",
+      "historia": "Dani quiere cambiar su coche de juguete por la lupa de Lucía. Lucía le dice que no: para ella, la lupa vale mucho más, porque era del padre de la abuela.",
+      "actividad": {"tipo": "une", "pregunta": "¿Por qué vale cada una?", "pares": [
+        ["El agua", "sirve para vivir"],
+        ["Un diamante", "hay muy pocos"],
+        ["La foto de la abuela", "la queremos mucho"],
+        ["Un paraguas", "sirve cuando llueve"]]}
+    },
+    {
+      "dia": 5, "semana": 1, "tema": "La lupa de la abuela", "objeto": "lupa",
+      "historia": "Por la noche, Lucía guarda la lupa en su caja de los tesoros. Allí tiene cosas que no valen dinero, pero que no cambiaría por nada: una concha, una piedra y una foto de Toby.",
+      "actividad": {"tipo": "repasa",
+        "checklist": ["Sé qué quiere decir valor.", "Sé que hay cosas que valen porque sirven.", "Sé que hay cosas que valen porque las queremos."],
+        "prompt": "Dibuja tu caja de los tesoros, con las cosas que más quieres."}
+    },
+    {
+      "dia": 6, "semana": 2, "tema": "Un compañero nuevo", "objeto": "concha",
+      "historia": "El lunes llega a clase un niño nuevo, Hugo, que viene de una ciudad junto al mar. En el recreo, Hugo le cambia a Sofía una concha por dos cromos. Cambiar una cosa por otra sin dinero es un trueque.",
+      "actividad": {"tipo": "trueque", "cambio": ["concha", 1, "cromo", 2], "pregunta": ["concha", 3]}
+    },
+    {
+      "dia": 7, "semana": 2, "tema": "Un compañero nuevo", "objeto": "cromo",
+      "historia": "A Sofía le encantan las conchas, y a Hugo, los cromos de animales. Por eso el trueque es bueno para los dos: cada uno da lo que le sobra y se queda con lo que más quiere.",
+      "actividad": {"tipo": "trueque", "cambio": ["cromo", 2, "canica", 1], "pregunta": ["cromo", 6]}
+    },
+    {
+      "dia": 8, "semana": 2, "tema": "Un compañero nuevo", "objeto": "lapiz",
+      "historia": "Lucía quiere el lápiz azul de Hugo, pero a Hugo no le gusta nada de lo que tiene Lucía. Si ninguno quiere lo del otro, no puede haber trueque.",
+      "actividad": {"tipo": "clasifica", "pregunta": "¿Es un trueque?",
+        "cajas": ["Es un trueque", "No es un trueque"],
+        "cosas": [["Te cambio mi bocadillo por tu manzana.", 0], ["Mamá paga el pan con una moneda.", 1],
+                  ["Te doy un cromo, y tú me das una canica.", 0], ["Papá compra un libro.", 1],
+                  ["Cambio mi lápiz por tu goma.", 0], ["La abuela paga el autobús.", 1]]}
+    },
+    {
+      "dia": 9, "semana": 2, "tema": "Un compañero nuevo", "objeto": "pez",
+      "historia": "Hugo cuenta que, hace muchos años, en su ciudad los pescadores cambiaban pescado por pan. Hoy lo venden en el mercado, y con el dinero compran el pan que quieren.",
+      "actividad": {"tipo": "trueque", "cambio": ["pan", 1, "pez", 2], "pregunta": ["pez", 6]}
+    },
+    {
+      "dia": 10, "semana": 2, "tema": "Un compañero nuevo", "objeto": "concha",
+      "historia": "El viernes, Sofía le enseña a Hugo el parque del barrio, y Hugo le regala otra concha. Esta vez no quiere nada a cambio: es un regalo, no un trueque.",
+      "actividad": {"tipo": "repasa",
+        "checklist": ["Sé qué es un trueque.", "Sé que en un trueque los dos tienen que querer lo del otro.", "Sé cambiar cosas sin dinero."],
+        "prompt": "Dibuja un trueque: tú, un amigo, y las dos cosas que os cambiáis."}
+    }
+  ]
+}

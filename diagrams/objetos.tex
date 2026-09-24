@@ -1,0 +1,538 @@
+% diagrams/objetos.tex -- las cosas que se cuentan: cada una dibujada
+% dentro de la misma caja, de -1 a 1 en x y en y, para que
+% tools/gen_numeros.py las pueda poner en fila, en grupos o en el marco
+% de diez sin saber qué es cada una (ver OBJETOS en tools/gen_numeros.py,
+% que dice qué macro dibuja cada cosa y cómo se llama en singular y en
+% plural). Todas las zonas quedan cerradas y rellenas de blanco, para
+% que cada una se pueda colorear.
+%
+% Muchas son los dibujos de «First Words» (diagrams/kit.tex, del
+% repositorio de "Aprendo a leer"), encogidos o movidos hasta caber en la
+% caja; las demás son nuevas y siguen el mismo estilo de línea.
+\tikzset{objeto/.style={line width=1.1pt, line cap=round, line join=round}}
+
+% Una manzana, con el rabito y una hoja.
+\newcommand{\objManzana}{%
+  \filldraw[fill=white] (0,0.55) .. controls (-0.35,0.9) and (-1.0,0.78) .. (-0.95,0.02)
+    .. controls (-0.9,-0.72) and (-0.35,-1.0) .. (0,-0.8)
+    .. controls (0.35,-1.0) and (0.9,-0.72) .. (0.95,0.02)
+    .. controls (1.0,0.78) and (0.35,0.9) .. (0,0.55) -- cycle;
+  \draw (0,0.55) .. controls (0.02,0.8) .. (0.1,0.98);
+  \filldraw[fill=white] (0.08,0.85) .. controls (0.32,1.05) and (0.62,0.98) .. (0.7,0.84)
+    .. controls (0.5,0.68) and (0.25,0.7) .. (0.08,0.85) -- cycle;}
+
+% Una pelota de playa, con cuatro gajos.
+\newcommand{\objPelota}{%
+  \filldraw[fill=white] (0,0) circle (0.9);
+  \draw (-0.9,0) .. controls (-0.3,0.38) and (0.3,0.38) .. (0.9,0);
+  \draw (0,0.9) .. controls (-0.38,0.3) and (-0.38,-0.3) .. (0,-0.9);}
+
+% Un hueso, tumbado: la barra y los cuatro nudos, un solo contorno.
+\newcommand{\objHueso}{%
+  \filldraw[fill=white] (-0.492,0.16) -- (0.492,0.16)
+    arc[start angle=197.2, end angle=-62.7, radius=0.27]
+    arc[start angle=62.7, end angle=-197.2, radius=0.27]
+    -- (-0.492,-0.16)
+    arc[start angle=17.2, end angle=-242.7, radius=0.27]
+    arc[start angle=242.7, end angle=-17.2, radius=0.27] -- cycle;}
+
+% Un sol: el círculo y ocho rayos.
+\newcommand{\objSol}{%
+  \filldraw[fill=white] (0,0) circle (0.5);
+  \foreach \a in {0,45,...,315} {\draw (\a:0.66) -- (\a:0.96);}}
+
+% Una huella de Toby.
+\newcommand{\objHuella}{%
+  \begin{scope}[shift={(0,-0.28)}, scale=1.65] \huellaFW \end{scope}}
+
+% Toby, sentado.
+\newcommand{\objToby}{%
+  \begin{scope}[shift={(0.38,-0.88)}, scale=0.4] \tobySentadoFW \end{scope}}
+
+% Un globo, con su hilo.
+\newcommand{\objGlobo}{%
+  \begin{scope}[shift={(0,-0.85)}, scale=0.72] \globoFW{0.2}{-0.2} \end{scope}}
+
+% Una estrella.
+\newcommand{\objEstrella}{%
+  \begin{scope}[scale=0.95] \estrellaFW \end{scope}}
+
+% Una hoja de otoño.
+\newcommand{\objHoja}{%
+  \begin{scope}[shift={(0,-0.8)}, scale=1.2] \hojaFW \end{scope}}
+
+% Un corazón.
+\newcommand{\objCorazon}{%
+  \begin{scope}[shift={(0,-0.82)}, scale=1.35] \corazonFW \end{scope}}
+
+% Un caramelo.
+\newcommand{\objCaramelo}{%
+  \begin{scope}[scale=1.25] \carameloFW \end{scope}}
+
+% Un pez.
+\newcommand{\objPez}{%
+  \begin{scope}[shift={(0.2,0)}, scale=0.72] \pezFW \end{scope}}
+
+% --- El otoño (semanas 3-13) ---------------------------------------------
+
+% Un lápiz, inclinado: la goma, el cuerpo, la punta de madera y la mina.
+\newcommand{\objLapiz}{%
+  \begin{scope}[rotate=40]
+    \filldraw[fill=white] (-0.97,-0.2) rectangle (-0.72,0.2);
+    \filldraw[fill=white] (-0.72,-0.2) rectangle (0.6,0.2);
+    \filldraw[fill=white] (0.6,-0.2) -- (1.08,0) -- (0.6,0.2) -- cycle;
+    \filldraw[fill=white] (0.92,-0.068) -- (1.08,0) -- (0.92,0.068) -- cycle;
+    \draw (-0.72,0) -- (0.6,0);
+  \end{scope}}
+
+% Un libro abierto: el de las portadas de la serie.
+\newcommand{\objLibro}{%
+  \begin{scope}[shift={(0,0.47)}, scale=0.6]
+    \filldraw[fill=white] (-1.6,0) -- (0,0.35) -- (1.6,0) -- (1.6,-1.9) -- (0,-1.55) -- (-1.6,-1.9) -- cycle;
+    \draw (0,0.35) -- (0,-1.55);
+    \draw (-1.25,-0.45) -- (-0.25,-0.3); \draw (-1.25,-0.9) -- (-0.25,-0.75);
+    \draw (0.25,-0.3) -- (1.25,-0.45); \draw (0.25,-0.75) -- (1.25,-0.9);
+  \end{scope}}
+
+% Una galleta, con cinco pepitas de chocolate.
+\newcommand{\objGalleta}{%
+  \filldraw[fill=white] (0,0) circle (0.86);
+  \foreach \x/\y in {-0.36/0.3, 0.3/0.42, 0.04/-0.04, -0.4/-0.36, 0.42/-0.3}
+    {\filldraw[fill=white] (\x,\y) circle (0.11);}}
+
+% Una seta: el pie, el sombrero y tres manchas.
+\newcommand{\objSeta}{%
+  \filldraw[fill=white, rounded corners=1.5mm] (-0.32,-0.92) rectangle (0.32,0.12);
+  \filldraw[fill=white] (-1,0.08) .. controls (-0.95,1.02) and (0.95,1.02) .. (1,0.08)
+    .. controls (0.5,-0.06) and (-0.5,-0.06) .. (-1,0.08) -- cycle;
+  \foreach \x/\y/\r in {-0.45/0.38/0.13, 0.1/0.62/0.11, 0.52/0.33/0.12}
+    {\filldraw[fill=white] (\x,\y) circle (\r);}}
+
+% Una castaña: la punta arriba y la base más clara, abajo.
+\newcommand{\objCastana}{%
+  \filldraw[fill=white] (0,0.92) .. controls (0.25,0.78) and (0.9,0.45) .. (0.9,-0.2)
+    .. controls (0.9,-0.75) and (0.45,-0.9) .. (0,-0.9)
+    .. controls (-0.45,-0.9) and (-0.9,-0.75) .. (-0.9,-0.2)
+    .. controls (-0.9,0.45) and (-0.25,0.78) .. (0,0.92) -- cycle;
+  \draw (-0.84,-0.44) .. controls (-0.3,-0.22) and (0.3,-0.22) .. (0.84,-0.44);
+  \draw (0,0.92) -- (0.06,1.02);}
+
+% Una cesta de mimbre, con su asa: el 0 es la cesta vacía.
+\newcommand{\objCesta}{%
+  \filldraw[fill=white] (-0.8,0.26) .. controls (-0.8,1.18) and (0.8,1.18) .. (0.8,0.26)
+    -- (0.66,0.26) .. controls (0.66,1.0) and (-0.66,1.0) .. (-0.66,0.26) -- cycle;
+  \filldraw[fill=white] (-0.92,0.14) -- (0.92,0.14) -- (0.7,-0.86) -- (-0.7,-0.86) -- cycle;
+  \foreach \x in {-0.45,0,0.45} {\draw (\x,0.14) -- ({0.78*\x},-0.86);}
+  \filldraw[fill=white, rounded corners=0.8mm] (-1,0.06) rectangle (1,0.3);}
+
+% Una vela de cumpleaños, encendida.
+\newcommand{\objVela}{%
+  \filldraw[fill=white] (-0.24,-0.95) rectangle (0.24,0.35);
+  \draw (-0.24,-0.55) -- (0.24,-0.25); \draw (-0.24,-0.15) -- (0.24,0.15);
+  \draw (0,0.35) -- (0,0.52);
+  \filldraw[fill=white] (0,0.45) .. controls (-0.28,0.55) and (-0.22,0.82) .. (0,1.0)
+    .. controls (0.22,0.82) and (0.28,0.55) .. (0,0.45) -- cycle;}
+
+% Un regalo: la caja, la tapa, la cinta y el lazo.
+\newcommand{\objRegalo}{%
+  \filldraw[fill=white] (-0.8,-0.92) rectangle (0.8,0.34);
+  \filldraw[fill=white] (-0.9,0.34) rectangle (0.9,0.62);
+  \filldraw[fill=white] (-0.13,-0.92) rectangle (0.13,0.62);
+  \foreach \s in {-1,1} {\filldraw[fill=white] (\s*0.3,0.84) ellipse [x radius=0.3, y radius=0.17, rotate=\s*25];}
+  \filldraw[fill=white] (0,0.72) circle (0.1);}
+
+% Una araña: ocho patas, el cuerpo, la cabeza y los ojos.
+\newcommand{\objArana}{%
+  \foreach \s in {-1,1} {\begin{scope}[xscale=\s]
+    \foreach \y in {0.3,0.06,-0.18,-0.42} {\draw (0.25,\y) -- (0.68,\y+0.3) -- (0.98,\y-0.18);}
+  \end{scope}}
+  \filldraw[fill=white] (0,-0.12) ellipse [x radius=0.42, y radius=0.52];
+  \filldraw[fill=white] (0,0.56) circle (0.27);
+  \fill (-0.1,0.6) circle (0.05); \fill (0.1,0.6) circle (0.05);}
+
+% Un paraguas abierto, con su mango.
+\newcommand{\objParaguas}{%
+  \draw[line width=1.6pt] (0,0.2) -- (0,-0.68) arc[start angle=0, end angle=-180, radius=0.17];
+  \filldraw[fill=white] (-1,0.1) .. controls (-0.95,0.95) and (0.95,0.95) .. (1,0.1)
+    .. controls (0.83,0.26) and (0.5,0.26) .. (0.33,0.1)
+    .. controls (0.17,0.26) and (-0.17,0.26) .. (-0.33,0.1)
+    .. controls (-0.5,0.26) and (-0.83,0.26) .. (-1,0.1) -- cycle;
+  \draw (0,0.74) -- (0.33,0.1); \draw (0,0.74) -- (-0.33,0.1);
+  \draw (0,0.74) -- (0,0.96);}
+
+% Una bola de Navidad, con su enganche y dos rayas.
+\newcommand{\objBola}{%
+  \filldraw[fill=white] (0,-0.14) circle (0.82);
+  \draw (-0.79,0.05) .. controls (-0.3,0.24) and (0.3,0.24) .. (0.79,0.05);
+  \draw (-0.8,-0.28) .. controls (-0.3,-0.09) and (0.3,-0.09) .. (0.8,-0.28);
+  \filldraw[fill=white] (-0.2,0.64) rectangle (0.2,0.84);
+  \draw (0,0.93) circle (0.09);}
+
+% Del kit de «First Words», metidos en la caja.
+\newcommand{\objArbol}{%
+  \begin{scope}[shift={(0,-0.98)}, scale=0.215] \arbolFW \end{scope}}
+\newcommand{\objPato}{%
+  \begin{scope}[shift={(-0.02,-0.62)}, scale=0.6] \patoFW \end{scope}}
+\newcommand{\objCoche}{%
+  \begin{scope}[shift={(-0.02,-0.5)}, scale=0.235] \cocheFW \end{scope}}
+\newcommand{\objTrex}{%
+  \begin{scope}[shift={(0.42,-0.58)}, scale=0.21] \trexFW{0} \end{scope}}
+\newcommand{\objMariposa}{%
+  \begin{scope}[scale=0.52] \mariposaFW \end{scope}}
+\newcommand{\objGota}{%
+  \begin{scope}[shift={(0,-0.4)}, scale=2.9] \gotaFW \end{scope}}
+\newcommand{\objNube}{%
+  \begin{scope}[scale=0.5] \nubeFW \end{scope}}
+% El huevo, en su huevera: solo, un óvalo se confunde con el 0.
+\newcommand{\objHuevo}{%
+  \begin{scope}[shift={(0,-0.32)}] \huevoFW{0.64} \end{scope}
+  \filldraw[fill=white] (-0.55,0.1) .. controls (-0.52,-0.42) and (-0.22,-0.52) .. (-0.13,-0.56)
+    -- (-0.13,-0.72) -- (-0.46,-0.84) -- (-0.46,-0.95) -- (0.46,-0.95) -- (0.46,-0.84)
+    -- (0.13,-0.72) -- (0.13,-0.56) .. controls (0.22,-0.52) and (0.52,-0.42) .. (0.55,0.1) -- cycle;}
+\newcommand{\objPajaro}{%
+  \begin{scope}[shift={(-0.13,-0.26)}, scale=0.245] \pipFW \end{scope}}
+\newcommand{\objGato}{%
+  \begin{scope}[shift={(-0.3,-1.01)}, scale=0.33] \gatoFW \end{scope}}
+\newcommand{\objMochila}{%
+  \begin{scope}[shift={(0,-0.98)}, scale=0.333] \mochilaFW \end{scope}}
+\newcommand{\objArdilla}{%
+  \begin{scope}[shift={(0.35,-0.9)}, scale=0.54] \ardillaFW \end{scope}}
+
+% Un plato vacío, visto un poco desde arriba, con el tenedor y el
+% cuchillo (solo, se confunde con un 0): el 0 es el plato en el que no
+% queda nada.
+\newcommand{\objPlato}{%
+  \filldraw[fill=white] (0,0) ellipse [x radius=0.7, y radius=0.5];
+  \draw (0,0.02) ellipse [x radius=0.44, y radius=0.28];
+  \draw (-0.92,-0.6) -- (-0.92,0.2);
+  \filldraw[fill=white] (-1,0.2) -- (-1,0.5) -- (-0.84,0.5) -- (-0.84,0.2) .. controls (-0.84,0.1) and (-1,0.1) .. (-1,0.2) -- cycle;
+  \draw (-0.92,0.25) -- (-0.92,0.5);
+  \filldraw[fill=white] (0.88,-0.6) -- (0.88,0.55) .. controls (1.02,0.45) and (1.02,0.1) .. (0.96,0) -- (0.96,-0.6) -- cycle;}
+
+% Una mandarina, con su rabito, una hoja y los poros de la piel.
+\newcommand{\objMandarina}{%
+  \filldraw[fill=white] (0,-0.14) ellipse [x radius=0.9, y radius=0.78];
+  \draw (0,0.62) -- (0.03,0.76);
+  \filldraw[fill=white] (0.03,0.72) .. controls (0.25,0.98) and (0.62,0.95) .. (0.8,0.8)
+    .. controls (0.55,0.62) and (0.22,0.6) .. (0.03,0.72) -- cycle;
+  \foreach \x/\y in {-0.4/0.12, 0.36/-0.02, -0.08/-0.42, 0.46/-0.5, -0.52/-0.38, 0.02/0.3}
+    {\fill (\x,\y) circle (0.035);}}
+
+% --- El invierno (semanas 14-26) -----------------------------------------
+
+% Del kit de «First Words», metidos en la caja.
+\newcommand{\objCopo}{%
+  \begin{scope}[scale=0.32] \copoFW \end{scope}}
+\newcommand{\objMuneco}{%
+  \begin{scope}[shift={(0,-0.99)}, scale=0.477] \munecoNieveFW \end{scope}}
+\newcommand{\objGorroFiesta}{%
+  \begin{scope}[shift={(0,-1.68)}, scale=0.95] \gorroFiestaFW \end{scope}}
+\newcommand{\objNota}{%
+  \begin{scope}[shift={(-0.31,-0.65)}, scale=1.2] \notaFW \end{scope}}
+\newcommand{\objOsito}{%
+  \begin{scope}[shift={(0,-0.36)}, scale=0.59] \ositoFW \end{scope}}
+\newcommand{\objFlor}{%
+  \begin{scope}[shift={(0,-1.0)}, scale=0.66] \margaritaFW{2.2} \end{scope}}
+\newcommand{\objCorona}{%
+  \begin{scope}[shift={(0,-0.5)}] \coronaFW{0.95} \end{scope}}
+\newcommand{\objCometa}{%
+  \begin{scope}[shift={(-0.03,0.23)}, scale=0.38] \cometaFW{1.2}{-3.2} \end{scope}}
+\newcommand{\objAlubia}{%
+  \begin{scope}[scale=1.02] \alubiaFW \end{scope}}
+
+% Un botón, con sus cuatro agujeros.
+\newcommand{\objBoton}{%
+  \filldraw[fill=white] (0,0) circle (0.85);
+  \draw (0,0) circle (0.62);
+  \foreach \x/\y in {-0.2/0.2, 0.2/0.2, -0.2/-0.2, 0.2/-0.2} {\filldraw[fill=white] (\x,\y) circle (0.1);}}
+
+% Un tronco para la chimenea, tumbado: el corte, con sus anillos, a la
+% derecha.
+\newcommand{\objTronco}{%
+  \filldraw[fill=white] (-0.72,0.48) -- (0.7,0.48) -- (0.7,-0.48) -- (-0.72,-0.48)
+    arc[start angle=270, end angle=90, x radius=0.24, y radius=0.48] -- cycle;
+  \filldraw[fill=white] (0.7,0) ellipse [x radius=0.26, y radius=0.48];
+  \draw (0.7,0) ellipse [x radius=0.12, y radius=0.24];
+  \draw (-0.45,0.2) -- (0.15,0.2); \draw (-0.25,-0.18) -- (0.4,-0.18);}
+
+% Una fresa: las pepitas y las hojas de arriba.
+\newcommand{\objFresa}{%
+  \filldraw[fill=white] (0,-0.95) .. controls (-0.55,-0.7) and (-0.95,-0.05) .. (-0.8,0.32)
+    .. controls (-0.65,0.66) and (0.65,0.66) .. (0.8,0.32) .. controls (0.95,-0.05) and (0.55,-0.7) .. (0,-0.95) -- cycle;
+  \filldraw[fill=white, line join=round] (-0.62,0.6) -- (-0.22,0.46) -- (0,0.78) -- (0.22,0.46)
+    -- (0.62,0.6) -- (0.28,0.34) -- (-0.28,0.34) -- cycle;
+  \draw (0,0.78) -- (0.06,0.97);
+  \foreach \x/\y in {-0.42/0.05, 0/0.12, 0.42/0.05, -0.24/-0.3, 0.24/-0.3, 0/-0.62}
+    {\fill (\x,\y) ellipse [x radius=0.05, y radius=0.08];}}
+
+% Una piruleta: el caramelo en espiral y el palo.
+\newcommand{\objPiruleta}{%
+  \filldraw[fill=white] (-0.07,-0.97) rectangle (0.07,-0.2);
+  \filldraw[fill=white] (0,0.35) circle (0.62);
+  \draw plot[domain=0:1000, samples=100, smooth, variable=\t]
+    ({0.56*\t/1000*cos(\t)}, {0.35+0.56*\t/1000*sin(\t)});}
+
+% Una paloma de papel, de las del Día de la Paz: todo triángulos.
+\newcommand{\objPaloma}{%
+  \begin{scope}[line join=round]
+  \filldraw[fill=white] (-0.97,0.2) -- (-0.72,-0.32) -- (-0.45,-0.02) -- cycle;
+  \filldraw[fill=white] (-0.95,0.12) -- (0.55,-0.42) -- (0.45,0.2) -- cycle;
+  \filldraw[fill=white] (0.45,0.2) -- (0.62,0.56) -- (0.8,0.32) -- (0.55,-0.12) -- cycle;
+  \filldraw[fill=white] (0.8,0.32) -- (0.99,0.27) -- (0.74,0.2) -- cycle;
+  \filldraw[fill=white] (-0.32,0.02) -- (0.14,0.95) -- (0.34,0.04) -- cycle;
+  \fill (0.64,0.39) circle (0.04);
+  \end{scope}}
+
+% Un ovillo de lana, con su hilo suelto.
+\newcommand{\objOvillo}{%
+  \filldraw[fill=white] (0,0.08) circle (0.8);
+  \draw (-0.66,0.52) .. controls (-0.1,0.22) and (0.3,-0.28) .. (0.42,-0.62);
+  \draw (-0.79,0.18) .. controls (-0.3,-0.08) and (0.05,-0.45) .. (0.1,-0.7);
+  \draw (-0.36,0.78) .. controls (0.1,0.42) and (0.55,-0.02) .. (0.76,-0.2);
+  \draw (0.12,0.87) .. controls (0.42,0.56) and (0.68,0.36) .. (0.8,0.22);
+  \draw (0.48,-0.56) .. controls (0.72,-0.86) and (0.92,-0.78) .. (0.97,-0.96);}
+
+% Una bufanda de rayas, estirada y un poco ondulada, con flecos en las
+% dos puntas.
+\newcommand{\objBufanda}{%
+  \begin{scope}[rotate=25]
+  \filldraw[fill=white] (-0.95,0.12) .. controls (-0.4,0.42) and (0.2,-0.18) .. (0.8,0.12)
+    -- (0.8,-0.26) .. controls (0.2,-0.56) and (-0.4,0.04) .. (-0.95,-0.26) -- cycle;
+  \begin{scope}
+    \clip (-0.95,0.12) .. controls (-0.4,0.42) and (0.2,-0.18) .. (0.8,0.12)
+      -- (0.8,-0.26) .. controls (0.2,-0.56) and (-0.4,0.04) .. (-0.95,-0.26) -- cycle;
+    \foreach \x in {-0.55,-0.2,0.15,0.5} {\draw (\x,0.6) -- (\x,-0.7);}
+  \end{scope}
+  \foreach \y in {0.06,-0.07,-0.2} {\draw (-0.95,\y) -- (-1.1,\y); \draw (0.8,\y) -- (0.95,\y);}
+  \end{scope}}
+
+% Un gorro de lana, con su pompón.
+\newcommand{\objGorro}{%
+  \filldraw[fill=white] (0,0.72) circle (0.22);
+  \filldraw[fill=white] (-0.78,-0.3) .. controls (-0.78,0.72) and (0.78,0.72) .. (0.78,-0.3) -- cycle;
+  \filldraw[fill=white, rounded corners=1mm] (-0.9,-0.7) rectangle (0.9,-0.28);
+  \foreach \x in {-0.6,-0.3,0,0.3,0.6} {\draw (\x,-0.7) -- (\x,-0.28);}}
+
+% Una maceta de barro.
+\newcommand{\objMaceta}{%
+  \filldraw[fill=white] (-0.62,0.3) -- (0.62,0.3) -- (0.45,-0.92) -- (-0.45,-0.92) -- cycle;
+  \filldraw[fill=white, rounded corners=0.5mm] (-0.8,0.3) rectangle (0.8,0.62);}
+
+% Un brote: dos hojas nuevas saliendo de la tierra.
+\newcommand{\objBrote}{%
+  \filldraw[fill=white] (-0.92,-0.92) .. controls (-0.6,-0.42) and (0.6,-0.42) .. (0.92,-0.92) -- cycle;
+  \draw (0,-0.58) .. controls (0.06,-0.1) and (-0.05,0.18) .. (0,0.38);
+  \filldraw[fill=white] (0,0.36) .. controls (-0.2,0.86) and (-0.76,0.86) .. (-0.86,0.54)
+    .. controls (-0.55,0.3) and (-0.2,0.3) .. (0,0.36) -- cycle;
+  \filldraw[fill=white] (0,0.36) .. controls (0.2,0.86) and (0.76,0.86) .. (0.86,0.54)
+    .. controls (0.55,0.3) and (0.2,0.3) .. (0,0.36) -- cycle;}
+
+% Una pipa de girasol, con sus rayas, un poco torcida.
+\newcommand{\objPipa}{%
+  \begin{scope}[rotate=-30]
+  \filldraw[fill=white] (0,0.95) .. controls (0.58,0.5) and (0.52,-0.62) .. (0,-0.95)
+    .. controls (-0.52,-0.62) and (-0.58,0.5) .. (0,0.95) -- cycle;
+  \draw (0,0.78) -- (0,-0.8);
+  \draw (-0.2,0.5) .. controls (-0.3,0) .. (-0.18,-0.62);
+  \draw (0.2,0.5) .. controls (0.3,0) .. (0.18,-0.62);
+  \end{scope}}
+
+% --- La primavera (semanas 27-39) ----------------------------------------
+
+% Del kit de «First Words», metidos en la caja.
+\newcommand{\objRueda}{%
+  \begin{scope}[scale=0.7] \ruedaFW \end{scope}}
+\newcommand{\objBici}{%
+  \begin{scope}[shift={(0,-0.48)}, scale=0.29] \biciFW \end{scope}}
+\newcommand{\objOruga}{%
+  \begin{scope}[shift={(0.4,-0.35)}, scale=0.58] \orugaFW \end{scope}}
+\newcommand{\objGafas}{%
+  \begin{scope}[shift={(0,0.22)}, scale=1.15] \gafasSueltasFW \end{scope}}
+\newcommand{\objArbusto}{%
+  \begin{scope}[shift={(0,-0.5)}] \arbustoFW{0.9} \end{scope}
+  \draw (-1,-0.5) -- (1,-0.5);}
+\newcommand{\objTarta}{%
+  \begin{scope}[shift={(0,-0.9)}, scale=0.44] \tartaFW{3} \end{scope}}
+\newcommand{\objRosa}{%
+  \begin{scope}[shift={(0,-0.1)}, scale=1.5] \rosaFW \end{scope}
+  \draw (0,-0.62) -- (0,-0.98);}
+\newcommand{\objAbeja}{%
+  \begin{scope}[scale=0.6] \abejaFW \end{scope}}
+\newcommand{\objPollito}{%
+  \begin{scope}[scale=0.6] \pollitoFW \end{scope}}
+
+% Un diente de leche, con sus dos raíces.
+\newcommand{\objDiente}{%
+  \filldraw[fill=white] (-0.62,0.35) .. controls (-0.75,0.95) and (-0.25,1.0) .. (0,0.8)
+    .. controls (0.25,1.0) and (0.75,0.95) .. (0.62,0.35)
+    .. controls (0.55,-0.1) and (0.5,-0.55) .. (0.35,-0.9) .. controls (0.25,-0.98) and (0.15,-0.9) .. (0.12,-0.7)
+    .. controls (0.08,-0.4) and (-0.08,-0.4) .. (-0.12,-0.7) .. controls (-0.15,-0.9) and (-0.25,-0.98) .. (-0.35,-0.9)
+    .. controls (-0.5,-0.55) and (-0.55,-0.1) .. (-0.62,0.35) -- cycle;
+  \draw (-0.32,0.5) .. controls (-0.2,0.62) .. (-0.05,0.6);}
+
+% Una moneda, con su borde y el símbolo del euro.
+\newcommand{\objMoneda}{%
+  \filldraw[fill=white] (0,0) circle (0.85);
+  \draw (0,0) circle (0.7);
+  \node[font=\bfseries\Large] at (0,0) {\texteuro};}
+
+% Una mano abierta, con sus cinco dedos: los dedos antes que la palma,
+% que les tapa la base.
+\newcommand{\objMano}{%
+  \foreach \x/\alto in {-0.39/0.62, -0.13/0.8, 0.13/0.76, 0.38/0.58}
+    {\filldraw[fill=white, rounded corners=1.1mm] (\x-0.12,-0.2) rectangle (\x+0.12,\alto+0.2);}
+  \filldraw[fill=white, rounded corners=1.1mm, rotate around={-50:(0.45,-0.35)}] (0.33,-0.35) rectangle (0.57,0.3);
+  \filldraw[fill=white, rounded corners=2.5mm] (-0.53,-0.98) rectangle (0.52,0.08);}
+
+% Una torrija: la rebanada, con el azúcar por encima.
+\newcommand{\objTorrija}{%
+  \filldraw[fill=white, rounded corners=3mm] (-0.9,-0.6) -- (-0.9,0.35)
+    .. controls (-0.9,0.85) and (0.9,0.85) .. (0.9,0.35) -- (0.9,-0.6) -- cycle;
+  \draw[rounded corners=2mm] (-0.72,-0.44) -- (-0.72,0.3) .. controls (-0.72,0.66) and (0.72,0.66) .. (0.72,0.3) -- (0.72,-0.44) -- cycle;
+  \foreach \x/\y in {-0.4/0.2, 0/0.35, 0.35/0.1, -0.2/-0.15, 0.25/-0.25, -0.45/-0.3}
+    {\fill (\x,\y) circle (0.035);}}
+
+% Una zanahoria, con sus hojas.
+\newcommand{\objZanahoria}{%
+  \begin{scope}[rotate=-30]
+  \foreach \a in {-25,0,25} {\draw (0,0.55) -- ++(90+\a:0.45);}
+  \filldraw[fill=white] (-0.3,0.55) .. controls (-0.3,0) and (-0.08,-0.7) .. (0,-1.0)
+    .. controls (0.08,-0.7) and (0.3,0) .. (0.3,0.55) -- cycle;
+  \draw (-0.22,0.2) -- (-0.05,0.2); \draw (0.05,-0.15) -- (0.19,-0.15); \draw (-0.14,-0.45) -- (-0.02,-0.45);
+  \end{scope}}
+
+% Un tomate, con su estrella de hojas arriba.
+\newcommand{\objTomate}{%
+  \filldraw[fill=white] (0,-0.15) ellipse [x radius=0.92, y radius=0.75];
+  \filldraw[fill=white, line join=round] (0,0.62) -- (-0.45,0.72) -- (-0.14,0.5) -- (-0.3,0.3)
+    -- (0,0.44) -- (0.3,0.3) -- (0.14,0.5) -- (0.45,0.72) -- cycle;
+  \draw (0,0.62) -- (0.04,0.85);}
+
+% Una regadera, con su asa y la alcachofa.
+\newcommand{\objRegadera}{%
+  \draw[line width=1.6pt] (-0.62,0.3) .. controls (-0.7,0.95) and (0.2,0.95) .. (0.12,0.3);
+  \filldraw[fill=white] (0.2,-0.05) -- (0.9,0.55) -- (0.98,0.45) -- (0.3,-0.25) -- cycle;
+  \filldraw[fill=white] (0.85,0.62) -- (1.0,0.72) -- (1.02,0.36) -- (0.95,0.38) -- cycle;
+  \filldraw[fill=white, rounded corners=1.5mm] (-0.8,-0.85) rectangle (0.35,0.35);}
+
+% Una tarjeta de las letras, con la A.
+\newcommand{\objTarjeta}{%
+  \filldraw[fill=white, rounded corners=1.5mm] (-0.7,-0.92) rectangle (0.7,0.92);
+  \node[font=\bfseries\huge] at (0,0) {A};}
+
+% Un pan: la barra, con sus cortes.
+\newcommand{\objPan}{%
+  \begin{scope}[rotate=20]
+  \filldraw[fill=white] (-0.95,0) .. controls (-0.95,0.45) and (-0.6,0.5) .. (0,0.5)
+    .. controls (0.6,0.5) and (0.95,0.45) .. (0.95,0) .. controls (0.95,-0.45) and (0.6,-0.5) .. (0,-0.5)
+    .. controls (-0.6,-0.5) and (-0.95,-0.45) .. (-0.95,0) -- cycle;
+  \foreach \x in {-0.5,-0.05,0.4} {\draw (\x-0.12,-0.28) -- (\x+0.2,0.28);}
+  \end{scope}}
+
+% --- El verano (semanas 40-52) -------------------------------------------
+
+% Del kit de «First Words», metidos en la caja.
+\newcommand{\objRayo}{%
+  \begin{scope}[shift={(0,-0.93)}, scale=0.62] \rayoFW \end{scope}}
+\newcommand{\objLechuga}{%
+  \begin{scope}[shift={(0,-0.58)}, scale=0.85] \colFW \end{scope}}
+\newcommand{\objMaleta}{%
+  \begin{scope}[shift={(0,-0.94)}, scale=0.8] \maletaFW{1.8}{1.9} \end{scope}}
+
+% Un helado de cucurucho, con dos bolas.
+\newcommand{\objHelado}{%
+  \filldraw[fill=white, line join=round] (-0.45,0.05) -- (0,-0.98) -- (0.45,0.05) -- cycle;
+  \draw (-0.3,-0.1) -- (0.15,-0.6); \draw (0.3,-0.1) -- (-0.15,-0.6);
+  \draw (-0.1,0.02) -- (0.24,-0.4); \draw (0.1,0.02) -- (-0.24,-0.4);
+  \filldraw[fill=white] (0,0.3) circle (0.42);
+  \filldraw[fill=white] (0,0.72) circle (0.3);
+  \filldraw[fill=white] (-0.5,0.05) .. controls (-0.3,0.2) and (0.3,0.2) .. (0.5,0.05) .. controls (0.3,-0.05) and (-0.3,-0.05) .. (-0.5,0.05) -- cycle;}
+
+% Una concha de la playa, de abanico, con sus rayas.
+\newcommand{\objConcha}{%
+  \filldraw[fill=white] (0,-0.6) .. controls (-0.95,-0.35) and (-1.0,0.75) .. (0,0.85)
+    .. controls (1.0,0.75) and (0.95,-0.35) .. (0,-0.6) -- cycle;
+  \begin{scope}
+    \clip (0,-0.6) .. controls (-0.95,-0.35) and (-1.0,0.75) .. (0,0.85)
+      .. controls (1.0,0.75) and (0.95,-0.35) .. (0,-0.6) -- cycle;
+    \foreach \a in {-50,-25,0,25,50} {\draw (0,-0.6) -- ++(90+\a:1.6);}
+  \end{scope}
+  \filldraw[fill=white] (-0.3,-0.55) -- (0.3,-0.55) -- (0.22,-0.85) -- (-0.22,-0.85) -- cycle;}
+
+% Un cubo de playa, con su asa.
+\newcommand{\objCubo}{%
+  \draw[line width=1.4pt] (-0.62,0.45) .. controls (-0.55,1.05) and (0.55,1.05) .. (0.62,0.45);
+  \filldraw[fill=white] (-0.75,0.5) -- (0.75,0.5) -- (0.55,-0.92) -- (-0.55,-0.92) -- cycle;
+  \draw (-0.72,0.3) -- (0.72,0.3);}
+
+% Un churro, de estrella, un poco curvo.
+\newcommand{\objChurro}{%
+  \begin{scope}[rotate=35]
+  \filldraw[fill=white, rounded corners=1.2mm] (-0.95,-0.2) .. controls (-0.3,-0.35) and (0.3,-0.35) .. (0.95,-0.2)
+    -- (0.95,0.2) .. controls (0.3,0.05) and (-0.3,0.05) .. (-0.95,0.2) -- cycle;
+  \draw (-0.9,0) .. controls (-0.3,-0.15) and (0.3,-0.15) .. (0.9,0);
+  \end{scope}}
+
+% Un caracol, con su concha en espiral y los cuernos.
+\newcommand{\objCaracol}{%
+  \filldraw[fill=white] (-0.98,-0.55) -- (0.65,-0.55) .. controls (0.9,-0.55) and (0.95,-0.2) .. (0.8,0.05)
+    -- (0.7,0.35) -- (0.55,0.35) -- (0.5,-0.25) -- (-0.98,-0.35) -- cycle;
+  \draw (0.62,0.3) -- (0.55,0.85); \draw (0.72,0.3) -- (0.9,0.8);
+  \fill (0.55,0.85) circle (0.05); \fill (0.9,0.8) circle (0.05);
+  \filldraw[fill=white] (-0.2,0.05) circle (0.58);
+  \draw plot[domain=0:900, samples=90, smooth, variable=\t]
+    ({-0.2+0.5*\t/900*cos(\t)}, {0.05+0.5*\t/900*sin(\t)});}
+
+% Un reloj de pared, pequeño.
+\newcommand{\objReloj}{%
+  \filldraw[fill=white] (0,0) circle (0.88);
+  \foreach \a in {0,30,...,330} {\draw (\a:0.7) -- (\a:0.8);}
+  \draw[line width=1.6pt] (0,0) -- (0,0.55); \draw[line width=1.6pt] (0,0) -- (0.4,0);
+  \fill (0,0) circle (0.07);}
+
+% --- Las piezas de las actividades del verano ---------------------------
+
+% Una moneda de euro, de #1 euros (1 o 2): la de 2, más grande y con
+% el borde doble.
+\newcommand{\monedaEuro}[1]{%
+  \ifnum#1=2
+    \filldraw[fill=white, line width=1.1pt] (0,0) circle (0.95); \draw[line width=1.1pt] (0,0) circle (0.72);
+  \else
+    \filldraw[fill=white, line width=1.1pt] (0,0) circle (0.8);
+  \fi
+  \node[font=\fontsize{20}{20}\selectfont\bfseries] at (0,0) {#1\,€};}
+% Un billete de #1 euros (5, 10, 20).
+\newcommand{\billete}[1]{%
+  \filldraw[fill=white, line width=1.1pt, rounded corners=1.5mm] (-1.7,-0.85) rectangle (1.7,0.85);
+  \draw[line width=0.8pt] (-1.5,-0.65) rectangle (1.5,0.65);
+  \draw[line width=0.8pt] (-0.95,0) circle (0.42);
+  \node[font=\fontsize{22}{22}\selectfont\bfseries] at (0.55,0) {#1\,€};}
+
+% Un reloj grande, para "¿Qué hora es?": #1 la hora (1-12), #2 los
+% minutos (0 o 30). La aguja corta, la de las horas; la larga, la de los
+% minutos. En cm.
+\newcommand{\relojGrande}[2]{%
+  \begin{tikzpicture}[line width=1.2pt]
+    \filldraw[fill=white, line width=1.6pt] (0,0) circle (3.8);
+    \foreach \m in {0,...,59} {\draw[line width=0.6pt] (90-\m*6:3.55) -- (90-\m*6:3.7);}
+    \foreach \h in {1,...,12} {
+      \draw[line width=1.4pt] (90-\h*30:3.35) -- (90-\h*30:3.7);
+      \node[font=\fontsize{22}{22}\selectfont\bfseries] at (90-\h*30:2.85) {\h};}
+    \pgfmathsetmacro\angHora{90-30*(#1+#2/60)}
+    \pgfmathsetmacro\angMin{90-6*#2}
+    \draw[line width=4pt, line cap=round] (0,0) -- (\angHora:1.6);
+    \draw[line width=2.6pt, line cap=round] (0,0) -- (\angMin:2.35);
+    \fill (0,0) circle (0.14);
+  \end{tikzpicture}}
+
+% Un lápiz tumbado, de #1 cm de largo (la goma a la izquierda, en x = 0),
+% para "Mide": en cm, sin escalar.
+\newcommand{\lapizLargo}[1]{%
+  \filldraw[fill=white, line width=1.1pt] (0,-0.28) rectangle (0.45,0.28);
+  \filldraw[fill=white, line width=1.1pt] (0.45,-0.28) rectangle ({#1-0.9},0.28);
+  \draw[line width=0.8pt] (0.45,0) -- ({#1-0.9},0);
+  \filldraw[fill=white, line width=1.1pt, line join=round] ({#1-0.9},-0.28) -- (#1,0) -- ({#1-0.9},0.28) -- cycle;
+  \filldraw[line width=1.1pt] ({#1-0.3},-0.09) -- (#1,0) -- ({#1-0.3},0.09) -- cycle;}
+% La regla de cubitos de "Mide": #1 cubitos de 1 cm, desde x = 0.
+\newcommand{\reglaCubitos}[1]{%
+  \foreach \i in {1,...,#1} {\draw[line width=0.8pt, fill=white] ({\i-1},0) rectangle (\i,1);}}

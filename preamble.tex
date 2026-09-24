@@ -1,0 +1,282 @@
+% preamble.tex
+% -----------------------------------------------------------------------
+% "Aprendo economía" -- cuaderno diario de economía (español, A4). Todo
+% el aparato tipográfico vive aquí: paquetes, colores, cajas y las macros
+% que usa cada página. Es el motor de "Aprendo a leer"
+% (https://github.com/konradcinkusz/learning-to-read) y de "Aprendo los
+% números" (https://github.com/konradcinkusz/learning-to-count) -- la
+% misma letra, la misma paleta, la misma cabecera de cada día, las mismas
+% cajas --, con lo que cambia: la caja de arriba es "Hoy" (la historia
+% del día y un dibujo, y los lunes la palabra de la semana), y las
+% actividades son las de la economía de cada día (ver notes/01-plan.md).
+%
+% Requiere LuaLaTeX (fontspec): la letra es Andika (SIL, OFL,
+% fonts/andika/), pensada para primeros lectores.
+% -----------------------------------------------------------------------
+
+\usepackage{fontspec}
+\setmainfont{Andika}[
+  Path = fonts/andika/,
+  Extension = .ttf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic,
+]
+\setsansfont{Andika}[
+  Path = fonts/andika/,
+  Extension = .ttf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic,
+]
+
+\usepackage[spanish]{babel}
+% babel-spanish hace de " un carácter activo; las comillas escritas a mano
+% en el texto se estropean sin esto (ver el mismo comentario, más largo,
+% en el preamble.tex de "Aprendo a leer"). Solo funciona así, al empezar
+% el documento.
+\AtBeginDocument{\shorthandoff{"}}
+
+% El pie de página ("Día N / 260") vive en el pie de verdad, no en la
+% página de texto: la caja de actividad llena todo lo que queda de página
+% (ver `cajadia`), y un pie dentro del texto la empujaría a otra página.
+\usepackage[a4paper,top=18mm,bottom=22mm,left=22mm,right=18mm,footskip=10mm]{geometry}
+
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{graphicx}
+\usepackage{multicol}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+% --- cadenas de texto ----------------------------------------------------
+\input{lang/es}
+
+% =========================================================================
+% Paleta
+% =========================================================================
+% La de "Aprendo a leer": cada actividad tiene un color saturado (borde y
+% título) y uno claro (fondo), y el color es un canal EXTRA, nunca el
+% único -- el título en negrita ya dice qué actividad es. main-bw.tex fija
+% \bookcolor{bw} antes de \input{preamble}, y los mismos nombres de color
+% apuntan a negro y gris: la misma página, sin tinta de color.
+\makeatletter
+\newif\ifbwbook
+\def\aln@bookcolor@bw{bw}
+\@ifundefined{bookcolor}{\bwbookfalse}{%
+  \ifx\bookcolor\aln@bookcolor@bw \bwbooktrue \else \bwbookfalse \fi
+}
+\makeatother
+
+\ifbwbook
+  \definecolor{colorLectura}{gray}{0}
+  \definecolor{colorLecturaClaro}{gray}{0.95}
+  \definecolor{colorDibuja}{gray}{0}
+  \definecolor{colorDibujaClaro}{gray}{0.95}
+  \definecolor{colorCompleta}{gray}{0}
+  \definecolor{colorCompletaClaro}{gray}{0.95}
+  \definecolor{colorResponde}{gray}{0}
+  \definecolor{colorRespondeClaro}{gray}{0.95}
+  \definecolor{colorRelaciona}{gray}{0}
+  \definecolor{colorRelacionaClaro}{gray}{0.95}
+  \definecolor{colorCrea}{gray}{0}
+  \definecolor{colorCreaClaro}{gray}{0.95}
+  \definecolor{colorGris}{gray}{0.38}
+  \definecolor{colorPunto}{gray}{0.25}
+\else
+  \definecolor{colorLectura}{HTML}{2E7D32}
+  \definecolor{colorLecturaClaro}{HTML}{EAF6EC}
+  \definecolor{colorDibuja}{HTML}{1565C0}
+  \definecolor{colorDibujaClaro}{HTML}{E7F0FB}
+  \definecolor{colorCompleta}{HTML}{C2185B}
+  \definecolor{colorCompletaClaro}{HTML}{FBE9EF}
+  \definecolor{colorResponde}{HTML}{6A1B9A}
+  \definecolor{colorRespondeClaro}{HTML}{F2E9F7}
+  \definecolor{colorRelaciona}{HTML}{E65100}
+  \definecolor{colorRelacionaClaro}{HTML}{FDEEE2}
+  \definecolor{colorCrea}{HTML}{AD1457}
+  \definecolor{colorCreaClaro}{HTML}{FBE7EE}
+  \definecolor{colorGris}{HTML}{616161}
+  \definecolor{colorPunto}{HTML}{6A1B9A}
+\fi
+
+% =========================================================================
+% Los dibujos
+% =========================================================================
+% diagrams/kit.tex: las piezas de los dibujos de «First Words» (de
+% "Aprendo a leer"); diagrams/objetos.tex: las cosas de "Aprendo los
+% números", cada una en la misma caja, con las monedas y los billetes;
+% diagrams/economia.tex: las cosas nuevas de este cuaderno (la lupa, los
+% cromos, las canicas, la hucha...).
+\input{diagrams/kit}
+\input{diagrams/objetos}
+\input{diagrams/economia}
+
+% =========================================================================
+% Cajas
+% =========================================================================
+% La caja de actividad llena todo lo que queda de página (`height fill`),
+% como en los otros cuadernos. Lo que tiene que ir abajo del todo (la
+% línea de escribir, el cartel de cada diez páginas) va en la parte de
+% abajo de la caja (\tcblower, estilo `abajo`); lo que tiene que ir
+% centrado en el hueco, con `centrado abajo`.
+\tcbset{
+  cajabase/.style={
+    enhanced,
+    boxrule=1.1pt,
+    arc=3mm,
+    left=6mm, right=6mm, top=5mm, bottom=5mm,
+    fonttitle=\bfseries\sffamily\large,
+    coltitle=white,
+  },
+  cajadia/.style={cajabase, height fill},
+  abajo/.style={space to upper, segmentation hidden, middle=2mm},
+  centrado abajo/.style={space to lower, valign lower=center, segmentation hidden, middle=2mm},
+}
+
+\newtcolorbox{cajaHoy}{cajabase, top=3mm, bottom=3mm,
+  colback=colorLecturaClaro, colframe=colorLectura, colbacktitle=colorLectura,
+  title=\lblHoy}
+
+% Una caja de actividad: #1 el nombre (cajaClasifica...), #2 el título
+% (\lblClasifica...), #3 el color.
+\newcommand{\cajaActividad}[3]{%
+  \newtcolorbox{#1}[1][]{cajadia, ##1,
+    colback=#3Claro, colframe=#3, colbacktitle=#3, title=#2}}
+\cajaActividad{cajaClasifica}{\lblClasifica}{colorRelaciona}
+\cajaActividad{cajaUne}{\lblUne}{colorRelaciona}
+\cajaActividad{cajaVF}{\lblVF}{colorResponde}
+\cajaActividad{cajaTrueque}{\lblTrueque}{colorCompleta}
+\cajaActividad{cajaDibuja}{\lblDibuja}{colorDibuja}
+\cajaActividad{cajaRepasa}{\lblRepasa}{colorCrea}
+
+% La instrucción de cada actividad: la lee el adulto.
+\newcommand{\instruccion}[1]{{\footnotesize\color{colorGris}#1\par}}
+% El enunciado grande, lo que se hace: "Une cada cosa con su caja." Sin
+% justificar y sin partir palabras, como la historia de "Hoy": lo lee la
+% niña o el niño.
+\newcommand{\sinCortes}{\hyphenpenalty=10000\exhyphenpenalty=10000}
+\newcommand{\sinPartir}{\raggedright\sinCortes}
+\newcommand{\enunciado}[1]{{\LARGE\sinPartir #1\par}}
+% El hueco en el que se escribe la respuesta (#1, el ancho).
+\newcommand{\huecoRespuesta}[1][26mm]{\raisebox{-5mm}{\tikz\draw[line width=1.1pt,
+  rounded corners=2mm, fill=white] (0,0) rectangle (#1,18mm);}}
+% Lo que no cabe en su sitio, encogido hasta que quepa (#1, el ancho).
+\newsavebox{\cajaAjustada}
+\newcommand{\ajustado}[2]{\sbox{\cajaAjustada}{#2}%
+  \ifdim\wd\cajaAjustada>#1\relax\resizebox{#1}{!}{\usebox{\cajaAjustada}}%
+  \else\usebox{\cajaAjustada}\fi}
+% El cartel de cada diez páginas, al pie de "Repasa".
+\newcommand{\cartel}[1]{\begin{center}\bfseries\Large\color{colorCrea}#1\end{center}}
+
+\newcommand{\casilla}{\raisebox{-0.15ex}{\framebox[3.4mm][c]{\rule{0pt}{2.6mm}}}}
+\newenvironment{listaRepaso}{%
+  \begin{itemize}[label=\casilla, leftmargin=8mm, itemsep=2mm, topsep=1mm]\large
+}{%
+  \end{itemize}
+}
+
+% "¿Verdad o mentira?": cada frase, con su V y su F para rodear.
+\newcommand{\letraVF}[1]{\tikz[baseline=-1.1mm]{\draw[line width=1pt] (0,0) circle (4.2mm);
+  \node[font=\Large\bfseries] at (0,0) {#1};}}
+\newcommand{\frasevf}[2]{%
+  \noindent\begin{tabularx}{\linewidth}{@{}r@{\hspace{3mm}}>{\sinPartir\arraybackslash\Large}X@{\hspace{5mm}}c@{\hspace{3mm}}c@{}}
+  {\Large\bfseries #1.} & #2 & \letraVF{\lblVerdad} & \letraVF{\lblMentira} \\
+  \end{tabularx}\par\vspace{9mm}}
+
+% =========================================================================
+% La página de un día
+% =========================================================================
+% La cabecera es la de "Aprendo a leer": el día, la semana y el
+% trimestre; el tema de la semana (el mismo que esa semana en "Leo con
+% lupa"), y los campos para el adulto. Deja \label{dia:N}:
+% tools/check_pages.py comprueba con esas etiquetas que cada día ocupa
+% exactamente una página.
+\newcommand{\cabeceraDia}[4]{%
+  \label{dia:#1}%
+  \noindent{\LARGE\bfseries\lblDia~#1}\quad
+  {\large(\lblSemana~#2 \textperiodcentered\ \lblTrimestre~#3)}\par
+  {\normalsize\bfseries\color{colorGris}#4}\par
+  \vspace{1mm}
+  \textbf{\lblFecha:} \rule{22mm}{0.4pt}\hspace{4mm}%
+  \textbf{\lblHecho:} \casilla\ \lblHechoSola\quad
+  \casilla\ \lblHechoConAyuda\quad
+  \casilla\ \lblHechoConDificultad\hspace{4mm}%
+  \textbf{\lblNotas:} \rule{20mm}{0.4pt}\par
+  \vspace{3mm}
+}
+
+\makeatletter
+\def\ps@pienumeros{%
+  \let\@oddhead\@empty\let\@evenhead\@empty
+  \def\@oddfoot{\hfil\footnotesize\color{colorGris}\lblDia~\diapagina@actual~/ \totaldias\hfil}%
+  \let\@evenfoot\@oddfoot
+}
+\newenvironment{diapagina}[4]{%
+  \gdef\diapagina@actual{#1}%
+  \thispagestyle{pienumeros}%
+  \cabeceraDia{#1}{#2}{#3}{#4}%
+}{%
+  \par\newpage
+}
+
+% Una etiqueta que solo guarda la página en la que cae, para
+% tools/check_pages.py: la clave de respuestas empieza con
+% \etiquetaPagina{clave}, así se comprueba también que el último día no
+% se ha desbordado a una segunda página.
+\newcommand{\etiquetaPagina}[1]{\begingroup\def\@currentlabel{}\label{#1}\endgroup}
+\makeatother
+
+% =========================================================================
+% Hoy
+% =========================================================================
+% La caja de arriba: el dibujo del día (#1, un tikzpicture que compone
+% tools/gen_economia.py) y la historia (#2), que lee la niña o el niño.
+% Los lunes, debajo, la palabra de la semana (#3: \palabraSemana, o
+% nada).
+\newcommand{\hoy}[3]{%
+  \begin{cajaHoy}
+  \begin{tabularx}{\linewidth}{@{}>{\centering\arraybackslash}m{30mm}@{\hspace{5mm}}>{\sinPartir\arraybackslash\large}X@{}}
+  #1 & #2 \\
+  \end{tabularx}
+  #3
+  \end{cajaHoy}\par\vspace{4mm}}
+% La palabra de la semana: la palabra (#1) y lo que quiere decir (#2).
+\newtcolorbox{cajaPalabra}{enhanced, colback=white, colframe=colorLectura, boxrule=0.8pt,
+  arc=2mm, left=3mm, right=3mm, top=1.5mm, bottom=1.5mm, before skip=2.5mm, after skip=0mm}
+\newcommand{\palabraSemana}[2]{%
+  \begin{cajaPalabra}\normalsize\textbf{\color{colorLectura}\lblPalabraSemana:}
+  \textbf{\large #1}. #2\end{cajaPalabra}}
+
+% =========================================================================
+% Medalla de fin de trimestre (tools/gen_economia.py, PLANTILLA_MEDALLA)
+% =========================================================================
+\newcommand{\medalla}[1]{%
+  \begin{tikzpicture}[line width=1.6pt, color=colorCrea]
+    \draw (0,0) circle (1.1);
+    \draw (0,0) circle (0.85);
+    \node at (0,0) {\Large\bfseries #1};
+    \draw (-0.35,-1.05) -- (-0.7,-2.2) -- (-0.15,-1.75) -- cycle;
+    \draw (0.35,-1.05)  -- (0.7,-2.2)  -- (0.15,-1.75)  -- cycle;
+  \end{tikzpicture}}
+
+% =========================================================================
+% La clave de respuestas y el diccionario
+% =========================================================================
+\newcommand{\claveEntrada}[3]{%
+  \item \textbf{\lblDia\ #1} \textcolor{colorGris}{(#2)}: #3%
+}
+% Una palabra de "Mi diccionario de economía": la palabra (#1), lo que
+% quiere decir (#2) y la semana en que salió (#3).
+\newcommand{\entradaDiccionario}[3]{%
+  \item \textbf{\color{colorLectura}#1}. #2 \textcolor{colorGris}{(\lblSemana~#3)}%
+}

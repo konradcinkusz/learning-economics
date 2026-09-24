@@ -1,0 +1,51 @@
+% diagrams/economia.tex -- las cosas nuevas de "Aprendo economía", en la
+% misma caja que las de diagrams/objetos.tex (de -1 a 1 en x y en y),
+% con el mismo estilo de línea: todas las zonas cerradas y rellenas de
+% blanco, para que se puedan colorear.
+
+% La lupa de la abuela Rosa (la de "Leo con lupa"): la lente, y el mango
+% de madera con sus tres rayas grabadas.
+\newcommand{\objLupa}{%
+  \begin{scope}[rotate=45]
+    \filldraw[fill=white, rounded corners=0.8mm] (-0.14,-1.12) rectangle (0.14,-0.52);
+    \draw (-0.14,-0.72) -- (0.14,-0.72);
+    \draw (-0.14,-0.84) -- (0.14,-0.84);
+    \draw (-0.14,-0.96) -- (0.14,-0.96);
+    \filldraw[fill=white] (-0.09,-0.54) rectangle (0.09,-0.42);
+    \filldraw[fill=white] (0,0.12) circle (0.56);
+    \draw (0,0.12) circle (0.45);
+    \draw (-0.3,0.3) arc (145:195:0.33);
+  \end{scope}}
+
+% Un cromo: la tarjeta, el marco de la foto (una estrella) y dos líneas
+% de texto.
+\newcommand{\objCromo}{%
+  \filldraw[fill=white, rounded corners=1mm] (-0.62,-0.9) rectangle (0.62,0.9);
+  \draw[rounded corners=0.6mm] (-0.46,-0.3) rectangle (0.46,0.74);
+  \filldraw[fill=white, line join=round, shift={(0,0.22)}]
+    (90:0.34) -- (126:0.14) -- (162:0.34) -- (198:0.14) -- (234:0.34)
+    -- (270:0.14) -- (306:0.34) -- (342:0.14) -- (18:0.34) -- (54:0.14) -- cycle;
+  \draw (-0.42,-0.5) -- (0.42,-0.5);
+  \draw (-0.42,-0.7) -- (0.18,-0.7);}
+
+% Una canica, con su remolino y un brillo.
+\newcommand{\objCanica}{%
+  \filldraw[fill=white] (0,0) circle (0.72);
+  \draw (-0.55,-0.18) .. controls (-0.2,0.35) and (0.22,-0.38) .. (0.58,0.2);
+  \draw (-0.3,-0.55) .. controls (0,-0.25) and (0.2,-0.6) .. (0.45,-0.45);
+  \draw (-0.42,0.28) arc (150:105:0.42);}
+
+% Una hucha de cerdito: las patas, el cuerpo, el hocico, la oreja, el
+% ojo, la ranura de las monedas y la cola.
+\newcommand{\objHucha}{%
+  \begin{scope}[shift={(-0.08,0.02)}]
+    \filldraw[fill=white] (-0.5,-0.74) rectangle (-0.27,-0.42);
+    \filldraw[fill=white] (0.28,-0.74) rectangle (0.51,-0.42);
+    \filldraw[fill=white] (0,0) ellipse [x radius=0.84, y radius=0.6];
+    \filldraw[fill=white] (0.86,-0.05) ellipse [x radius=0.15, y radius=0.21];
+    \fill (0.83,-0.1) circle (0.03); \fill (0.9,0.02) circle (0.03);
+    \filldraw[fill=white, line join=round] (0.3,0.48) -- (0.46,0.84) -- (0.6,0.4) -- cycle;
+    \fill (0.52,0.16) circle (0.055);
+    \draw[line width=1.8pt] (-0.28,0.52) -- (0.12,0.58);
+    \draw (-0.84,0.04) .. controls (-1.0,0.14) and (-0.96,0.36) .. (-0.82,0.3);
+  \end{scope}}

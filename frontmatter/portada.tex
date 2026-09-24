@@ -1,0 +1,22 @@
+% frontmatter/portada.tex -- página de título. El icono es la lupa de la
+% abuela Rosa (la de "Leo con lupa"), y dentro de la lente, una moneda:
+% la misma serie, otro cuaderno.
+\begin{center}
+\vspace*{3.5cm}
+
+\begin{tikzpicture}[objeto, line width=1.6pt, color=colorLectura]
+  \begin{scope}[scale=1.9] \objLupa \end{scope}
+  \begin{scope}[shift={(-0.16,0.16)}, scale=0.68, transform shape] \monedaEuro{1} \end{scope}
+\end{tikzpicture}
+
+\vspace{10mm}
+{\fontsize{44}{50}\selectfont\bfseries\color{colorLectura} \lblTituloPortada}\\[6mm]
+{\Large\color{colorGris} \lblSubtituloPortada}\\[4mm]
+{\normalsize\color{colorGris}\parbox{0.8\linewidth}{\centering \lblSubtituloPortadaMetodo}}
+
+\vspace{18mm}
+{\large \lblPortadaNombre:\ \rule{75mm}{0.4pt}}\\[6mm]
+{\large \lblPortadaCurso:\ \rule{75mm}{0.4pt}}
+\end{center}
+\vspace*{\fill}
+\newpage

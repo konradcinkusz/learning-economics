@@ -1,0 +1,1646 @@
+{
+  "_comentario": "Primavera (trimestre 3, días 131-195): las semanas 27-39 de «Leo con lupa», cada una con su idea y su palabra ('semanas'), y los días ('dias'), como en content/q1.json. Ver notes/01-plan.md.",
+  "semanas": [
+    {
+      "semana": 27,
+      "palabra": "euro",
+      "definicion": "El dinero que usamos hoy en España y en muchos otros países de Europa.",
+      "formas": [
+        "euro",
+        "euros"
+      ]
+    },
+    {
+      "semana": 28,
+      "palabra": "gasto",
+      "definicion": "El dinero que se usa para comprar o pagar algo.",
+      "formas": [
+        "gasto",
+        "gastos",
+        "gasta",
+        "gastar"
+      ]
+    },
+    {
+      "semana": 29,
+      "palabra": "taller",
+      "definicion": "El sitio donde se arreglan o se hacen cosas, como las bicis o los coches.",
+      "formas": [
+        "taller",
+        "talleres"
+      ]
+    },
+    {
+      "semana": 30,
+      "palabra": "sueldo",
+      "definicion": "El dinero que se gana trabajando.",
+      "formas": [
+        "sueldo",
+        "sueldos"
+      ]
+    },
+    {
+      "semana": 31,
+      "palabra": "intercambio",
+      "definicion": "Cambiar cosas entre varios, para que todos tengan algo nuevo.",
+      "formas": [
+        "intercambio",
+        "intercambios",
+        "intercambian"
+      ]
+    },
+    {
+      "semana": 32,
+      "palabra": "tienda",
+      "definicion": "El sitio donde se venden cosas: la panadería, la frutería, la librería...",
+      "formas": [
+        "tienda",
+        "tiendas"
+      ]
+    },
+    {
+      "semana": 33,
+      "palabra": "responsabilidad",
+      "definicion": "Cuidar bien de algo o de alguien que depende de ti.",
+      "formas": [
+        "responsabilidad",
+        "responsable"
+      ]
+    },
+    {
+      "semana": 34,
+      "palabra": "tiempo",
+      "definicion": "Las horas y los días que usamos para hacer cosas; también se pueden regalar.",
+      "formas": [
+        "tiempo"
+      ]
+    },
+    {
+      "semana": 35,
+      "palabra": "hucha",
+      "definicion": "Una caja o un bote con una ranura, para guardar el dinero que se ahorra.",
+      "formas": [
+        "hucha",
+        "huchas"
+      ]
+    },
+    {
+      "semana": 36,
+      "palabra": "cadena",
+      "definicion": "Los pasos por los que pasa una cosa hasta llegar a nosotros, como la miel: de la flor al tarro.",
+      "formas": [
+        "cadena"
+      ]
+    },
+    {
+      "semana": 37,
+      "palabra": "consumir",
+      "definicion": "Usar o comer lo que se compra: la comida, el agua, la luz.",
+      "formas": [
+        "consumir",
+        "consumimos",
+        "consume",
+        "consumen"
+      ]
+    },
+    {
+      "semana": 38,
+      "palabra": "banco",
+      "definicion": "El sitio donde se guarda el dinero para que esté seguro, y donde también se pide prestado.",
+      "formas": [
+        "banco",
+        "bancos"
+      ]
+    },
+    {
+      "semana": 39,
+      "palabra": "vender",
+      "definicion": "Dar una cosa a cambio de dinero.",
+      "formas": [
+        "vender",
+        "vende",
+        "venden",
+        "vendemos"
+      ]
+    }
+  ],
+  "dias": [
+    {
+      "dia": 131,
+      "semana": 27,
+      "tema": "Una foto de hace veinticinco años",
+      "objeto": "reloj",
+      "historia": "Marta enseña a la clase una foto de hace veinticinco años: sus compañeros y ella entierran una cápsula del tiempo. Entonces se pagaba con pesetas; el euro llegó poco después.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Hoy en España pagamos con euros.",
+            true
+          ],
+          [
+            "Hace veinticinco años se pagaba con pesetas.",
+            true
+          ],
+          [
+            "Con el euro se paga en muchos países.",
+            true
+          ],
+          [
+            "El euro es más antiguo que la peseta.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 132,
+      "semana": 27,
+      "tema": "Una foto de hace veinticinco años",
+      "objeto": "libro",
+      "historia": "Marta cuenta que los precios cambian con los años: las cosas suelen costar más ahora que antes. Papá lo sabe bien: de joven, los cómics eran mucho más baratos.",
+      "actividad": {
+        "tipo": "problema",
+        "texto": "Hace veinte años, un cómic costaba 2 €, y hoy cuesta 5 €. ¿Cuánto ha subido?",
+        "operacion": [
+          5,
+          "-",
+          2
+        ]
+      }
+    },
+    {
+      "dia": 133,
+      "semana": 27,
+      "tema": "Una foto de hace veinticinco años",
+      "objeto": "moneda",
+      "historia": "Marta enseña los billetes y las monedas de euro que hay hoy. El billete más grande que ha visto la clase es uno de 50 €.",
+      "actividad": {
+        "tipo": "dinero",
+        "dinero": [
+          50,
+          20,
+          5,
+          2,
+          1
+        ],
+        "pregunta": "¿Cuánto dinero hay aquí?"
+      }
+    },
+    {
+      "dia": 134,
+      "semana": 27,
+      "tema": "Una foto de hace veinticinco años",
+      "objeto": "reloj",
+      "historia": "Paco lleva treinta años en el colegio. Recuerda el día de la foto, y también el día en que las pesetas se cambiaron por euros: ¡qué lío de monedas!",
+      "actividad": {
+        "tipo": "ordena",
+        "pregunta": "¿En qué orden pasó? La historia del dinero",
+        "pasos": [
+          "Se cambiaban unas cosas por otras.",
+          "Se inventaron las monedas.",
+          "En España se pagaba con pesetas.",
+          "Hoy pagamos con euros."
+        ]
+      }
+    },
+    {
+      "dia": 135,
+      "semana": 27,
+      "tema": "Una foto de hace veinticinco años",
+      "objeto": "reloj",
+      "historia": "Caso resuelto: la foto dice «Foto de P.». Pilar sale en la foto, con la pala, y ese día no vino ningún padre... ¡La hizo Paco!",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es el euro.",
+          "Sé que antes se pagaba con pesetas.",
+          "Sé que los precios cambian con los años."
+        ],
+        "prompt": "Dibuja qué meterías tú en una cápsula del tiempo."
+      }
+    },
+    {
+      "dia": 136,
+      "semana": 28,
+      "tema": "Torrijas, esta vez sola",
+      "objeto": "torrija",
+      "historia": "Lucía quiere hacer torrijas ella sola, como prometió. Antes, apunta el gasto: el pan, la leche y los huevos. El azúcar y la canela ya los tiene en casa.",
+      "actividad": {
+        "tipo": "compra",
+        "cosas": [
+          [
+            "pan",
+            2
+          ],
+          [
+            "leche",
+            1
+          ],
+          [
+            "huevo",
+            2
+          ]
+        ],
+        "compra": [
+          "pan",
+          "leche",
+          "huevo"
+        ],
+        "pregunta": "Lucía compra el pan, la leche y los huevos. ¿Cuánto gasta?"
+      }
+    },
+    {
+      "dia": 137,
+      "semana": 28,
+      "tema": "Torrijas, esta vez sola",
+      "objeto": "pan",
+      "historia": "Con la receta de la abuela, Lucía hace las torrijas paso a paso. Solo una cosa la hace Papá: freírlas, porque el aceite quema.",
+      "actividad": {
+        "tipo": "ordena",
+        "pregunta": "¿Cómo se hacen las torrijas?",
+        "pasos": [
+          "Se moja el pan en leche.",
+          "Se pasa por huevo.",
+          "Un adulto lo fríe.",
+          "Se reboza en azúcar y canela."
+        ]
+      }
+    },
+    {
+      "dia": 138,
+      "semana": 28,
+      "tema": "Torrijas, esta vez sola",
+      "objeto": "libro",
+      "historia": "Lucía apunta en un cuaderno lo que entra y lo que sale de su dinero: así sabe siempre cuánto le queda. Papá lo llama «llevar las cuentas».",
+      "actividad": {
+        "tipo": "cuentas",
+        "empieza": 12,
+        "pregunta": "Las cuentas de Lucía: ¿cuánto le queda después de cada apunte?",
+        "apuntes": [
+          [
+            "Compra el pan",
+            -2
+          ],
+          [
+            "Compra la leche",
+            -1
+          ],
+          [
+            "Compra los huevos",
+            -2
+          ],
+          [
+            "La abuela le da",
+            5
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 139,
+      "semana": 28,
+      "tema": "Torrijas, esta vez sola",
+      "objeto": "torrija",
+      "historia": "En la fuente quedaba una torrija, y ha desaparecido. La fuente estaba en la balda alta, pero nadie ha movido la silla. En casa solo estaban la abuela y Toby...",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Un gasto es dinero que usamos para pagar algo.",
+            true
+          ],
+          [
+            "Si apuntas lo que gastas, sabes cuánto te queda.",
+            true
+          ],
+          [
+            "Hacer torrijas en casa no tiene ningún gasto.",
+            false
+          ],
+          [
+            "Si gastas más de lo que tienes, te sobra dinero.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 140,
+      "semana": 28,
+      "tema": "Torrijas, esta vez sola",
+      "objeto": "torrija",
+      "historia": "Caso resuelto: un rastro de azúcar va de la cocina al sillón de la abuela. ¡Se la comió ella! —Estaba tan rica que no pude esperar —dice, riéndose.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es un gasto.",
+          "Sé apuntar lo que entra y lo que sale.",
+          "Sé cuánto cuesta una receta."
+        ],
+        "prompt": "Dibuja tu receta favorita, y lo que hay que comprar para hacerla."
+      }
+    },
+    {
+      "dia": 141,
+      "semana": 29,
+      "tema": "La rueda pinchada",
+      "objeto": "bici",
+      "historia": "La bici de Lucía tiene una rueda pinchada. Papá dice que no hace falta comprar otra: en el taller de la esquina arreglan pinchazos, y cuesta mucho menos.",
+      "actividad": {
+        "tipo": "problema",
+        "texto": "Una rueda nueva cuesta 25 €, y arreglar el pinchazo, 8 €. ¿Cuánto se ahorra Lucía arreglándola?",
+        "operacion": [
+          25,
+          "-",
+          8
+        ]
+      }
+    },
+    {
+      "dia": 142,
+      "semana": 29,
+      "tema": "La rueda pinchada",
+      "objeto": "rueda",
+      "historia": "El señor del taller encuentra una espina clavada en la rueda. Después, le enseña a Lucía a arreglar un pinchazo, paso a paso, para que la próxima vez lo haga ella.",
+      "actividad": {
+        "tipo": "ordena",
+        "pregunta": "¿Cómo se arregla un pinchazo?",
+        "pasos": [
+          "Se quita la rueda.",
+          "Se busca el agujero.",
+          "Se pega un parche.",
+          "Se infla la rueda."
+        ]
+      }
+    },
+    {
+      "dia": 143,
+      "semana": 29,
+      "tema": "La rueda pinchada",
+      "objeto": "coche",
+      "historia": "En el barrio hay un taller de bicis, uno de coches y uno de motos. Pero no todo lo que se estropea va al taller: cada cosa tiene su sitio.",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Se arregla en el taller?",
+        "cajas": [
+          "Al taller",
+          "A otro sitio"
+        ],
+        "cosas": [
+          [
+            "una bici con la cadena rota",
+            0
+          ],
+          [
+            "un perro con tos",
+            1
+          ],
+          [
+            "un coche que no arranca",
+            0
+          ],
+          [
+            "un diente con caries",
+            1
+          ],
+          [
+            "una moto con el faro roto",
+            0
+          ],
+          [
+            "un pantalón roto",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 144,
+      "semana": 29,
+      "tema": "La rueda pinchada",
+      "objeto": "rosa",
+      "historia": "¿Dónde se pinchó la rueda? Al salir de la panadería, todavía estaba dura. Por las obras, Papá llevó las bicis en brazos... y después pasaron junto a los rosales del parque.",
+      "actividad": {
+        "tipo": "cambio",
+        "cosa": [
+          "rueda",
+          8
+        ],
+        "paga": [
+          10
+        ],
+        "pregunta": "Arreglar el pinchazo cuesta 8 €. Papá paga con un billete de 10 €. ¿Cuánto le devuelven?"
+      }
+    },
+    {
+      "dia": 145,
+      "semana": 29,
+      "tema": "La rueda pinchada",
+      "objeto": "bici",
+      "historia": "Caso resuelto: la espina era de un rosal. ¡La rueda se pinchó en los rosales del parque! Ahora Lucía sabe arreglar un pinchazo, y ya no tiene que ir al taller.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es un taller.",
+          "Sé que arreglar suele costar menos que comprar.",
+          "Sé los pasos para arreglar un pinchazo."
+        ],
+        "prompt": "Dibuja el taller de bicis, con sus herramientas."
+      }
+    },
+    {
+      "dia": 146,
+      "semana": 30,
+      "tema": "La entrevista a Paco",
+      "objeto": "reloj",
+      "historia": "El club entrevista a Paco para el periódico del cole. Paco cuenta que abre el colegio cada mañana y arregla lo que se rompe, y que por su trabajo cobra un sueldo.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Qué hace cada uno en su trabajo?",
+        "pares": [
+          [
+            "El conserje",
+            "abre el colegio"
+          ],
+          [
+            "La cocinera",
+            "hace la comida"
+          ],
+          [
+            "El jardinero",
+            "cuida las plantas"
+          ],
+          [
+            "La maestra",
+            "da las clases"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 147,
+      "semana": 30,
+      "tema": "La entrevista a Paco",
+      "objeto": "muneco",
+      "historia": "Paco lleva treinta años en el colegio. Le gusta su trabajo, dice, porque cada día es distinto: un día arregla una persiana, y otro, hace un muñeco de nieve.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Un sueldo es el dinero que se gana trabajando.",
+            true
+          ],
+          [
+            "Todos los trabajos se hacen sin cobrar.",
+            false
+          ],
+          [
+            "Con el sueldo se pagan la casa y la comida.",
+            true
+          ],
+          [
+            "Paco cobra por su trabajo en el colegio.",
+            true
+          ],
+          [
+            "Solo trabajan los que llevan corbata.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 148,
+      "semana": 30,
+      "tema": "La entrevista a Paco",
+      "objeto": "reloj",
+      "historia": "Paco le hace una adivinanza al club: «Tengo agujas y no sé coser, tengo números y no sé leer». ¡Es el reloj del colegio, que Paco pone en hora cada lunes!",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Es un trabajo?",
+        "cajas": [
+          "Es un trabajo",
+          "No es un trabajo"
+        ],
+        "cosas": [
+          [
+            "Paco abre el colegio.",
+            0
+          ],
+          [
+            "Dani juega en el parque.",
+            1
+          ],
+          [
+            "La cocinera hace la comida.",
+            0
+          ],
+          [
+            "Lucía duerme la siesta.",
+            1
+          ],
+          [
+            "El cartero reparte cartas.",
+            0
+          ],
+          [
+            "Toby persigue una pelota.",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 149,
+      "semana": 30,
+      "tema": "La entrevista a Paco",
+      "objeto": "lapiz",
+      "historia": "Paco le enseña al club su truco de siempre: apuntar en una libreta lo que entra y lo que sale. Lucía lo prueba con su dinero de la semana.",
+      "actividad": {
+        "tipo": "cuentas",
+        "empieza": 6,
+        "pregunta": "Las cuentas de Lucía: ¿cuánto le queda después de cada apunte?",
+        "apuntes": [
+          [
+            "Ayuda a regar el huerto",
+            4
+          ],
+          [
+            "Compra un cuaderno",
+            -3
+          ],
+          [
+            "Ayuda a la abuela",
+            5
+          ],
+          [
+            "Compra una pelota",
+            -6
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 150,
+      "semana": 30,
+      "tema": "La entrevista a Paco",
+      "objeto": "arbol",
+      "historia": "Al final, Paco recuerda algo de la cápsula: se enterró «a mediodía, a la sombra del plátano grande, a diez pasos de la fuente». Pero hoy hay dos plátanos, y la fuente está en otro sitio...",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es un sueldo.",
+          "Sé qué hace Paco en su trabajo.",
+          "Sé llevar las cuentas de mi dinero."
+        ],
+        "prompt": "Dibuja el trabajo que te gustaría tener de mayor."
+      }
+    },
+    {
+      "dia": 151,
+      "semana": 31,
+      "tema": "El Día del Libro",
+      "objeto": "libro",
+      "historia": "Por el Día del Libro, la clase hace un intercambio: cada uno trae un libro que ya ha leído y se lleva otro. Así todos estrenan libro sin gastar dinero.",
+      "actividad": {
+        "tipo": "trueque",
+        "cambio": [
+          "libro",
+          1,
+          "cromo",
+          4
+        ],
+        "pregunta": [
+          "libro",
+          3
+        ]
+      }
+    },
+    {
+      "dia": 152,
+      "semana": 31,
+      "tema": "El Día del Libro",
+      "objeto": "libro",
+      "historia": "Al final del intercambio, sobra un libro sin nombre, con arena entre las hojas y frases subrayadas en verde. ¿De quién será?",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Es un intercambio?",
+        "cajas": [
+          "Es un intercambio",
+          "No lo es"
+        ],
+        "cosas": [
+          [
+            "Cambias un libro por otro.",
+            0
+          ],
+          [
+            "Compras un cuento.",
+            1
+          ],
+          [
+            "Cambias cromos en el recreo.",
+            0
+          ],
+          [
+            "La abuela te regala un libro.",
+            1
+          ],
+          [
+            "Cambias tu bocadillo por el de Hugo.",
+            0
+          ],
+          [
+            "Pagas la entrada del cine.",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 153,
+      "semana": 31,
+      "tema": "El Día del Libro",
+      "objeto": "concha",
+      "historia": "Nora y Leo han estado en el mar en Semana Santa, y los dos han vuelto con arena en las zapatillas. ¿Cuál de ellos es el dueño del libro?",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "En un intercambio, todos dan algo y reciben algo.",
+            true
+          ],
+          [
+            "En un intercambio se paga con dinero.",
+            false
+          ],
+          [
+            "Un libro que ya has leído puede ser nuevo para otro.",
+            true
+          ],
+          [
+            "Si cambias un libro, lo pierdes para siempre.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 154,
+      "semana": 31,
+      "tema": "El Día del Libro",
+      "objeto": "libro",
+      "historia": "En la feria del libro de la plaza, Hugo duda entre un libro de planetas y un álbum de cromos. Con su dinero solo le llega para uno de los dos.",
+      "actividad": {
+        "tipo": "elige",
+        "tengo": 15,
+        "cosas": [
+          [
+            "libro",
+            12
+          ],
+          [
+            "cromo",
+            9
+          ]
+        ],
+        "pregunta": "Hugo tiene 15 €: le llega para el libro o para el álbum de cromos, pero no para los dos. ¿Qué elegirías tú?"
+      }
+    },
+    {
+      "dia": 155,
+      "semana": 31,
+      "tema": "El Día del Libro",
+      "objeto": "lapiz",
+      "historia": "Caso resuelto: Leo e Irene subrayan en verde, pero solo Leo estuvo en el mar. ¡El libro es de Leo! Lo recupera, y lo cambia por otro.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es un intercambio.",
+          "Sé que en un intercambio todos dan y reciben.",
+          "Sé hacer cambios justos."
+        ],
+        "prompt": "Dibuja el libro que llevarías a un intercambio."
+      }
+    },
+    {
+      "dia": 156,
+      "semana": 32,
+      "tema": "El plano antiguo",
+      "objeto": "mapa",
+      "historia": "Paco encuentra un plano antiguo del colegio y de las calles de alrededor, con sus tiendas. Algunas siguen igual, como la panadería; otras han cambiado: la zapatería ahora es una frutería.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Qué se vende en cada tienda?",
+        "pares": [
+          [
+            "La panadería",
+            "el pan"
+          ],
+          [
+            "La frutería",
+            "las manzanas"
+          ],
+          [
+            "La librería",
+            "los libros"
+          ],
+          [
+            "La zapatería",
+            "los zapatos"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 157,
+      "semana": 32,
+      "tema": "El plano antiguo",
+      "objeto": "lapiz",
+      "historia": "El club compara el plano antiguo con el barrio de hoy. Donde había una papelería, sigue habiendo una; pero al lado han abierto un bazar, y los precios no son los mismos.",
+      "actividad": {
+        "tipo": "compara",
+        "objeto": "lapiz",
+        "tiendas": [
+          [
+            "Papelería",
+            2
+          ],
+          [
+            "Bazar",
+            1
+          ]
+        ],
+        "pregunta": "Un lápiz cuesta 2 € en la papelería y 1 € en el bazar. ¿Dónde es más barato? ¿Cuánto te ahorras?"
+      }
+    },
+    {
+      "dia": 158,
+      "semana": 32,
+      "tema": "El plano antiguo",
+      "objeto": "mochila",
+      "historia": "En el barrio hay tiendas de todo: de bicis, de libros, de juguetes... Lucía quiere saber qué podría comprar con los 20 € que tiene ahorrados.",
+      "actividad": {
+        "tipo": "llega",
+        "tengo": 20,
+        "cosas": [
+          [
+            "bici",
+            90
+          ],
+          [
+            "libro",
+            12
+          ],
+          [
+            "pelota",
+            8
+          ],
+          [
+            "mochila",
+            25
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 159,
+      "semana": 32,
+      "tema": "El plano antiguo",
+      "objeto": "arbol",
+      "historia": "Según el plano antiguo, el único árbol del patio estaba junto a la tapia de la izquierda. Pero hoy hay dos plátanos: ¿cuál de ellos es el viejo?",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Qué se vende en la panadería?",
+        "cajas": [
+          "En la panadería",
+          "En otra tienda"
+        ],
+        "cosas": [
+          [
+            "el pan",
+            0
+          ],
+          [
+            "las manzanas",
+            1
+          ],
+          [
+            "los cruasanes",
+            0
+          ],
+          [
+            "los tornillos",
+            1
+          ],
+          [
+            "las magdalenas",
+            0
+          ],
+          [
+            "los zapatos",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 160,
+      "semana": 32,
+      "tema": "El plano antiguo",
+      "objeto": "arbol",
+      "historia": "Caso resuelto: el plátano de la izquierda es el viejo, porque es el único que sale en el plano y tiene el tronco más gordo. ¡La cápsula está cada vez más cerca!",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es una tienda.",
+          "Sé qué se vende en cada tienda de mi barrio.",
+          "Sé comparar precios entre tiendas."
+        ],
+        "prompt": "Dibuja tu calle, con sus tiendas."
+      }
+    },
+    {
+      "dia": 161,
+      "semana": 33,
+      "tema": "Rayo se escapa",
+      "objeto": "tortuga",
+      "historia": "Hugo tiene una tortuga, Rayo. Tener una mascota es una responsabilidad: hay que darle de comer, limpiarle la casa y llevarla al veterinario. Y todo eso cuesta dinero.",
+      "actividad": {
+        "tipo": "compra",
+        "cosas": [
+          [
+            "lechuga",
+            1
+          ],
+          [
+            "fresa",
+            3
+          ],
+          [
+            "cubo",
+            7
+          ]
+        ],
+        "compra": [
+          "lechuga",
+          "fresa",
+          "cubo"
+        ],
+        "pregunta": "Esta semana, Hugo compra lechuga, fresas y un cubo nuevo para Rayo. ¿Cuánto gasta?"
+      }
+    },
+    {
+      "dia": 162,
+      "semana": 33,
+      "tema": "Rayo se escapa",
+      "objeto": "lechuga",
+      "historia": "Rayo ha desaparecido del jardín de Hugo. En las lechugas del huerto hay mordiscos en forma de media luna. ¿Habrá sido él?",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Una mascota necesita comida todos los días.",
+            true
+          ],
+          [
+            "Cuidar de un animal no cuesta nada.",
+            false
+          ],
+          [
+            "Ser responsable es cumplir con lo que te toca.",
+            true
+          ],
+          [
+            "Las tortugas solo comen caramelos.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 163,
+      "semana": 33,
+      "tema": "Rayo se escapa",
+      "objeto": "hucha",
+      "historia": "Hugo quiere llevar a Rayo al veterinario para una revisión, que cuesta 30 €. Ya tiene 12 €, y cada semana ahorrará 6 € de su paga.",
+      "actividad": {
+        "tipo": "hucha",
+        "tiene": 12,
+        "cada": 6,
+        "meta": 30,
+        "pregunta": "Hugo tiene 12 € y ahorra 6 € cada semana. La revisión cuesta 30 €. ¿Cuántas semanas tarda?"
+      }
+    },
+    {
+      "dia": 164,
+      "semana": 33,
+      "tema": "Rayo se escapa",
+      "objeto": "sol",
+      "historia": "Fue la tarde más calurosa del año, y la tierra del huerto de Papá está recién regada. Las huellas de Rayo se acaban de golpe...",
+      "actividad": {
+        "tipo": "ordena",
+        "pregunta": "¿Qué hace Hugo para encontrar a Rayo?",
+        "pasos": [
+          "Ve que Rayo no está.",
+          "Busca pistas en el jardín.",
+          "Sigue las huellas.",
+          "Encuentra a Rayo."
+        ]
+      }
+    },
+    {
+      "dia": 165,
+      "semana": 33,
+      "tema": "Rayo se escapa",
+      "objeto": "tortuga",
+      "historia": "Caso resuelto: con el calor, Rayo se enterró en la tierra fresca del huerto. Hugo promete revisar la valla cada semana: es su responsabilidad.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es la responsabilidad.",
+          "Sé qué necesita una mascota.",
+          "Sé que cuidar de un animal cuesta dinero y tiempo."
+        ],
+        "prompt": "Dibuja una mascota que te gustaría cuidar, y lo que necesitaría."
+      }
+    },
+    {
+      "dia": 166,
+      "semana": 34,
+      "tema": "El día de la madre",
+      "objeto": "corazon",
+      "historia": "Para el día de la madre, Lucía y Dani quieren regalarle algo a Mamá. No tienen mucho dinero, pero sí tienen tiempo: le prepararán el desayuno y un poema.",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Cuesta dinero o cuesta tiempo?",
+        "cajas": [
+          "Cuesta dinero",
+          "Cuesta tiempo"
+        ],
+        "cosas": [
+          [
+            "un ramo de la floristería",
+            0
+          ],
+          [
+            "un desayuno en la cama",
+            1
+          ],
+          [
+            "una caja de bombones",
+            0
+          ],
+          [
+            "un poema hecho por ti",
+            1
+          ],
+          [
+            "un libro de la librería",
+            0
+          ],
+          [
+            "un masaje en los pies",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 167,
+      "semana": 34,
+      "tema": "El día de la madre",
+      "objeto": "flor",
+      "historia": "El domingo, Lucía y Dani se levantan antes que nadie. Papá les ayuda con el zumo, y Dani elige la flor más bonita del jardín para la bandeja.",
+      "actividad": {
+        "tipo": "ordena",
+        "pregunta": "¿Cómo preparan el desayuno sorpresa?",
+        "pasos": [
+          "Se levantan muy temprano.",
+          "Preparan el zumo y las tostadas.",
+          "Ponen una flor en la bandeja.",
+          "Le llevan el desayuno a Mamá."
+        ]
+      }
+    },
+    {
+      "dia": 168,
+      "semana": 34,
+      "tema": "El día de la madre",
+      "objeto": "lapiz",
+      "historia": "Lucía escribe un poema para Mamá, y después lo pasa al código del club, para que tenga que descifrarlo. Le lleva un buen rato, pero merece la pena.",
+      "actividad": {
+        "tipo": "problema",
+        "texto": "Lucía tarda 20 minutos en escribir el poema y 10 minutos en pasarlo a clave. ¿Cuántos minutos tarda en total?",
+        "operacion": [
+          20,
+          "+",
+          10
+        ]
+      }
+    },
+    {
+      "dia": 169,
+      "semana": 34,
+      "tema": "El día de la madre",
+      "objeto": "corazon",
+      "historia": "Mamá descifra el poema ella sola, sin ayuda: ¡se sabe el código del club! —Es el mejor regalo —dice—: me habéis regalado vuestro tiempo.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "El tiempo también se puede regalar.",
+            true
+          ],
+          [
+            "Un regalo solo vale si es caro.",
+            false
+          ],
+          [
+            "Hacer algo por alguien le demuestra que lo quieres.",
+            true
+          ],
+          [
+            "El tiempo que pasamos juntos no vale nada.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 170,
+      "semana": 34,
+      "tema": "El día de la madre",
+      "objeto": "sol",
+      "historia": "Por la tarde, toda la familia pasea junta por el parque. Mamá dice que no ha gastado nada en todo el día, y que ha sido uno de sus días más felices.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es el tiempo.",
+          "Sé que el tiempo también es un regalo.",
+          "Sé hacer un regalo sin gastar dinero."
+        ],
+        "prompt": "Dibuja un regalo de tiempo para alguien de tu familia."
+      }
+    },
+    {
+      "dia": 171,
+      "semana": 35,
+      "tema": "Dani cumple seis años",
+      "objeto": "hucha",
+      "historia": "Por su cumpleaños, Dani recibe su primera hucha, un cerdito como el de Lucía. La abuela le da 20 € para estrenarla, y Lucía le explica sus tres botes.",
+      "actividad": {
+        "tipo": "botes",
+        "total": 20,
+        "botes": [
+          10,
+          5,
+          5
+        ],
+        "falta": 1,
+        "pregunta": "Dani tiene 20 €. Pone 10 € en el bote de ahorrar y 5 € en el de compartir. ¿Cuánto pone en el de gastar?"
+      }
+    },
+    {
+      "dia": 172,
+      "semana": 35,
+      "tema": "Dani cumple seis años",
+      "objeto": "tarta",
+      "historia": "Dani ha recibido dinero de toda la familia por su cumpleaños. Lo pone todo encima de la mesa para contarlo, como le ha enseñado Lucía: primero los billetes.",
+      "actividad": {
+        "tipo": "dinero",
+        "dinero": [
+          20,
+          10,
+          5,
+          2,
+          2,
+          1
+        ],
+        "pregunta": "¿Cuánto dinero ha recibido Dani?"
+      }
+    },
+    {
+      "dia": 173,
+      "semana": 35,
+      "tema": "Dani cumple seis años",
+      "objeto": "pelota",
+      "historia": "Lucía es ahora la Lectora X: le prepara a Dani una búsqueda del tesoro con adivinanzas. Mientras, Dani ya sabe para qué quiere ahorrar: un balón de fútbol.",
+      "actividad": {
+        "tipo": "hucha",
+        "tiene": 10,
+        "cada": 5,
+        "meta": 25,
+        "pregunta": "Dani tiene 10 € y ahorra 5 € cada semana. El balón cuesta 25 €. ¿Cuántas semanas tarda?"
+      }
+    },
+    {
+      "dia": 174,
+      "semana": 35,
+      "tema": "Dani cumple seis años",
+      "objeto": "libro",
+      "historia": "La búsqueda del tesoro acaba en la lavadora: dentro hay un cuaderno de detective rojo, como el verde que encontró Lucía en septiembre. ¡Dani ya es un detective!",
+      "actividad": {
+        "tipo": "elige",
+        "tengo": 5,
+        "cosas": [
+          [
+            "pelota",
+            4
+          ],
+          [
+            "libro",
+            3
+          ]
+        ],
+        "pregunta": "Dani tiene 5 € para gastar: le llega para una pelota pequeña o para un cuento, pero no para los dos. ¿Qué elegirías tú?"
+      }
+    },
+    {
+      "dia": 175,
+      "semana": 35,
+      "tema": "Dani cumple seis años",
+      "objeto": "moneda",
+      "historia": "Esa noche, Dani mete su primera moneda en la hucha. Escucha el «clinc» y sonríe: su balón está un poco más cerca.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es una hucha.",
+          "Sé para qué se ahorra.",
+          "Sé contar el dinero de un cumpleaños."
+        ],
+        "prompt": "Dibuja la primera hucha de Dani, y lo que quiere comprar."
+      }
+    },
+    {
+      "dia": 176,
+      "semana": 36,
+      "tema": "Las abejas del parque",
+      "objeto": "abeja",
+      "historia": "Marta explica que la miel pasa por una cadena antes de llegar a casa: las abejas, la colmena, el apicultor, el tarro y la tienda. ¡Cuánto trabajo en una cucharada!",
+      "actividad": {
+        "tipo": "ordena",
+        "pregunta": "¿En qué orden va? De la flor al tarro de miel",
+        "pasos": [
+          "Las abejas toman el néctar de las flores.",
+          "En la colmena, lo convierten en miel.",
+          "El apicultor recoge la miel.",
+          "La miel se pone en tarros.",
+          "La compramos en la tienda."
+        ]
+      }
+    },
+    {
+      "dia": 177,
+      "semana": 36,
+      "tema": "Las abejas del parque",
+      "objeto": "abeja",
+      "historia": "Desde hace días, las abejas van a la ventana de la clase de 2.º. ¿Habrá un panal? El club lo investiga con cuidado, sin molestarlas.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Quién hace cada cosa en la cadena de la miel?",
+        "pares": [
+          [
+            "La abeja",
+            "toma el néctar"
+          ],
+          [
+            "El apicultor",
+            "recoge la miel"
+          ],
+          [
+            "La tendera",
+            "la vende"
+          ],
+          [
+            "Nosotros",
+            "la compramos"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 178,
+      "semana": 36,
+      "tema": "Las abejas del parque",
+      "objeto": "miel",
+      "historia": "La abuela compra la miel en el mercado, al mismo apicultor que la hace. Dice que así es más barata, porque en la cadena hay menos pasos.",
+      "actividad": {
+        "tipo": "compara",
+        "objeto": "miel",
+        "tiendas": [
+          [
+            "Mercado",
+            5
+          ],
+          [
+            "Supermercado",
+            7
+          ]
+        ],
+        "pregunta": "Un tarro de miel cuesta 5 € en el mercado y 7 € en el supermercado. ¿Dónde es más barato? ¿Cuánto te ahorras?"
+      }
+    },
+    {
+      "dia": 179,
+      "semana": 36,
+      "tema": "Las abejas del parque",
+      "objeto": "flor",
+      "historia": "Las cuatro ventanas de 2.º tienen el marco azul, y no hay ningún panal. Pero en una de ellas hay macetas de lavanda, de un morado precioso...",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "La miel la hacen las abejas.",
+            true
+          ],
+          [
+            "La miel nace dentro de los tarros.",
+            false
+          ],
+          [
+            "Cada paso de la cadena es un trabajo.",
+            true
+          ],
+          [
+            "Sin abejas habría más miel.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 180,
+      "semana": 36,
+      "tema": "Las abejas del parque",
+      "objeto": "flor",
+      "historia": "Caso resuelto: las abejas van a las macetas de lavanda, porque ven muy bien el color morado. Marta decide dejarlas: ¡también forman parte de la cadena de la miel!",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es una cadena.",
+          "Sé de dónde viene la miel.",
+          "Sé que cada paso de la cadena es un trabajo."
+        ],
+        "prompt": "Dibuja la cadena de la miel, de la flor al tarro."
+      }
+    },
+    {
+      "dia": 181,
+      "semana": 37,
+      "tema": "La granja escuela",
+      "objeto": "huevo",
+      "historia": "La clase va a una granja escuela. Allí ven de dónde viene lo que consumimos cada día: los huevos, la leche, el queso, el pan...",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿De dónde viene?",
+        "pares": [
+          [
+            "los huevos",
+            "de las gallinas"
+          ],
+          [
+            "el queso",
+            "de la leche"
+          ],
+          [
+            "el pan",
+            "del trigo"
+          ],
+          [
+            "el zumo",
+            "de las naranjas"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 182,
+      "semana": 37,
+      "tema": "La granja escuela",
+      "objeto": "pollito",
+      "historia": "Por la mañana, la puerta del corral está abierta, y las cabras corretean por la granja. ¿Quién la ha abierto? Nadie ha salido del albergue en toda la noche.",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Viene de la granja?",
+        "cajas": [
+          "De la granja",
+          "De una fábrica"
+        ],
+        "cosas": [
+          [
+            "los huevos",
+            0
+          ],
+          [
+            "el móvil",
+            1
+          ],
+          [
+            "la leche",
+            0
+          ],
+          [
+            "los tornillos",
+            1
+          ],
+          [
+            "la lana",
+            0
+          ],
+          [
+            "el plástico",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 183,
+      "semana": 37,
+      "tema": "La granja escuela",
+      "objeto": "fresa",
+      "historia": "Cada grupo recoge fresas en el huerto de la granja. El grupo de Lucía, que son cuatro, recoge 17, y se las reparten para llevárselas a casa.",
+      "actividad": {
+        "tipo": "reparte",
+        "objeto": "fresa",
+        "total": 17,
+        "entre": 4,
+        "pregunta": "Reparte 17 fresas entre los 4 niños del grupo. ¿Cuántas le tocan a cada uno? ¿Sobra alguna?"
+      }
+    },
+    {
+      "dia": 184,
+      "semana": 37,
+      "tema": "La granja escuela",
+      "objeto": "leche",
+      "historia": "En el pestillo del corral hay babas y marcas de dientes, y en el barro, huellas de pezuñas partidas. Además, anoche no hizo nada de viento...",
+      "actividad": {
+        "tipo": "problema",
+        "texto": "En el desayuno, la clase se bebe 24 vasos de leche, y en la merienda, 18. ¿Cuántos vasos consume en total?",
+        "operacion": [
+          24,
+          "+",
+          18
+        ]
+      }
+    },
+    {
+      "dia": 185,
+      "semana": 37,
+      "tema": "La granja escuela",
+      "objeto": "pollito",
+      "historia": "Caso resuelto: ¡la puerta la abrió Lola, la cabra! Algunas cabras aprenden a abrir pestillos. El granjero pone uno nuevo, y Lola lo mira muy atenta.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es consumir.",
+          "Sé de dónde viene lo que como.",
+          "Sé que no hay que malgastar la comida."
+        ],
+        "prompt": "Dibuja la granja escuela, con sus animales."
+      }
+    },
+    {
+      "dia": 186,
+      "semana": 38,
+      "tema": "¡Aquí está la cápsula!",
+      "objeto": "moneda",
+      "historia": "El club junta todas sus pistas para encontrar la cápsula. Paco dice que la cápsula guarda recuerdos, igual que el banco guarda el dinero: para que estén seguros.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "En el banco se guarda el dinero.",
+            true
+          ],
+          [
+            "El banco también presta dinero.",
+            true
+          ],
+          [
+            "El dinero del banco no es de nadie.",
+            false
+          ],
+          [
+            "En el banco, el dinero está más seguro que debajo de la cama.",
+            true
+          ],
+          [
+            "Los bancos del parque guardan dinero.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 187,
+      "semana": 38,
+      "tema": "¡Aquí está la cápsula!",
+      "objeto": "hucha",
+      "historia": "La abuela le abre a Lucía una libreta de ahorros en el banco. En la libreta se apunta todo: lo que se mete, lo que se saca y lo que queda.",
+      "actividad": {
+        "tipo": "cuentas",
+        "empieza": 30,
+        "pregunta": "La libreta de Lucía: ¿cuánto queda después de cada apunte?",
+        "apuntes": [
+          [
+            "Mete lo de la hucha",
+            20
+          ],
+          [
+            "Saca para un libro",
+            -12
+          ],
+          [
+            "Mete la paga",
+            8
+          ],
+          [
+            "Saca para un regalo",
+            -15
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 188,
+      "semana": 38,
+      "tema": "¡Aquí está la cápsula!",
+      "objeto": "mapa",
+      "historia": "Con las pistas, el club lo tiene claro: diez pasos de Paco desde el arenero, hacia el plátano viejo... ¡La cápsula está en la casilla B3 del plano!",
+      "actividad": {
+        "tipo": "dibuja",
+        "prompt": "Dibuja lo que crees que hay dentro de la cápsula."
+      }
+    },
+    {
+      "dia": 189,
+      "semana": 38,
+      "tema": "¡Aquí está la cápsula!",
+      "objeto": "regalo",
+      "historia": "El jueves, con permiso de Marta y con la pala de Paco, el club cava en B3. ¡Clonc! Aparece una caja roja, oxidada, con un mensaje al revés en la tapa.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Para qué sirve cada cosa?",
+        "pares": [
+          [
+            "el banco",
+            "guarda el dinero"
+          ],
+          [
+            "la hucha",
+            "guarda las monedas"
+          ],
+          [
+            "la cartera",
+            "lleva el dinero encima"
+          ],
+          [
+            "la cápsula",
+            "guarda recuerdos"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 190,
+      "semana": 38,
+      "tema": "¡Aquí está la cápsula!",
+      "objeto": "lupa",
+      "historia": "El mensaje de la tapa, leído en el espejo, dice: «Abrir en la fiesta de fin de curso». Habrá que esperar... ¡Solo una semana!",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es un banco.",
+          "Sé que en el banco el dinero está seguro.",
+          "Sé apuntar lo que se mete y lo que se saca."
+        ],
+        "prompt": "Dibuja el momento en que el club encuentra la cápsula."
+      }
+    },
+    {
+      "dia": 191,
+      "semana": 39,
+      "tema": "La fiesta de fin de curso",
+      "objeto": "galleta",
+      "historia": "En la fiesta de fin de curso, cada clase monta un puesto en el mercadillo. La de Lucía vende galletas, libros usados y macetas con flores. Lo que ganen será para la biblioteca.",
+      "actividad": {
+        "tipo": "compra",
+        "cosas": [
+          [
+            "galleta",
+            2
+          ],
+          [
+            "libro",
+            4
+          ],
+          [
+            "maceta",
+            5
+          ]
+        ],
+        "compra": [
+          "galleta",
+          "libro"
+        ],
+        "pregunta": "Una mamá compra una bolsa de galletas y un libro. ¿Cuánto paga?"
+      }
+    },
+    {
+      "dia": 192,
+      "semana": 39,
+      "tema": "La fiesta de fin de curso",
+      "objeto": "libro",
+      "historia": "Sofía lleva las cuentas del puesto: empieza con 10 € en monedas, para poder dar la vuelta, y apunta cada venta en su cuaderno.",
+      "actividad": {
+        "tipo": "cuentas",
+        "empieza": 10,
+        "pregunta": "Las cuentas del puesto: ¿cuánto hay después de cada apunte?",
+        "apuntes": [
+          [
+            "Vende galletas",
+            12
+          ],
+          [
+            "Vende libros",
+            20
+          ],
+          [
+            "Compra más vasos",
+            -4
+          ],
+          [
+            "Vende macetas",
+            15
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 193,
+      "semana": 39,
+      "tema": "La fiesta de fin de curso",
+      "objeto": "maceta",
+      "historia": "Hugo atiende a los clientes. Un señor compra una maceta y paga con un billete grande: Hugo cuenta la vuelta dos veces, para no equivocarse.",
+      "actividad": {
+        "tipo": "cambio",
+        "cosa": [
+          "maceta",
+          5
+        ],
+        "paga": [
+          20
+        ],
+        "pregunta": "Una maceta cuesta 5 €. Un señor paga con un billete de 20 €. ¿Cuánto le devuelve Hugo?"
+      }
+    },
+    {
+      "dia": 194,
+      "semana": 39,
+      "tema": "La fiesta de fin de curso",
+      "objeto": "carta",
+      "historia": "Por fin abren la cápsula: dentro hay cartas de los niños de hace veinticinco años. Pilar quería ser médica; Jorge, bombero; Ana, panadera... y una carta sin firma dice: «Quiero ser maestra en este colegio».",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Qué quería ser cada uno?",
+        "pares": [
+          [
+            "Pilar",
+            "médica"
+          ],
+          [
+            "Jorge",
+            "bombero"
+          ],
+          [
+            "Ana",
+            "panadera"
+          ],
+          [
+            "La carta sin firma",
+            "maestra"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 195,
+      "semana": 39,
+      "tema": "La fiesta de fin de curso",
+      "objeto": "estrella",
+      "historia": "Caso resuelto: la carta sin firma es de Marta, que sujetaba la caja en la foto. ¡Y lo ha conseguido! El club escribe su propia carta para una cápsula nueva.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es vender.",
+          "Sé llevar las cuentas de un puesto.",
+          "Sé dar la vuelta sin equivocarme."
+        ],
+        "prompt": "Dibuja un puesto del mercadillo, y lo que venderías tú."
+      }
+    }
+  ]
+}

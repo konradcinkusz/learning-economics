@@ -103,10 +103,11 @@ Font License 1.1 ([`fonts/andika/OFL.txt`](fonts/andika/OFL.txt)). Ver
 
 ## Estado
 
-**En obras**: el motor, el diseño, el otoño y el invierno (días
-1--130: el valor de las cosas, el trueque y el dinero, lo que es de
-todos, el ahorro y el precio; elegir, comparar precios, producir,
-cuidar, el presupuesto, el coste y los servicios), con sus dos
-medallas. Se escribe
+**En obras**: el motor, el diseño y tres trimestres (días 1--195: el
+valor de las cosas, el trueque y el dinero, lo que es de todos, el
+ahorro y el precio; elegir, comparar precios, producir, cuidar, el
+presupuesto, el coste y los servicios; el euro, el gasto, el sueldo,
+las tiendas, la cadena de la miel, el banco y vender, con el cuaderno
+de cuentas), con sus tres medallas. Falta el verano. Se escribe
 en cinco fases, un PR cada una, como *Aprendo los números*: ver "Las
 fases" en [`notes/01-plan.md`](notes/01-plan.md).

@@ -103,11 +103,17 @@ Font License 1.1 ([`fonts/andika/OFL.txt`](fonts/andika/OFL.txt)). Ver
 
 ## Estado
 
-**En obras**: el motor, el diseño y tres trimestres (días 1--195: el
-valor de las cosas, el trueque y el dinero, lo que es de todos, el
-ahorro y el precio; elegir, comparar precios, producir, cuidar, el
-presupuesto, el coste y los servicios; el euro, el gasto, el sueldo,
-las tiendas, la cadena de la miel, el banco y vender, con el cuaderno
-de cuentas), con sus tres medallas. Falta el verano. Se escribe
-en cinco fases, un PR cada una, como *Aprendo los números*: ver "Las
-fases" en [`notes/01-plan.md`](notes/01-plan.md).
+**Completo.** Los 260 días, las 52 semanas de *Leo con lupa* con sus 52
+palabras: el valor de las cosas, el trueque y el dinero, lo que es de
+todos, el ahorro y el precio (otoño); elegir, comparar precios,
+producir, cuidar, el presupuesto, el coste y los servicios (invierno);
+el euro, el gasto, el sueldo, las tiendas, la cadena de la miel, el
+banco y vender, con el cuaderno de cuentas (primavera); y la prioridad,
+la medida, la demanda, el deseo, el oficio, la paga, el tesoro, la
+ganancia, las rebajas y planear, hasta la palabra que lo junta todo:
+*economía* (verano). Con sus tres medallas, la clave de respuestas, *Mi
+diccionario de economía* y el diploma, en color y en blanco y negro.
+Cada push comprueba el cuaderno entero: 1 día = 1 página, ninguna caja
+que se salga, y todas las cuentas y la clave, calculadas por el script.
+Se escribió en cinco fases, como *Aprendo los números*: ver "Las fases"
+en [`notes/01-plan.md`](notes/01-plan.md).

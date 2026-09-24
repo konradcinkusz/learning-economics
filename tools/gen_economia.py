@@ -54,7 +54,7 @@ SEMANAS_POR_TRIMESTRE = 13
 # uno en verde antes de fusionarse), cuántos días tiene ya escritos: se
 # exigen exactamente esos, del 1 en adelante y sin huecos. None = el
 # cuaderno está entero, con sus 260 días.
-DIAS_ESCRITOS = 195
+DIAS_ESCRITOS = None
 
 NOMBRE_MEDALLA = {1: "Otoño", 2: "Invierno", 3: "Primavera"}
 ULTIMO_DIA_TRIMESTRE = {1: 65, 2: 130, 3: 195, 4: 260}
@@ -129,7 +129,7 @@ DESDE_SEMANA = {
 # Lo que se come: al repartirlo, va en platos; lo demás, en recuadros.
 COMIDA = {"manzana", "caramelo", "galleta", "castana", "huevo", "mandarina", "fresa", "piruleta",
           "tarta", "torrija", "zanahoria", "tomate", "pan", "lechuga", "helado", "churro",
-          "uva", "racimo", "roscon", "leche", "miel"}
+          "uva", "racimo", "roscon", "leche", "miel", "limon"}
 
 
 class ErrorDeContenido(Exception):
@@ -218,6 +218,8 @@ OBJETOS = {
     "leche": (r"\objLeche", "cartón de leche", "cartones de leche", "m"),
     "miel": (r"\objMiel", "tarro de miel", "tarros de miel", "m"),
     "tortuga": (r"\objTortuga", "tortuga", "tortugas", "f"),
+    "limon": (r"\objLimon", "limón", "limones", "m"),
+    "caracol": (r"\objCaracol", "caracol", "caracoles", "m"),
     # Las de "Aprendo los números" (diagrams/objetos.tex).
     "manzana": (r"\objManzana", "manzana", "manzanas", "f"),
     "pelota": (r"\objPelota", "pelota", "pelotas", "f"),

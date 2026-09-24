@@ -182,4 +182,5 @@ los números*:
 4. **La primavera** (días 131--195): *Las cuentas*, el cuaderno de lo
    que entra, lo que sale y lo que queda; la medalla de primavera.
    Hecho.
-5. **El verano** (días 196--260), y publicarlo.
+5. **El verano** (días 196--260), y publicarlo: el cuaderno entero
+   (`DIAS_ESCRITOS = None`), la página de descarga y el README. Hecho.

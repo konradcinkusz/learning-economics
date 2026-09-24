@@ -1,0 +1,1638 @@
+{
+  "_comentario": "Verano (trimestre 4, días 196-260): las semanas 40-52 de «Leo con lupa», cada una con su idea y su palabra ('semanas'), y los días ('dias'), como en content/q1.json. Ver notes/01-plan.md.",
+  "semanas": [
+    {
+      "semana": 40,
+      "palabra": "prioridad",
+      "definicion": "Lo que va primero, porque es lo más importante.",
+      "formas": [
+        "prioridad",
+        "prioridades"
+      ]
+    },
+    {
+      "semana": 41,
+      "palabra": "comparar",
+      "definicion": "Mirar dos o más cosas para ver en qué se parecen y en qué no, como los precios de dos tiendas.",
+      "formas": [
+        "comparar",
+        "compara",
+        "comparan",
+        "comparamos"
+      ]
+    },
+    {
+      "semana": 42,
+      "palabra": "medida",
+      "definicion": "Lo que se usa para saber cuánto mide o cuánto pesa algo, igual para todos: los metros, los kilos, los litros.",
+      "formas": [
+        "medida",
+        "medidas"
+      ]
+    },
+    {
+      "semana": 43,
+      "palabra": "cuentas",
+      "definicion": "Lo que se apunta del dinero: lo que entra, lo que sale y lo que queda.",
+      "formas": [
+        "cuentas"
+      ]
+    },
+    {
+      "semana": 44,
+      "palabra": "demanda",
+      "definicion": "Las ganas que tiene la gente de comprar algo: si muchos lo quieren y hay poco, el precio sube.",
+      "formas": [
+        "demanda"
+      ]
+    },
+    {
+      "semana": 45,
+      "palabra": "deseo",
+      "definicion": "Algo que nos gustaría tener o que nos gustaría que pasara.",
+      "formas": [
+        "deseo",
+        "deseos",
+        "desea"
+      ]
+    },
+    {
+      "semana": 46,
+      "palabra": "oficio",
+      "definicion": "El trabajo que sabe hacer una persona: pescador, panadera, carpintero...",
+      "formas": [
+        "oficio",
+        "oficios"
+      ]
+    },
+    {
+      "semana": 47,
+      "palabra": "paga",
+      "definicion": "El dinero que los mayores les dan a los niños para sus cosas, cada semana o en las fiestas.",
+      "formas": [
+        "paga",
+        "pagas"
+      ]
+    },
+    {
+      "semana": 48,
+      "palabra": "tesoro",
+      "definicion": "Algo que vale mucho para nosotros, aunque no cueste dinero.",
+      "formas": [
+        "tesoro",
+        "tesoros"
+      ]
+    },
+    {
+      "semana": 49,
+      "palabra": "ganancia",
+      "definicion": "Lo que se gana al vender: lo que se cobra, menos lo que se ha gastado.",
+      "formas": [
+        "ganancia",
+        "ganancias"
+      ]
+    },
+    {
+      "semana": 50,
+      "palabra": "rebajas",
+      "definicion": "Los días en que las tiendas venden las cosas más baratas que antes.",
+      "formas": [
+        "rebajas",
+        "rebajada",
+        "rebajado"
+      ]
+    },
+    {
+      "semana": 51,
+      "palabra": "planear",
+      "definicion": "Pensar antes lo que se va a hacer, para hacerlo bien.",
+      "formas": [
+        "planear",
+        "planea",
+        "planean",
+        "planeamos"
+      ]
+    },
+    {
+      "semana": 52,
+      "palabra": "economía",
+      "definicion": "Cómo usamos el dinero, el trabajo y las cosas que tenemos para vivir.",
+      "formas": [
+        "economía"
+      ]
+    }
+  ],
+  "dias": [
+    {
+      "dia": 196,
+      "semana": 40,
+      "tema": "La maleta",
+      "objeto": "maleta",
+      "historia": "Dani prepara su maleta para el pueblo, y quiere meterlo todo: juguetes, cuentos, su tambor... La maleta no cierra. Mamá le explica que hay que pensar en la prioridad: primero, lo importante.",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Va en la maleta, o puede quedarse en casa?",
+        "cajas": [
+          "A la maleta",
+          "Puede quedarse"
+        ],
+        "cosas": [
+          [
+            "el cepillo de dientes",
+            0
+          ],
+          [
+            "diez juguetes",
+            1
+          ],
+          [
+            "el pijama",
+            0
+          ],
+          [
+            "el tambor",
+            1
+          ],
+          [
+            "la crema del sol",
+            0
+          ],
+          [
+            "tres pares de botas",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 197,
+      "semana": 40,
+      "tema": "La maleta",
+      "objeto": "gorro",
+      "historia": "Lucía le enseña a Dani a hacer una lista. Dani la lee muy deprisa y va metiendo cosas del armario. Al final, la maleta cierra... pero asoma un pompón rojo.",
+      "actividad": {
+        "tipo": "ordena",
+        "pregunta": "¿En qué orden se hace la maleta?",
+        "pasos": [
+          "Se hace una lista.",
+          "Se mete lo más importante.",
+          "Se añade lo que quepa.",
+          "Se cierra la maleta."
+        ]
+      }
+    },
+    {
+      "dia": 198,
+      "semana": 40,
+      "tema": "La maleta",
+      "objeto": "cubo",
+      "historia": "Para el verano, Dani quiere un cubo para la arena del río y una pelota. Con los 10 € de su hucha no le llega para las dos cosas: tiene que decidir cuál es su prioridad.",
+      "actividad": {
+        "tipo": "elige",
+        "tengo": 10,
+        "cosas": [
+          [
+            "cubo",
+            6
+          ],
+          [
+            "pelota",
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 199,
+      "semana": 40,
+      "tema": "La maleta",
+      "objeto": "mochila",
+      "historia": "Antes del viaje, Mamá compra lo que falta. Una maleta nueva es muy cara, así que arreglan la vieja, y solo compran una mochila para Dani y un cubo.",
+      "actividad": {
+        "tipo": "compra",
+        "cosas": [
+          [
+            "maleta",
+            35
+          ],
+          [
+            "mochila",
+            15
+          ],
+          [
+            "cubo",
+            6
+          ]
+        ],
+        "compra": [
+          "mochila",
+          "cubo"
+        ],
+        "pregunta": "Mamá compra una mochila y un cubo. ¿Cuánto paga?"
+      }
+    },
+    {
+      "dia": 200,
+      "semana": 40,
+      "tema": "La maleta",
+      "objeto": "gorro",
+      "historia": "Caso resuelto: Dani leyó la lista tan deprisa que confundió «gorra» con «gorro», ¡y metió el de lana! Menos mal que Lucía lo vio antes de salir.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es una prioridad.",
+          "Sé hacer una lista antes de llenar la maleta.",
+          "Sé elegir lo más importante."
+        ],
+        "prompt": "Dibuja tu maleta para el verano, con lo más importante."
+      }
+    },
+    {
+      "dia": 201,
+      "semana": 41,
+      "tema": "Otra vez en el pueblo",
+      "objeto": "tomate",
+      "historia": "Ya están en el pueblo de la abuela. En la plaza hay una tienda pequeña, los ultramarinos de Carmen, y en la carretera, un supermercado grande. La abuela los compara: los precios, lo lejos que están y el trato.",
+      "actividad": {
+        "tipo": "compara",
+        "objeto": "tomate",
+        "tiendas": [
+          [
+            "Ultramarinos",
+            3
+          ],
+          [
+            "Supermercado",
+            2
+          ]
+        ],
+        "pregunta": "Un kilo de tomates cuesta 3 € en los ultramarinos y 2 € en el supermercado. ¿Dónde es más barato? ¿Cuánto te ahorras?"
+      }
+    },
+    {
+      "dia": 202,
+      "semana": 41,
+      "tema": "Otra vez en el pueblo",
+      "objeto": "mapa",
+      "historia": "Lucía compara el mapa de la abuela con la era de hoy: el pozo sigue ahí, tapado con una tapa de madera, pero de los tres álamos solo quedan dos... y un tocón.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Comparar es mirar en qué se parecen y en qué no dos cosas.",
+            true
+          ],
+          [
+            "Lo más barato siempre es lo mejor.",
+            false
+          ],
+          [
+            "La tienda del pueblo está más cerca de casa de la abuela.",
+            true
+          ],
+          [
+            "Para comparar precios hay que mirar las etiquetas.",
+            true
+          ],
+          [
+            "Si comparas antes de comprar, gastas más.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 203,
+      "semana": 41,
+      "tema": "Otra vez en el pueblo",
+      "objeto": "helado",
+      "historia": "En los ultramarinos de Carmen hay de todo: helados, cubos para la playa del río, pelotas... Dani lleva 15 € que le ha dado la abuela.",
+      "actividad": {
+        "tipo": "llega",
+        "tengo": 15,
+        "cosas": [
+          [
+            "helado",
+            2
+          ],
+          [
+            "pelota",
+            18
+          ],
+          [
+            "cubo",
+            6
+          ],
+          [
+            "bici",
+            80
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 204,
+      "semana": 41,
+      "tema": "Otra vez en el pueblo",
+      "objeto": "pan",
+      "historia": "Andrés, el vecino de la abuela, dice que él compra en los dos sitios: en la tienda del pueblo, lo de cada día; en el supermercado, lo de toda la semana.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Qué tiene de bueno cada sitio?",
+        "pares": [
+          [
+            "La tienda del pueblo",
+            "está cerca y te conocen"
+          ],
+          [
+            "El supermercado",
+            "tiene muchas cosas"
+          ],
+          [
+            "El mercado del sábado",
+            "trae fruta de los huertos"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 205,
+      "semana": 41,
+      "tema": "Otra vez en el pueblo",
+      "objeto": "arbol",
+      "historia": "La piedra de la tortuga ya no está en la era: está en el jardín del molino, como contó Martín. Pero el pozo sigue en su sitio. ¡El tesoro podría estar cerca!",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es comparar.",
+          "Sé comparar precios entre dos tiendas.",
+          "Sé que lo más barato no siempre es lo mejor."
+        ],
+        "prompt": "Dibuja la tienda del pueblo de la abuela."
+      }
+    },
+    {
+      "dia": 206,
+      "semana": 42,
+      "tema": "Diez pasos",
+      "objeto": "mapa",
+      "historia": "Papá cuenta diez pasos desde el pozo, hacia los álamos... y acaba detrás de ellos, donde no hay nada. La abuela se ríe: el paso no es una buena medida, porque cada uno tiene el suyo.",
+      "actividad": {
+        "tipo": "problema",
+        "texto": "Diez pasos de Papá son 8 metros, y diez pasos de Lucía, 4 metros. ¿Cuántos metros más son los de Papá?",
+        "operacion": [
+          8,
+          "-",
+          4
+        ]
+      }
+    },
+    {
+      "dia": 207,
+      "semana": 42,
+      "tema": "Diez pasos",
+      "objeto": "reloj",
+      "historia": "Para que sea justo, las cosas se miden con medidas que son iguales para todos: los metros, los kilos, los litros... En la tienda del pueblo, Carmen pesa la fruta en su báscula.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Con qué se mide cada cosa?",
+        "pares": [
+          [
+            "lo largo que es",
+            "con una cinta métrica"
+          ],
+          [
+            "lo que pesa",
+            "con una báscula"
+          ],
+          [
+            "el tiempo",
+            "con un reloj"
+          ],
+          [
+            "la leche",
+            "con un vaso medidor"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 208,
+      "semana": 42,
+      "tema": "Diez pasos",
+      "objeto": "manzana",
+      "historia": "El sábado hay mercado en la plaza del pueblo. La abuela compra allí la fruta, porque los agricultores la traen de sus huertos, y el kilo sale más barato.",
+      "actividad": {
+        "tipo": "compara",
+        "objeto": "manzana",
+        "tiendas": [
+          [
+            "Ultramarinos",
+            3
+          ],
+          [
+            "Mercado",
+            2
+          ]
+        ],
+        "pregunta": "Un kilo de manzanas cuesta 3 € en los ultramarinos y 2 € en el mercado. ¿Dónde es más barato? ¿Cuánto te ahorras?"
+      }
+    },
+    {
+      "dia": 209,
+      "semana": 42,
+      "tema": "Diez pasos",
+      "objeto": "manzana",
+      "historia": "Dani quiere repartir las manzanas del huerto de la abuela con Martín y con Lucía. Para que sea justo, las reparte de una en una, como le enseñó Mamá.",
+      "actividad": {
+        "tipo": "reparte",
+        "objeto": "manzana",
+        "total": 14,
+        "entre": 3,
+        "pregunta": "Reparte 14 manzanas entre Dani, Martín y Lucía. ¿Cuántas le tocan a cada uno? ¿Sobra alguna?"
+      }
+    },
+    {
+      "dia": 210,
+      "semana": 42,
+      "tema": "Diez pasos",
+      "objeto": "mapa",
+      "historia": "Caso resuelto: los pasos de Papá son mucho más largos que los de una niña de ocho años, como era Rosa cuando dibujó el mapa. ¡Por eso Papá no encontró nada!",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es una medida.",
+          "Sé con qué se miden las cosas.",
+          "Sé que las medidas tienen que ser iguales para todos."
+        ],
+        "prompt": "Dibuja a Papá y a Lucía contando sus pasos desde el pozo."
+      }
+    },
+    {
+      "dia": 211,
+      "semana": 43,
+      "tema": "El diario de Lucía",
+      "objeto": "libro",
+      "historia": "En el pueblo, Lucía escribe un diario. En la última página lleva sus cuentas del verano: lo que le dan, lo que gasta y lo que le queda.",
+      "actividad": {
+        "tipo": "cuentas",
+        "empieza": 20,
+        "pregunta": "Las cuentas del verano de Lucía: ¿cuánto le queda después de cada apunte?",
+        "apuntes": [
+          [
+            "La abuela le da",
+            10
+          ],
+          [
+            "Compra un helado",
+            -2
+          ],
+          [
+            "Compra un cuaderno",
+            -4
+          ],
+          [
+            "Ayuda a Andrés",
+            5
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 212,
+      "semana": 43,
+      "tema": "El diario de Lucía",
+      "objeto": "lechuga",
+      "historia": "Algo visita el huerto de la abuela por la noche. Las lechugas están enteras, pero los caracoles desaparecen. Lucía lo apunta todo en su diario.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Llevar las cuentas es apuntar lo que entra y lo que sale.",
+            true
+          ],
+          [
+            "Si no apuntas nada, siempre sabes lo que tienes.",
+            false
+          ],
+          [
+            "Lo que queda es lo que tenías, más lo que entra, menos lo que sale.",
+            true
+          ],
+          [
+            "Las cuentas solo las llevan los bancos.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 213,
+      "semana": 43,
+      "tema": "El diario de Lucía",
+      "objeto": "moneda",
+      "historia": "Antes de dormir, Lucía comprueba sus cuentas: cuenta el dinero de su monedero, para ver si es lo mismo que dice el diario.",
+      "actividad": {
+        "tipo": "dinero",
+        "dinero": [
+          20,
+          5,
+          2,
+          1,
+          1
+        ],
+        "pregunta": "¿Cuánto dinero tiene Lucía en el monedero?"
+      }
+    },
+    {
+      "dia": 214,
+      "semana": 43,
+      "tema": "El diario de Lucía",
+      "objeto": "caracol",
+      "historia": "En el barro hay huellas de cinco dedos con uñas, y por la noche se oyen resoplidos junto a la leña. ¿Quién será?",
+      "actividad": {
+        "tipo": "botes",
+        "total": 30,
+        "botes": [
+          15,
+          10,
+          5
+        ],
+        "falta": 2,
+        "pregunta": "Lucía tiene 30 €. Pone 15 € en el bote de ahorrar y 10 € en el de gastar. ¿Cuánto pone en el de compartir?"
+      }
+    },
+    {
+      "dia": 215,
+      "semana": 43,
+      "tema": "El diario de Lucía",
+      "objeto": "caracol",
+      "historia": "Caso resuelto: el visitante del huerto es un erizo, que se come los caracoles. ¡La abuela está encantada: le ayuda a cuidar las lechugas, y gratis!",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué son las cuentas.",
+          "Sé apuntar lo que entra y lo que sale.",
+          "Sé comprobar que mis cuentas están bien."
+        ],
+        "prompt": "Dibuja una página del diario de Lucía, con sus cuentas."
+      }
+    },
+    {
+      "dia": 216,
+      "semana": 44,
+      "tema": "Las abejas de Andrés",
+      "objeto": "abeja",
+      "historia": "Andrés tiene abejas y vende su miel en el pueblo. En agosto viene mucha gente, y todos quieren miel: hay mucha demanda. Si hay poca miel y muchos la quieren, el precio sube.",
+      "actividad": {
+        "tipo": "problema",
+        "texto": "En junio, un tarro de miel de Andrés cuesta 6 €; en agosto, cuesta 8 €. ¿Cuánto ha subido?",
+        "operacion": [
+          8,
+          "-",
+          6
+        ]
+      }
+    },
+    {
+      "dia": 217,
+      "semana": 44,
+      "tema": "Las abejas de Andrés",
+      "objeto": "miel",
+      "historia": "Andrés se pone su traje de apicultor para sacar la miel. Explica que este año las abejas han hecho menos, porque ha llovido poco y hay pocas flores.",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Sube o baja el precio?",
+        "cajas": [
+          "Sube",
+          "Baja"
+        ],
+        "cosas": [
+          [
+            "Todos quieren miel, y hay poca.",
+            0
+          ],
+          [
+            "Nadie quiere paraguas en verano.",
+            1
+          ],
+          [
+            "Hay muchísimas sandías.",
+            1
+          ],
+          [
+            "Todos quieren helados en agosto.",
+            0
+          ],
+          [
+            "Sobran castañas en la tienda.",
+            1
+          ],
+          [
+            "Faltan entradas para el circo.",
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 218,
+      "semana": 44,
+      "tema": "Las abejas de Andrés",
+      "objeto": "huevo",
+      "historia": "A la abuela le gusta comprarle a Andrés: la miel, los huevos y las lechugas son de aquí, y sabe cómo los cuida.",
+      "actividad": {
+        "tipo": "compra",
+        "cosas": [
+          [
+            "miel",
+            8
+          ],
+          [
+            "huevo",
+            3
+          ],
+          [
+            "lechuga",
+            1
+          ]
+        ],
+        "compra": [
+          "miel",
+          "huevo"
+        ],
+        "pregunta": "La abuela compra un tarro de miel y una docena de huevos. ¿Cuánto paga?"
+      }
+    },
+    {
+      "dia": 219,
+      "semana": 44,
+      "tema": "Las abejas de Andrés",
+      "objeto": "gato",
+      "historia": "En la cocina de Andrés, alguien se ha metido en un tarro de miel. La tapa estaba solo apoyada, y hay una fila de puntitos negros que viene del limonero.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Qué le gusta a cada uno?",
+        "pares": [
+          [
+            "A las abejas",
+            "las flores"
+          ],
+          [
+            "A las hormigas",
+            "lo dulce"
+          ],
+          [
+            "A Bigotes, el gato",
+            "el queso"
+          ],
+          [
+            "A Andrés",
+            "sus abejas"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 220,
+      "semana": 44,
+      "tema": "Las abejas de Andrés",
+      "objeto": "miel",
+      "historia": "Caso resuelto: ¡fueron las hormigas! A Bigotes no le interesa la miel, solo el queso. Andrés ahora cierra bien los tarros: la miel está cara este año.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es la demanda.",
+          "Sé que si muchos quieren algo y hay poco, el precio sube.",
+          "Sé de dónde viene la miel."
+        ],
+        "prompt": "Dibuja a Andrés con su traje de apicultor."
+      }
+    },
+    {
+      "dia": 221,
+      "semana": 45,
+      "tema": "La noche de las estrellas fugaces",
+      "objeto": "estrella",
+      "historia": "En agosto, toda la familia sale al jardín del molino a ver estrellas fugaces. Dani dice que cada estrella fugaz es un deseo: él pedirá una bici... y un viaje a la Luna.",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Es una necesidad o un deseo?",
+        "cajas": [
+          "Necesidad",
+          "Deseo"
+        ],
+        "cosas": [
+          [
+            "agua para beber",
+            0
+          ],
+          [
+            "una bici nueva",
+            1
+          ],
+          [
+            "una cama para dormir",
+            0
+          ],
+          [
+            "un telescopio",
+            1
+          ],
+          [
+            "ropa de abrigo",
+            0
+          ],
+          [
+            "un viaje a la Luna",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 222,
+      "semana": 45,
+      "tema": "La noche de las estrellas fugaces",
+      "objeto": "reloj",
+      "historia": "La abuela les enseña la Osa Mayor, que su padre, el relojero, llamaba «el reloj de la noche». Ella, de niña, deseaba ver el mar.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Un deseo es algo que nos gustaría tener.",
+            true
+          ],
+          [
+            "Todos los deseos se pueden comprar.",
+            false
+          ],
+          [
+            "Algunos deseos no cuestan dinero.",
+            true
+          ],
+          [
+            "Para cumplir algunos deseos hay que ahorrar.",
+            true
+          ],
+          [
+            "Un deseo es lo mismo que una necesidad.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 223,
+      "semana": 45,
+      "tema": "La noche de las estrellas fugaces",
+      "objeto": "bici",
+      "historia": "Dani ya sabe que la bici no va a caer del cielo con una estrella fugaz. Si de verdad la desea, tendrá que ahorrar para ella.",
+      "actividad": {
+        "tipo": "hucha",
+        "tiene": 20,
+        "cada": 10,
+        "meta": 60,
+        "pregunta": "Dani tiene 20 € y ahorra 10 € cada semana. La bici cuesta 60 €. ¿Cuántas semanas tarda?"
+      }
+    },
+    {
+      "dia": 224,
+      "semana": 45,
+      "tema": "La noche de las estrellas fugaces",
+      "objeto": "estrella",
+      "historia": "Esa noche, cada uno cuenta las estrellas fugaces que ve. Lucía ve siete; Dani dice que cien, pero se ha quedado dormido a la tercera.",
+      "actividad": {
+        "tipo": "ordena",
+        "pregunta": "¿Cómo se ven las estrellas fugaces?",
+        "pasos": [
+          "Se busca un sitio oscuro.",
+          "Se tumba uno en una manta.",
+          "Se mira al cielo sin prisa.",
+          "Se cuentan las estrellas que caen."
+        ]
+      }
+    },
+    {
+      "dia": 225,
+      "semana": 45,
+      "tema": "La noche de las estrellas fugaces",
+      "objeto": "estrella",
+      "historia": "Al volver a casa, Lucía piensa en su deseo. No es algo que se pueda comprar: quiere que el verano dure un poco más.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es un deseo.",
+          "Sé que un deseo no es lo mismo que una necesidad.",
+          "Sé ahorrar para cumplir un deseo."
+        ],
+        "prompt": "Dibuja tu deseo para una estrella fugaz."
+      }
+    },
+    {
+      "dia": 226,
+      "semana": 46,
+      "tema": "Una carta de Hugo",
+      "objeto": "carta",
+      "historia": "Hugo escribe desde el mar: su abuelo es pescador. Sale con su barca antes de que amanezca, y vende el pescado en la lonja. Es un oficio muy duro, dice Hugo.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Qué hace cada uno en su oficio?",
+        "pares": [
+          [
+            "El pescador",
+            "pesca en el mar"
+          ],
+          [
+            "La panadera",
+            "hace el pan"
+          ],
+          [
+            "El carpintero",
+            "hace muebles"
+          ],
+          [
+            "La fontanera",
+            "arregla los grifos"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 227,
+      "semana": 46,
+      "tema": "Una carta de Hugo",
+      "objeto": "pez",
+      "historia": "Cada hoja de la carta de Hugo cuenta un día. Hoy explica el camino del pescado: del mar a la lonja, de la lonja a la pescadería y de ahí, al plato.",
+      "actividad": {
+        "tipo": "ordena",
+        "pregunta": "¿En qué orden va? Del mar al plato",
+        "pasos": [
+          "El pescador pesca el pescado.",
+          "Lo vende en la lonja.",
+          "La pescadera lo vende en su tienda.",
+          "Lo cocinamos en casa."
+        ]
+      }
+    },
+    {
+      "dia": 228,
+      "semana": 46,
+      "tema": "Una carta de Hugo",
+      "objeto": "pez",
+      "historia": "En el pueblo no hay mar, pero los martes viene la furgoneta del pescadero. La abuela compra pescado fresco para la cena.",
+      "actividad": {
+        "tipo": "compra",
+        "cosas": [
+          [
+            "pez",
+            9
+          ],
+          [
+            "pan",
+            1
+          ],
+          [
+            "tomate",
+            2
+          ]
+        ],
+        "compra": [
+          "pez",
+          "pan"
+        ],
+        "pregunta": "La abuela compra pescado y una barra de pan. ¿Cuánto paga?"
+      }
+    },
+    {
+      "dia": 229,
+      "semana": 46,
+      "tema": "Una carta de Hugo",
+      "objeto": "carta",
+      "historia": "Hugo manda una adivinanza: «De día duermo, y de noche, con mi luz, a los barcos guío». ¡Es el faro! Y al final de la carta, un mensaje en clave: «Cuenta tus propios pasos».",
+      "actividad": {
+        "tipo": "problema",
+        "texto": "El abuelo de Hugo vende 25 kilos de pescado el lunes y 30 kilos el martes. ¿Cuántos kilos vende entre los dos días?",
+        "operacion": [
+          25,
+          "+",
+          30
+        ]
+      }
+    },
+    {
+      "dia": 230,
+      "semana": 46,
+      "tema": "Una carta de Hugo",
+      "objeto": "carta",
+      "historia": "Lucía descifra el mensaje de Hugo, y lo entiende de golpe: para encontrar el tesoro, tiene que contar sus propios pasos, los de una niña de ocho años. Le contesta con una carta.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es un oficio.",
+          "Sé qué hace un pescador.",
+          "Sé cómo llega el pescado del mar a mi plato."
+        ],
+        "prompt": "Dibuja el oficio que más te gusta."
+      }
+    },
+    {
+      "dia": 231,
+      "semana": 47,
+      "tema": "Las fiestas del pueblo",
+      "objeto": "moneda",
+      "historia": "Llegan las fiestas del pueblo. Como cada año, la abuela les da a Lucía y a Dani la paga de las fiestas, y Lucía reparte la suya en sus tres botes.",
+      "actividad": {
+        "tipo": "botes",
+        "total": 20,
+        "botes": [
+          10,
+          7,
+          3
+        ],
+        "falta": 2,
+        "pregunta": "Lucía tiene 20 €. Pone 10 € en el bote de ahorrar y 7 € en el de gastar. ¿Cuánto pone en el de compartir?"
+      }
+    },
+    {
+      "dia": 232,
+      "semana": 47,
+      "tema": "Las fiestas del pueblo",
+      "objeto": "helado",
+      "historia": "En la plaza hay puestos de churros, de helados y de globos, y una tómbola con ositos de premio. Lucía mira los precios antes de gastar.",
+      "actividad": {
+        "tipo": "llega",
+        "tengo": 7,
+        "cosas": [
+          [
+            "helado",
+            2
+          ],
+          [
+            "churro",
+            3
+          ],
+          [
+            "osito",
+            12
+          ],
+          [
+            "globo",
+            4
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 233,
+      "semana": 47,
+      "tema": "Las fiestas del pueblo",
+      "objeto": "estrella",
+      "historia": "Andrés siega la era antes de los fuegos artificiales, para que no haya peligro. Los fuegos los paga el ayuntamiento, con el dinero de todos los vecinos.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Las fiestas del pueblo se pagan entre todos.",
+            true
+          ],
+          [
+            "La paga es el dinero que ganan los mayores trabajando.",
+            false
+          ],
+          [
+            "Con la paga se puede ahorrar un poco.",
+            true
+          ],
+          [
+            "Los fuegos artificiales no cuestan nada.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 234,
+      "semana": 47,
+      "tema": "Las fiestas del pueblo",
+      "objeto": "globo",
+      "historia": "El club presenta un poema-adivinanza al concurso de las fiestas. Mientras esperan el resultado, Dani duda en qué gastar lo que le queda de su paga.",
+      "actividad": {
+        "tipo": "elige",
+        "tengo": 5,
+        "cosas": [
+          [
+            "helado",
+            2
+          ],
+          [
+            "globo",
+            4
+          ]
+        ],
+        "pregunta": "Dani tiene 5 €: le llega para un helado o para un globo, pero no para los dos. ¿Qué elegirías tú?"
+      }
+    },
+    {
+      "dia": 235,
+      "semana": 47,
+      "tema": "Las fiestas del pueblo",
+      "objeto": "lupa",
+      "historia": "¡El poema del club gana el concurso! La solución de la adivinanza era la lupa. La noticia sale en la hoja del pueblo, con una foto de los tres... y de Dani.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es la paga.",
+          "Sé repartir mi paga en tres botes.",
+          "Sé que las fiestas del pueblo se pagan entre todos."
+        ],
+        "prompt": "Dibuja la plaza del pueblo en fiestas."
+      }
+    },
+    {
+      "dia": 236,
+      "semana": 48,
+      "tema": "¡El tesoro de Rosa!",
+      "objeto": "mapa",
+      "historia": "Lucía, con ocho años como Rosa, cuenta diez pasos suyos desde el pozo y se para junto al tocón. Allí la hierba crece distinta, en una mancha redonda. ¿Será ahí el tesoro?",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Un tesoro puede no costar dinero.",
+            true
+          ],
+          [
+            "Solo el oro es un tesoro.",
+            false
+          ],
+          [
+            "Una foto de la familia puede ser un tesoro.",
+            true
+          ],
+          [
+            "Los tesoros se compran en las tiendas.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 237,
+      "semana": 48,
+      "tema": "¡El tesoro de Rosa!",
+      "objeto": "canica",
+      "historia": "Con la pala de Andrés, cavan con cuidado y aparece una caja de lata oxidada. Dentro hay una canica azul, una foto antigua y una carta: «Para la Rosa de mayor».",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Cuesta dinero?",
+        "cajas": [
+          "Cuesta dinero",
+          "No cuesta dinero"
+        ],
+        "cosas": [
+          [
+            "un abrazo de la abuela",
+            1
+          ],
+          [
+            "un helado",
+            0
+          ],
+          [
+            "una foto antigua de la familia",
+            1
+          ],
+          [
+            "una bici",
+            0
+          ],
+          [
+            "una carta de un amigo",
+            1
+          ],
+          [
+            "una entrada de cine",
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 238,
+      "semana": 48,
+      "tema": "¡El tesoro de Rosa!",
+      "objeto": "lupa",
+      "historia": "En la foto, Rosa niña está con su padre, el relojero, que sostiene una lupa: ¡la misma lupa de tres rayas que ahora es de Lucía!",
+      "actividad": {
+        "tipo": "dibuja",
+        "prompt": "Dibuja la foto de Rosa niña con su padre, que sostiene la lupa."
+      }
+    },
+    {
+      "dia": 239,
+      "semana": 48,
+      "tema": "¡El tesoro de Rosa!",
+      "objeto": "carta",
+      "historia": "La carta dice: «Si algún día tienes nietos, enséñales a mirar con la lupa de papá». La abuela sonríe, con los ojos brillantes: —Ya lo hice.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Por qué vale tanto cada cosa?",
+        "pares": [
+          [
+            "la canica azul",
+            "era su favorita"
+          ],
+          [
+            "la foto",
+            "sale con su padre"
+          ],
+          [
+            "la carta",
+            "la escribió de niña"
+          ],
+          [
+            "la lupa",
+            "era del bisabuelo"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 240,
+      "semana": 48,
+      "tema": "¡El tesoro de Rosa!",
+      "objeto": "lupa",
+      "historia": "La abuela guarda la caja de lata en su cómoda, junto a la lupa. —No vale dinero —dice—, pero es mi mayor tesoro.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es un tesoro.",
+          "Sé que lo que más vale no siempre cuesta dinero.",
+          "Sé usar un mapa para encontrar algo."
+        ],
+        "prompt": "Dibuja tu tesoro: algo que vale mucho para ti."
+      }
+    },
+    {
+      "dia": 241,
+      "semana": 49,
+      "tema": "El mapa de Dani y Martín",
+      "objeto": "limon",
+      "historia": "Dani y Martín montan un puesto de limonada en la puerta de la abuela. Quieren saber si tienen ganancia: lo que cobran, menos lo que se han gastado.",
+      "actividad": {
+        "tipo": "cuentas",
+        "empieza": 10,
+        "pregunta": "Las cuentas del puesto: ¿cuánto hay en la caja después de cada apunte?",
+        "apuntes": [
+          [
+            "Compran limones y azúcar",
+            -6
+          ],
+          [
+            "Venden 8 vasos",
+            16
+          ],
+          [
+            "Compran más vasos",
+            -2
+          ],
+          [
+            "Venden 5 vasos",
+            10
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 242,
+      "semana": 49,
+      "tema": "El mapa de Dani y Martín",
+      "objeto": "limon",
+      "historia": "Al final de la tarde, Martín cuenta el dinero que han cobrado, y Dani, lo que se han gastado. La ganancia es lo que han ganado de más.",
+      "actividad": {
+        "tipo": "problema",
+        "texto": "Han cobrado 26 € y se han gastado 8 € en limones, azúcar y vasos. ¿Cuánto han ganado?",
+        "operacion": [
+          26,
+          "-",
+          8
+        ]
+      }
+    },
+    {
+      "dia": 243,
+      "semana": 49,
+      "tema": "El mapa de Dani y Martín",
+      "objeto": "moneda",
+      "historia": "Dani y Martín se reparten la ganancia a partes iguales, moneda a moneda. Así ninguno de los dos se lleva más que el otro.",
+      "actividad": {
+        "tipo": "reparte",
+        "objeto": "moneda",
+        "total": 18,
+        "entre": 2,
+        "pregunta": "Reparte 18 monedas de 1 € entre Dani y Martín. ¿Cuántas le tocan a cada uno? ¿Sobra alguna?"
+      }
+    },
+    {
+      "dia": 244,
+      "semana": 49,
+      "tema": "El mapa de Dani y Martín",
+      "objeto": "mapa",
+      "historia": "Después, entierran una lata con un mensaje para el verano que viene. Para su mapa, cuentan baldosas, «porque las baldosas no crecen», dice Martín.",
+      "actividad": {
+        "tipo": "ordena",
+        "pregunta": "¿Cómo se monta un puesto de limonada?",
+        "pasos": [
+          "Se compran limones y azúcar.",
+          "Se hace la limonada.",
+          "Se pone el precio en un cartel.",
+          "Se vende a los vecinos.",
+          "Se cuenta lo que se ha ganado."
+        ]
+      }
+    },
+    {
+      "dia": 245,
+      "semana": 49,
+      "tema": "El mapa de Dani y Martín",
+      "objeto": "cubo",
+      "historia": "Dani y Martín guardan su mapa en la caja de lata de la abuela. El verano que viene abrirán su tesoro... y montarán otra vez su puesto.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es la ganancia.",
+          "Sé calcular lo que gano: lo que cobro, menos lo que gasto.",
+          "Sé repartir a partes iguales."
+        ],
+        "prompt": "Dibuja tu propio mapa del tesoro."
+      }
+    },
+    {
+      "dia": 246,
+      "semana": 50,
+      "tema": "Vuelta a la ciudad",
+      "objeto": "coche",
+      "historia": "Vuelven a la ciudad a finales de agosto, y las tiendas están de rebajas: las cosas cuestan menos que antes. Mamá dice que es buen momento para comprar lo que haga falta, pero solo eso.",
+      "actividad": {
+        "tipo": "problema",
+        "texto": "Unas zapatillas costaban 30 €, y en rebajas cuestan 20 €. ¿Cuánto te ahorras?",
+        "operacion": [
+          30,
+          "-",
+          20
+        ]
+      }
+    },
+    {
+      "dia": 247,
+      "semana": 50,
+      "tema": "Vuelta a la ciudad",
+      "objeto": "libro",
+      "historia": "En el coche, de vuelta, todos cuentan su verano. Dani ha hecho un cómic con las mejores aventuras, y Lucía lo lee del final al principio, ¡para ver cómo empezó todo!",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Nos hace falta, o solo está barato?",
+        "cajas": [
+          "Nos hace falta",
+          "Solo está barato"
+        ],
+        "cosas": [
+          [
+            "unas zapatillas para el cole",
+            0
+          ],
+          [
+            "un tercer balón",
+            1
+          ],
+          [
+            "un estuche para Dani",
+            0
+          ],
+          [
+            "un sombrero de vaquero",
+            1
+          ],
+          [
+            "un abrigo para el invierno",
+            0
+          ],
+          [
+            "una lámpara con forma de pez",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 248,
+      "semana": 50,
+      "tema": "Vuelta a la ciudad",
+      "objeto": "moneda",
+      "historia": "Mamá lleva el dinero justo para las compras de las rebajas, y lo cuenta antes de salir: así sabe cuánto puede gastar.",
+      "actividad": {
+        "tipo": "dinero",
+        "dinero": [
+          50,
+          20,
+          10,
+          5
+        ],
+        "pregunta": "¿Cuánto dinero lleva Mamá para las compras?"
+      }
+    },
+    {
+      "dia": 249,
+      "semana": 50,
+      "tema": "Vuelta a la ciudad",
+      "objeto": "mochila",
+      "historia": "En la tienda, la mochila de Dani está rebajada. Mamá paga con un billete de 50 €, y Dani mira atento cómo le dan la vuelta.",
+      "actividad": {
+        "tipo": "cambio",
+        "cosa": [
+          "mochila",
+          25
+        ],
+        "paga": [
+          50
+        ]
+      }
+    },
+    {
+      "dia": 250,
+      "semana": 50,
+      "tema": "Vuelta a la ciudad",
+      "objeto": "carta",
+      "historia": "En casa, Lucía encuentra en su mochila un mensaje al revés de Martín: «¡Hasta el verano que viene!». Lo lee con un espejo y sonríe.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué son las rebajas.",
+          "Sé calcular cuánto me ahorro en rebajas.",
+          "Sé comprar solo lo que me hace falta."
+        ],
+        "prompt": "Dibuja algo que comprarías en rebajas, porque te hace falta."
+      }
+    },
+    {
+      "dia": 251,
+      "semana": 51,
+      "tema": "Dani, al cole de los mayores",
+      "objeto": "lapiz",
+      "historia": "Dani va a empezar 1.º, en el cole de los mayores. Antes de comprar el material, Mamá y Dani lo planean: hacen una lista y miran lo que ya tienen en casa.",
+      "actividad": {
+        "tipo": "compra",
+        "cosas": [
+          [
+            "lapiz",
+            2
+          ],
+          [
+            "libro",
+            12
+          ],
+          [
+            "pelota",
+            8
+          ]
+        ],
+        "compra": [
+          "lapiz",
+          "libro"
+        ],
+        "pregunta": "Dani necesita lápices y un libro para el cole. ¿Cuánto cuesta todo?"
+      }
+    },
+    {
+      "dia": 252,
+      "semana": 51,
+      "tema": "Dani, al cole de los mayores",
+      "objeto": "lupa",
+      "historia": "Lucía le enseña a Dani las reglas del club para leer: despacio, con la lupa si hace falta, y pensando en lo que se lee.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Planear es pensar antes lo que vas a hacer.",
+            true
+          ],
+          [
+            "Si planeas una compra, gastas más.",
+            false
+          ],
+          [
+            "Una lista ayuda a no olvidar nada.",
+            true
+          ],
+          [
+            "Mirar lo que ya tienes en casa ayuda a ahorrar.",
+            true
+          ],
+          [
+            "Es mejor comprar sin mirar la lista.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 253,
+      "semana": 51,
+      "tema": "Dani, al cole de los mayores",
+      "objeto": "libro",
+      "historia": "Todo el material de Dani tiene su nombre escrito, con una letra redonda y ordenada. ¿Quién lo habrá escrito?",
+      "actividad": {
+        "tipo": "llega",
+        "tengo": 20,
+        "cosas": [
+          [
+            "libro",
+            12
+          ],
+          [
+            "mochila",
+            25
+          ],
+          [
+            "lapiz",
+            2
+          ],
+          [
+            "bici",
+            90
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 254,
+      "semana": 51,
+      "tema": "Dani, al cole de los mayores",
+      "objeto": "gato",
+      "historia": "Dani investiga su primer caso: la letra redonda, el último en acostarse... y Toby no ladró. ¿Quién escribió su nombre en todas sus cosas?",
+      "actividad": {
+        "tipo": "ordena",
+        "pregunta": "¿Cómo se planea una compra?",
+        "pasos": [
+          "Se hace la lista de lo que hace falta.",
+          "Se mira lo que ya hay en casa.",
+          "Se piensa cuánto se puede gastar.",
+          "Se compra solo lo de la lista."
+        ]
+      }
+    },
+    {
+      "dia": 255,
+      "semana": 51,
+      "tema": "Dani, al cole de los mayores",
+      "objeto": "lupa",
+      "historia": "Caso resuelto: ¡fue Papá, como con Lector X! Dani ha resuelto su primer caso él solo, y el club lo nombra el cuarto miembro del Club de la Lupa.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es planear.",
+          "Sé hacer una lista antes de comprar.",
+          "Sé mirar lo que ya tengo en casa."
+        ],
+        "prompt": "Dibuja tu lista del material para el cole."
+      }
+    },
+    {
+      "dia": 256,
+      "semana": 52,
+      "tema": "Vuelta al cole",
+      "objeto": "libro",
+      "historia": "Lucía empieza 3.º, y Dani, 1.º, con Marta de maestra. Lucía piensa en todo lo que ha aprendido este año de economía: el dinero, el ahorro, los precios, el trabajo...",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Qué quiere decir cada palabra?",
+        "pares": [
+          [
+            "ahorro",
+            "guardar para después"
+          ],
+          [
+            "precio",
+            "lo que hay que pagar"
+          ],
+          [
+            "trueque",
+            "cambiar sin dinero"
+          ],
+          [
+            "sueldo",
+            "lo que se gana trabajando"
+          ],
+          [
+            "regalo",
+            "se da sin pedir nada"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 257,
+      "semana": 52,
+      "tema": "Vuelta al cole",
+      "objeto": "lapiz",
+      "historia": "El primer día de cole, Hugo trae una sorpresa del mar, pero no quiere enseñarla todavía. Mientras, Lucía estrena un cuaderno para llevar sus cuentas de 3.º.",
+      "actividad": {
+        "tipo": "cuentas",
+        "empieza": 15,
+        "pregunta": "Las cuentas de Lucía: ¿cuánto le queda después de cada apunte?",
+        "apuntes": [
+          [
+            "La paga de la semana",
+            5
+          ],
+          [
+            "Compra un cuaderno",
+            -3
+          ],
+          [
+            "Compra un libro",
+            -10
+          ],
+          [
+            "Le regalan",
+            10
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 258,
+      "semana": 52,
+      "tema": "Vuelta al cole",
+      "objeto": "regalo",
+      "historia": "Por fin, Hugo lo enseña: ¡una brújula! Se la regaló su abuelo, el pescador. —Para que no nos perdamos en el próximo caso —dice.",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Es ahorrar o gastar?",
+        "cajas": [
+          "Ahorrar",
+          "Gastar"
+        ],
+        "cosas": [
+          [
+            "guardar la paga en la hucha",
+            0
+          ],
+          [
+            "comprar un helado",
+            1
+          ],
+          [
+            "meter dinero en el banco",
+            0
+          ],
+          [
+            "pagar una entrada de cine",
+            1
+          ],
+          [
+            "guardar para la bici",
+            0
+          ],
+          [
+            "comprar cromos",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 259,
+      "semana": 52,
+      "tema": "Vuelta al cole",
+      "objeto": "carta",
+      "historia": "En el buzón de la caseta del club aparece un sobre sin remite. Dentro, una nota: «¿Os atrevéis con un caso más difícil?». ¿Quién lo habrá enviado?",
+      "actividad": {
+        "tipo": "problema",
+        "texto": "En la hucha, Lucía tenía 45 €, y este verano ha metido 30 €. ¿Cuánto tiene ahora?",
+        "operacion": [
+          45,
+          "+",
+          30
+        ]
+      }
+    },
+    {
+      "dia": 260,
+      "semana": 52,
+      "tema": "Vuelta al cole",
+      "objeto": "lupa",
+      "historia": "El Club de la Lupa se reúne en la caseta: Lucía, Sofía, Hugo y Dani. Tienen un caso nuevo, un cuaderno de cuentas... y todo un año por delante.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es la economía.",
+          "Sé ahorrar, elegir, cambiar y compartir.",
+          "Sé llevar mis cuentas."
+        ],
+        "prompt": "Dibuja lo que más te ha gustado aprender este año."
+      }
+    }
+  ]
+}

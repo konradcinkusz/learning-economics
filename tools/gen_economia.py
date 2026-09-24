@@ -3,7 +3,18 @@
 content/generated-days.tex (una página por día),
 content/generated-clave.tex (la clave de respuestas) y
 content/generated-diccionario.tex ("Mi diccionario de economía", con la
-palabra de cada semana).
+palabra de cada semana); y "First Economics" (english.tex), el mismo
+cuaderno en inglés, página a página, en content/english/ (los mismos
+tres ficheros).
+
+"First Economics" no tiene días propios: cada uno es el de "Aprendo
+economía" -- el mismo número, el mismo dibujo, la misma actividad, con
+las mismas cosas, los mismos precios y las mismas respuestas --, con la
+historia, el tema y los textos de su actividad en inglés, y con sus
+palabras de la semana, que están en content/english/q*.json
+(cargar_ingles, más abajo). Todo lo que se escribe en la página en una
+lengua o en la otra sale de tools/idiomas.py, y las comprobaciones son
+las mismas para los dos cuadernos.
 
 Es el generador de "Aprendo los números" (tools/gen_numeros.py, en
 https://github.com/konradcinkusz/learning-to-count) para la economía de
@@ -19,11 +30,11 @@ una actividad que llena el resto de la página. Las actividades y lo que
 se comprueba de cada una están en render_actividad; el porqué, en
 notes/01-plan.md.
 
-No editar content/generated-*.tex a mano -- se sobrescriben cada vez que
-se ejecuta este script.
+No editar content/generated-*.tex ni content/english/generated-*.tex a
+mano -- se sobrescriben cada vez que se ejecuta este script.
 
 Uso:
-    python3 tools/gen_economia.py            # regenera content/generated-*.tex
+    python3 tools/gen_economia.py            # regenera los dos cuadernos
     python3 tools/gen_economia.py --check    # solo valida; exit 1 si algo no
                                              # cuadra o si lo generado está
                                              # desactualizado
@@ -37,12 +48,26 @@ import sys
 from pathlib import Path
 from string import Template
 
+from idiomas import ESPANOL, INGLES
+
 ROOT = Path(__file__).resolve().parent.parent
 CONTENT_DIR = ROOT / "content"
-SALIDA_DIAS = CONTENT_DIR / "generated-days.tex"
-SALIDA_CLAVE = CONTENT_DIR / "generated-clave.tex"
-SALIDA_DICCIONARIO = CONTENT_DIR / "generated-diccionario.tex"
-LANG_FILE = ROOT / "lang" / "es.tex"
+INGLES_DIR = CONTENT_DIR / "english"
+
+
+# Los dos cuadernos: su lengua, lo que generan y el fichero de sus
+# cadenas de texto (que promete los mismos 260 días que este script).
+class Cuaderno:
+    def __init__(self, nombre, lengua, carpeta, lang):
+        self.nombre, self.lengua = nombre, lengua
+        self.salida_dias = carpeta / "generated-days.tex"
+        self.salida_clave = carpeta / "generated-clave.tex"
+        self.salida_diccionario = carpeta / "generated-diccionario.tex"
+        self.lang = ROOT / "lang" / lang
+
+
+APRENDO = Cuaderno("Aprendo economía", ESPANOL, CONTENT_DIR, "es.tex")
+FIRST = Cuaderno("First Economics", INGLES, INGLES_DIR, "en.tex")
 
 # --------------------------------------------------------------------
 # El calendario
@@ -53,39 +78,18 @@ SEMANAS_POR_TRIMESTRE = 13
 # Mientras el cuaderno se escribe por partes (un PR por trimestre, cada
 # uno en verde antes de fusionarse), cuántos días tiene ya escritos: se
 # exigen exactamente esos, del 1 en adelante y sin huecos. None = el
-# cuaderno está entero, con sus 260 días.
+# cuaderno está entero, con sus 260 días. DIAS_ESCRITOS_INGLES, lo mismo
+# para "First Economics", que se escribe también por partes: sus días
+# son los primeros de "Aprendo economía".
 DIAS_ESCRITOS = None
+DIAS_ESCRITOS_INGLES = 65
 
-NOMBRE_MEDALLA = {1: "Otoño", 2: "Invierno", 3: "Primavera"}
 ULTIMO_DIA_TRIMESTRE = {1: 65, 2: 130, 3: 195, 4: 260}
 
-# Los temas de cada semana: los de "Leo con lupa" (content/lupa/ en
-# "Aprendo a leer"), para que quien lleve los dos cuadernos se encuentre
-# la misma semana en los dos. El tema de cada día tiene que ser el de su
-# semana.
-TEMAS = [
-    "La lupa de la abuela", "Un compañero nuevo", "El Club de la Lupa",
-    "El caso de las galletas", "Huellas en el cemento", "La hoja de los martes",
-    "Ruidos en el desván", "La lista de la compra", "Ocho años",
-    "¿Dónde está Luna?", "El museo de los dinosaurios", "La función de Navidad",
-    "¡Lector X, descubierto!",
-    "Los Reyes que caminan", "Nochebuena y el mapa", "Las doce uvas",
-    "El roscón de Reyes", "Un muñeco de nieve madrugador", "El periscopio de Hugo",
-    "El Día de la Paz", "El cumpleaños de Papá", "Carnaval", "Una carta del pueblo",
-    "Las plantas mustias", "El planetario", "El nido del jardín",
-    "Una foto de hace veinticinco años", "Torrijas, esta vez sola",
-    "La rueda pinchada", "La entrevista a Paco", "El Día del Libro",
-    "El plano antiguo", "Rayo se escapa", "El día de la madre",
-    "Dani cumple seis años", "Las abejas del parque", "La granja escuela",
-    "¡Aquí está la cápsula!", "La fiesta de fin de curso",
-    "La maleta", "Otra vez en el pueblo", "Diez pasos", "El diario de Lucía",
-    "Las abejas de Andrés", "La noche de las estrellas fugaces",
-    "Una carta de Hugo", "Las fiestas del pueblo", "¡El tesoro de Rosa!",
-    "El mapa de Dani y Martín", "Vuelta a la ciudad",
-    "Dani, al cole de los mayores", "Vuelta al cole",
-]
-assert len(TEMAS) == TOTAL_DIAS // DIAS_POR_SEMANA
-DIAS_SEMANA = ["lunes", "martes", "miércoles", "jueves", "viernes"]
+# Los temas de cada semana (los de "Leo con lupa") y el nombre de cada
+# medalla están en tools/idiomas.py, en las dos lenguas.
+for _lengua in (ESPANOL, INGLES):
+    assert len(_lengua.temas) == TOTAL_DIAS // DIAS_POR_SEMANA
 
 # La historia de cada día la lee la niña o el niño: dos o tres frases,
 # que caben en la caja de arriba.
@@ -176,130 +180,109 @@ def comprobar_dinero(dia, semana, valores, que):
     if not valores or any(v not in validos for v in valores):
         raise ErrorDeContenido(
             f"día {dia}: {que} son monedas de 1 y 2 € y billetes de "
-            f"{enumerar([str(b) for b in BILLETES[trimestre_de(semana)]])} € este trimestre ({valores})"
+            f"{ESPANOL.enumerar([str(b) for b in BILLETES[trimestre_de(semana)]])} € este trimestre ({valores})"
         )
     comprobar_cantidad(dia, semana, sum(valores), f"{que}, todo junto,")
-
-
-def un(objeto):
-    """"un lápiz", "una canica"."""
-    return ("una " if femenino(objeto) else "un ") + nombre_objeto(objeto, 1)
-
-
-def el(objeto):
-    """"el lápiz", "la canica"."""
-    return ("la " if femenino(objeto) else "el ") + nombre_objeto(objeto, 1)
-
-
-def sobra(n):
-    """"no sobra nada", "sobra 1 €", "sobran 3 €"."""
-    return "no sobra nada" if n == 0 else "sobra 1 €" if n == 1 else f"sobran {n} €"
 
 
 # --------------------------------------------------------------------
 # Las cosas (diagrams/objetos.tex y diagrams/economia.tex)
 # --------------------------------------------------------------------
-# macro, singular, plural, género -- el enunciado se compone con ellos
-# ("Si 1 concha vale 2 cromos, ¿cuántos cromos te dan por 3 conchas?").
+# El dibujo de cada una; cómo se llama, en cada lengua, está en
+# tools/idiomas.py (el enunciado se compone con su nombre: "Si 1 concha
+# vale 2 cromos, ¿cuántos cromos te dan por 3 conchas?").
 OBJETOS = {
     # Las de este cuaderno (diagrams/economia.tex).
-    "lupa": (r"\objLupa", "lupa", "lupas", "f"),
-    "cromo": (r"\objCromo", "cromo", "cromos", "m"),
-    "canica": (r"\objCanica", "canica", "canicas", "f"),
-    "hucha": (r"\objHucha", "hucha", "huchas", "f"),
-    "entrada": (r"\objEntrada", "entrada", "entradas", "f"),
-    "uva": (r"\objUva", "uva", "uvas", "f"),
-    "racimo": (r"\objRacimo", "racimo de uvas", "racimos de uvas", "m"),
-    "roscon": (r"\objRoscon", "roscón", "roscones", "m"),
-    "carta": (r"\objCarta", "carta", "cartas", "f"),
-    "telescopio": (r"\objTelescopio", "telescopio", "telescopios", "m"),
-    "antifaz": (r"\objAntifaz", "antifaz", "antifaces", "m"),
-    "mapa": (r"\objMapa", "mapa", "mapas", "m"),
-    "leche": (r"\objLeche", "cartón de leche", "cartones de leche", "m"),
-    "miel": (r"\objMiel", "tarro de miel", "tarros de miel", "m"),
-    "tortuga": (r"\objTortuga", "tortuga", "tortugas", "f"),
-    "limon": (r"\objLimon", "limón", "limones", "m"),
-    "caracol": (r"\objCaracol", "caracol", "caracoles", "m"),
+    "lupa": r"\objLupa",
+    "cromo": r"\objCromo",
+    "canica": r"\objCanica",
+    "hucha": r"\objHucha",
+    "entrada": r"\objEntrada",
+    "uva": r"\objUva",
+    "racimo": r"\objRacimo",
+    "roscon": r"\objRoscon",
+    "carta": r"\objCarta",
+    "telescopio": r"\objTelescopio",
+    "antifaz": r"\objAntifaz",
+    "mapa": r"\objMapa",
+    "leche": r"\objLeche",
+    "miel": r"\objMiel",
+    "tortuga": r"\objTortuga",
+    "limon": r"\objLimon",
+    "caracol": r"\objCaracol",
     # Las de "Aprendo los números" (diagrams/objetos.tex).
-    "manzana": (r"\objManzana", "manzana", "manzanas", "f"),
-    "pelota": (r"\objPelota", "pelota", "pelotas", "f"),
-    "hueso": (r"\objHueso", "hueso", "huesos", "m"),
-    "sol": (r"\objSol", "sol", "soles", "m"),
-    "toby": (r"\objToby", "perro", "perros", "m"),
-    "huella": (r"\objHuella", "huella", "huellas", "f"),
-    "globo": (r"\objGlobo", "globo", "globos", "m"),
-    "estrella": (r"\objEstrella", "estrella", "estrellas", "f"),
-    "hoja": (r"\objHoja", "hoja", "hojas", "f"),
-    "corazon": (r"\objCorazon", "corazón", "corazones", "m"),
-    "caramelo": (r"\objCaramelo", "caramelo", "caramelos", "m"),
-    "pez": (r"\objPez", "pez", "peces", "m"),
-    "lapiz": (r"\objLapiz", "lápiz", "lápices", "m"),
-    "libro": (r"\objLibro", "libro", "libros", "m"),
-    "galleta": (r"\objGalleta", "galleta", "galletas", "f"),
-    "castana": (r"\objCastana", "castaña", "castañas", "f"),
-    "cesta": (r"\objCesta", "cesta", "cestas", "f"),
-    "regalo": (r"\objRegalo", "regalo", "regalos", "m"),
-    "paraguas": (r"\objParaguas", "paraguas", "paraguas", "m"),
-    "arbol": (r"\objArbol", "árbol", "árboles", "m"),
-    "coche": (r"\objCoche", "coche", "coches", "m"),
-    "trex": (r"\objTrex", "dinosaurio", "dinosaurios", "m"),
-    "huevo": (r"\objHuevo", "huevo", "huevos", "m"),
-    "gato": (r"\objGato", "gato", "gatos", "m"),
-    "mochila": (r"\objMochila", "mochila", "mochilas", "f"),
-    "plato": (r"\objPlato", "plato", "platos", "m"),
-    "mandarina": (r"\objMandarina", "mandarina", "mandarinas", "f"),
-    "osito": (r"\objOsito", "osito", "ositos", "m"),
-    "flor": (r"\objFlor", "flor", "flores", "f"),
-    "boton": (r"\objBoton", "botón", "botones", "m"),
-    "fresa": (r"\objFresa", "fresa", "fresas", "f"),
-    "piruleta": (r"\objPiruleta", "piruleta", "piruletas", "f"),
-    "ovillo": (r"\objOvillo", "ovillo", "ovillos", "m"),
-    "bufanda": (r"\objBufanda", "bufanda", "bufandas", "f"),
-    "gorro": (r"\objGorro", "gorro", "gorros", "m"),
-    "maceta": (r"\objMaceta", "maceta", "macetas", "f"),
-    "bici": (r"\objBici", "bici", "bicis", "f"),
-    "tarta": (r"\objTarta", "tarta", "tartas", "f"),
-    "abeja": (r"\objAbeja", "abeja", "abejas", "f"),
-    "moneda": (r"\objMoneda", "moneda", "monedas", "f"),
-    "torrija": (r"\objTorrija", "torrija", "torrijas", "f"),
-    "zanahoria": (r"\objZanahoria", "zanahoria", "zanahorias", "f"),
-    "tomate": (r"\objTomate", "tomate", "tomates", "m"),
-    "pan": (r"\objPan", "pan", "panes", "m"),
-    "lechuga": (r"\objLechuga", "lechuga", "lechugas", "f"),
-    "maleta": (r"\objMaleta", "maleta", "maletas", "f"),
-    "helado": (r"\objHelado", "helado", "helados", "m"),
-    "concha": (r"\objConcha", "concha", "conchas", "f"),
-    "cubo": (r"\objCubo", "cubo", "cubos", "m"),
-    "churro": (r"\objChurro", "churro", "churros", "m"),
-    "corona": (r"\objCorona", "corona", "coronas", "f"),
-    "muneco": (r"\objMuneco", "muñeco de nieve", "muñecos de nieve", "m"),
-    "pajaro": (r"\objPajaro", "pájaro", "pájaros", "m"),
-    "paloma": (r"\objPaloma", "paloma", "palomas", "f"),
-    "vela": (r"\objVela", "vela", "velas", "f"),
-    "reloj": (r"\objReloj", "reloj", "relojes", "m"),
-    "regadera": (r"\objRegadera", "regadera", "regaderas", "f"),
-    "rueda": (r"\objRueda", "rueda", "ruedas", "f"),
-    "cometa": (r"\objCometa", "cometa", "cometas", "f"),
-    "copo": (r"\objCopo", "copo de nieve", "copos de nieve", "m"),
-    "tarjeta": (r"\objTarjeta", "tarjeta", "tarjetas", "f"),
-    "nube": (r"\objNube", "nube", "nubes", "f"),
-    "gota": (r"\objGota", "gota", "gotas", "f"),
-    "rosa": (r"\objRosa", "rosa", "rosas", "f"),
-    "brote": (r"\objBrote", "brote", "brotes", "m"),
-    "pollito": (r"\objPollito", "pollito", "pollitos", "m"),
-    "mano": (r"\objMano", "mano", "manos", "f"),
-    "gorrofiesta": (r"\objGorroFiesta", "gorro de fiesta", "gorros de fiesta", "m"),
-    "reloj": (r"\objReloj", "reloj", "relojes", "m"),
+    "manzana": r"\objManzana",
+    "pelota": r"\objPelota",
+    "hueso": r"\objHueso",
+    "sol": r"\objSol",
+    "toby": r"\objToby",
+    "huella": r"\objHuella",
+    "globo": r"\objGlobo",
+    "estrella": r"\objEstrella",
+    "hoja": r"\objHoja",
+    "corazon": r"\objCorazon",
+    "caramelo": r"\objCaramelo",
+    "pez": r"\objPez",
+    "lapiz": r"\objLapiz",
+    "libro": r"\objLibro",
+    "galleta": r"\objGalleta",
+    "castana": r"\objCastana",
+    "cesta": r"\objCesta",
+    "regalo": r"\objRegalo",
+    "paraguas": r"\objParaguas",
+    "arbol": r"\objArbol",
+    "coche": r"\objCoche",
+    "trex": r"\objTrex",
+    "huevo": r"\objHuevo",
+    "gato": r"\objGato",
+    "mochila": r"\objMochila",
+    "plato": r"\objPlato",
+    "mandarina": r"\objMandarina",
+    "osito": r"\objOsito",
+    "flor": r"\objFlor",
+    "boton": r"\objBoton",
+    "fresa": r"\objFresa",
+    "piruleta": r"\objPiruleta",
+    "ovillo": r"\objOvillo",
+    "bufanda": r"\objBufanda",
+    "gorro": r"\objGorro",
+    "maceta": r"\objMaceta",
+    "bici": r"\objBici",
+    "tarta": r"\objTarta",
+    "abeja": r"\objAbeja",
+    "moneda": r"\objMoneda",
+    "torrija": r"\objTorrija",
+    "zanahoria": r"\objZanahoria",
+    "tomate": r"\objTomate",
+    "pan": r"\objPan",
+    "lechuga": r"\objLechuga",
+    "maleta": r"\objMaleta",
+    "helado": r"\objHelado",
+    "concha": r"\objConcha",
+    "cubo": r"\objCubo",
+    "churro": r"\objChurro",
+    "corona": r"\objCorona",
+    "muneco": r"\objMuneco",
+    "pajaro": r"\objPajaro",
+    "paloma": r"\objPaloma",
+    "vela": r"\objVela",
+    "reloj": r"\objReloj",
+    "regadera": r"\objRegadera",
+    "rueda": r"\objRueda",
+    "cometa": r"\objCometa",
+    "copo": r"\objCopo",
+    "tarjeta": r"\objTarjeta",
+    "nube": r"\objNube",
+    "gota": r"\objGota",
+    "rosa": r"\objRosa",
+    "brote": r"\objBrote",
+    "pollito": r"\objPollito",
+    "mano": r"\objMano",
+    "gorrofiesta": r"\objGorroFiesta",
 }
-
-
-def nombre_objeto(objeto, n):
-    _, singular, plural, _ = OBJETOS[objeto]
-    return singular if n == 1 else plural
-
-
-def femenino(objeto):
-    return OBJETOS[objeto][3] == "f"
+# Cada cosa que se puede dibujar tiene su nombre en las dos lenguas.
+for _lengua in (ESPANOL, INGLES):
+    assert set(_lengua.objetos) == set(OBJETOS), set(_lengua.objetos) ^ set(OBJETOS)
 
 
 def comprobar_objeto(dia, objeto):
@@ -321,7 +304,7 @@ def _cosa(macro, x, y):
 
 def fila(objeto, n, escala, por_fila=5, paso=2.4):
     """n cosas en filas de `por_fila`, centradas."""
-    macro = OBJETOS[objeto][0]
+    macro = OBJETOS[objeto]
     piezas = []
     filas = [min(por_fila, n - i) for i in range(0, n, por_fila)]
     for f, cuantas in enumerate(filas):
@@ -389,45 +372,10 @@ $items
 $cartel
 \end{cajaRepasa}""")
 
-PLANTILLA_MEDALLA = Template(r"""\begin{center}
-\vspace*{3cm}
-\medalla{$dia}
+# La página de medalla del final de cada trimestre está en
+# tools/idiomas.py (plantilla_medalla), en las dos lenguas.
 
-\vspace{10mm}
-{\fontsize{34}{40}\selectfont\bfseries\color{colorLectura}\lblMedalla{$estacion}}\\[8mm]
-{\Large $dia\ días, $dia\ páginas.}\\[12mm]
-{\Large \lblMedallaAnimo}
-\end{center}
-\vspace*{\fill}
-\newpage
-""")
-
-def enumerar(cosas, frases=False):
-    """"un paraguas, una cuchara y una escoba"; si son frases enteras,
-    cada una entre comillas y separadas por barras: «...» / «...»."""
-    cosas = [c.rstrip(".") for c in cosas]
-    if frases:
-        return " / ".join(f"«{c}»" for c in cosas)
-    if len(cosas) == 1:
-        return cosas[0]
-    return ", ".join(cosas[:-1]) + " y " + cosas[-1]
-
-
-def describir_dinero(valores):
-    """"un billete de 10 €", "un billete de 5 € y dos monedas de 2 €"."""
-    cuantos = {2: "dos", 3: "tres", 4: "cuatro", 5: "cinco", 6: "seis"}
-    partes = []
-    for v in sorted(set(valores), reverse=True):
-        k = valores.count(v)
-        cosa = "billete" if v >= 5 else "moneda"
-        uno = "un" if v >= 5 else "una"
-        partes.append(f"{uno if k == 1 else cuantos[k]} {cosa}{'' if k == 1 else 's'} de {v} €")
-    return partes[0] if len(partes) == 1 else enumerar(partes)
-
-
-ORDINALES = {1: "la primera", 2: "la segunda", 3: "la tercera", 4: "la cuarta", 5: "la quinta"}
 SIGNOS = {"+": "+", "-": "−"}      # el menos de verdad (U+2212), el de Andika
-FUENTE_TEXTO = r"\large"
 
 
 # --------------------------------------------------------------------
@@ -547,7 +495,7 @@ def dibujo_precios(cosas, escala=1.1):
     piezas = []
     for i, (objeto, precio) in enumerate(cosas):
         x = (i - (len(cosas) - 1) / 2) * paso
-        piezas.append(_cosa(OBJETOS[objeto][0], x, 0.35))
+        piezas.append(_cosa(OBJETOS[objeto], x, 0.35))
         piezas.append(f"\\begin{{scope}}[shift={{({x:.2f},-1.25)}}, transform shape]{etiqueta(precio)}\\end{{scope}}")
     return f"\\begin{{tikzpicture}}[objeto, scale={escala}]\n" + "\n".join(piezas) + "\n\\end{tikzpicture}"
 
@@ -580,27 +528,28 @@ def dibujo_ordena(pasos):
             + filas + "\n\\end{tabularx}}")
 
 
-def dibujo_hucha(semanas):
+def dibujo_hucha(semanas, L):
     """La hucha y, a su lado, una casilla por semana, con su número
     debajo, para ir apuntando lo que hay: en filas de 5, que caben en la
-    caja con casillas grandes, para la letra de un niño. En cm."""
+    caja con casillas grandes, para la letra de un niño. En cm. Debajo
+    de cada casilla, qué semana es ("1.ª", "1st"): L.semana_hucha."""
     ancho, alto, hueco, por_fila = 1.75, 1.3, 0.2, 5
     piezas = [f"\\begin{{scope}}[shift={{(-1.75,-0.05)}}, scale=1.3, objeto]\\objHucha\\end{{scope}}"]
     for i in range(semanas):
         fila, col = divmod(i, por_fila)
         x, arriba = col * (ancho + hueco), 1.6 - fila * 2.0
         piezas.append(f"\\draw[line width=1.1pt, rounded corners=1mm, fill=white] ({x:.2f},{arriba - alto:.2f}) rectangle ({x + ancho:.2f},{arriba:.2f});"
-                      f"\\node[font=\\footnotesize, text=colorGris] at ({x + ancho / 2:.2f},{arriba - alto - 0.3:.2f}) {{{i + 1}.ª}};")
+                      f"\\node[font=\\footnotesize, text=colorGris] at ({x + ancho / 2:.2f},{arriba - alto - 0.3:.2f}) {{{L.semana_hucha(i + 1)}}};")
     return "\\begin{tikzpicture}\n" + "\n".join(piezas) + "\n\\end{tikzpicture}"
 
 
-def dibujo_cuentas(empieza, apuntes):
+def dibujo_cuentas(empieza, apuntes, L):
     """El cuaderno de cuentas: una fila por apunte, con lo que entra o lo
     que sale, y una casilla para lo que queda. La primera fila, lo que
     hay al empezar, ya está escrita."""
-    filas = [f"\\lblAlEmpezar & & & {empieza}~€ \\\\ \\hline"]
+    filas = [f"\\lblAlEmpezar & & & {L.euros_tabla(empieza)} \\\\ \\hline"]
     for texto, cantidad in apuntes:
-        entra, sale = (f"{cantidad}~€", "") if cantidad > 0 else ("", f"{-cantidad}~€")
+        entra, sale = (L.euros_tabla(cantidad), "") if cantidad > 0 else ("", L.euros_tabla(-cantidad))
         filas.append(f"{escapar(texto)} & {entra} & {sale} & \\casillaCuenta[26mm] \\\\ \\hline")
     return ("{\\LARGE\\renewcommand{\\arraystretch}{2.2}"
             "\\begin{tabularx}{\\linewidth}{@{}>{\\sinPartir\\arraybackslash}X"
@@ -618,7 +567,7 @@ def dibujo_tiendas(objeto, tiendas):
         x = (i - 0.5) * 6.6
         piezas.append(
             f"\\begin{{scope}}[shift={{({x:.2f},0)}}]\\tienda{{{escapar(nombre)}}}"
-            f"\\begin{{scope}}[shift={{(0,-0.05)}}, scale=0.85, objeto]{OBJETOS[objeto][0]}\\end{{scope}}"
+            f"\\begin{{scope}}[shift={{(0,-0.05)}}, scale=0.85, objeto]{OBJETOS[objeto]}\\end{{scope}}"
             f"\\begin{{scope}}[shift={{(0,-1.45)}}, scale=1.1, transform shape]{etiqueta(precio)}\\end{{scope}}"
             "\\end{scope}")
     return "\\begin{tikzpicture}[scale=1.2]\n" + "\n".join(piezas) + "\n\\end{tikzpicture}"
@@ -627,9 +576,10 @@ def dibujo_tiendas(objeto, tiendas):
 # --------------------------------------------------------------------
 # Actividades
 # --------------------------------------------------------------------
-def render_actividad(d):
+def render_actividad(d, L=ESPANOL):
     """(tex, clave): la caja de la actividad del día, y su entrada de la
-    clave de respuestas (None si no tiene nada que comprobar)."""
+    clave de respuestas (None si no tiene nada que comprobar), en la
+    lengua L (tools/idiomas.py)."""
     num, semana, a = d["dia"], d["semana"], d["actividad"]
     tipo = a.get("tipo")
     if tipo in DESDE_SEMANA and semana < DESDE_SEMANA[tipo]:
@@ -658,13 +608,11 @@ def render_actividad(d):
         rng, orden = random.Random(num), list(cosas)
         while sum(orden[i][1] != orden[i + 1][1] for i in range(len(orden) - 1)) < 2:
             rng.shuffle(orden)
-        # Tarjetas con frases enteras (empiezan en mayúscula), entre comillas.
-        frases = any(c[0][0].isupper() or "," in c[0] for c in cosas)
-        clave = " ".join(f"{cajas[i]}: {enumerar([c[0] for c in cosas if c[1] == i], frases)}." for i in (0, 1))
+        defecto, instruccion, clave = L.clasifica(cajas, cosas)
         return PLANTILLA_CAJA.substitute(
             caja="cajaClasifica",
-            enunciado=escapar(a.get("pregunta", "Une cada cosa con su caja.")),
-            instruccion="Lee cada tarjeta, y traza una línea desde su punto hasta la caja que le toca.",
+            enunciado=escapar(a.get("pregunta", defecto)),
+            instruccion=instruccion,
             dibujo=dibujo_clasifica(cajas, orden),
         ), ("clasifica", clave)
 
@@ -681,13 +629,13 @@ def render_actividad(d):
         rng, derecha = random.Random(num), [p[1] for p in pares]
         while any(x == p[1] for x, p in zip(derecha, pares)):
             rng.shuffle(derecha)
+        defecto, instruccion, clave = L.une(pares)
         return PLANTILLA_CAJA.substitute(
             caja="cajaUne",
-            enunciado=escapar(a.get("pregunta", "Une cada una con la suya.")),
-            instruccion="Lee las dos columnas, y traza una línea desde cada punto de la izquierda "
-                        "hasta el punto de la derecha que le toca.",
+            enunciado=escapar(a.get("pregunta", defecto)),
+            instruccion=instruccion,
             dibujo=dibujo_une([p[0] for p in pares], derecha),
-        ), ("une", "; ".join(f"{p[0]} → {p[1]}" for p in pares))
+        ), ("une", clave)
 
     if tipo == "vf":
         campos(num, a, ["frases"])
@@ -696,11 +644,12 @@ def render_actividad(d):
             raise ErrorDeContenido(f"día {num}: 'vf' lleva de 3 a 5 frases, cada una [texto, true o false]")
         if len({f[1] for f in frases}) != 2:
             raise ErrorDeContenido(f"día {num}: en 'vf' hay alguna verdad y alguna mentira")
+        defecto, instruccion, clave = L.vf(frases)
         return PLANTILLA_VF.substitute(
-            enunciado=escapar(a.get("pregunta", "¿Es verdad o es mentira?")),
-            instruccion="Lee cada frase, y rodea la V si es verdad, o la F si es mentira (falso).",
+            enunciado=escapar(a.get("pregunta", defecto)),
+            instruccion=instruccion,
             frases="\n".join(f"\\frasevf{{{i}}}{{{escapar(f[0])}}}" for i, f in enumerate(frases, 1)),
-        ), ("vf", ", ".join(f"{i}: {'V' if f[1] else 'F'}" for i, f in enumerate(frases, 1)))
+        ), ("vf", clave)
 
     if tipo == "trueque":
         # "cambio": [cosa, cuántas, otra cosa, cuántas]: tantas de una
@@ -719,22 +668,18 @@ def render_actividad(d):
             comprobar_cantidad(num, semana, x, f"en 'trueque', {que}")
         de, otra, nde, notra = (oa, ob, na, nb) if op == oa else (ob, oa, nb, na)
         if (n * notra) % nde:
-            raise ErrorDeContenido(f"día {num}: en 'trueque', {n} {nombre_objeto(de, n)} no se cambian justo")
+            raise ErrorDeContenido(f"día {num}: en 'trueque', {n} {L.cosa(de, n)} no se cambian justo")
         respuesta = n * notra // nde
         comprobar_cantidad(num, semana, respuesta, "en 'trueque', la respuesta")
         if n == nde:
             raise ErrorDeContenido(f"día {num}: en 'trueque', la pregunta no puede ser el mismo cambio de arriba")
-        vale = lambda k: "vale" if k == 1 else "valen"
-        cuantas = "cuántas" if femenino(otra) else "cuántos"
-        enunciado = (f"Si {na} {nombre_objeto(oa, na)} {vale(na)} {nb} {nombre_objeto(ob, nb)}, "
-                     f"¿{cuantas} {nombre_objeto(otra, 2)} te dan por {n} {nombre_objeto(de, n)}?")
+        enunciado, instruccion, clave = L.trueque(oa, na, ob, nb, de, n, otra, respuesta)
         return PLANTILLA_CAJA.substitute(
             caja="cajaTrueque",
             enunciado=enunciado,
-            instruccion="Mira el cambio de arriba. Si hace falta, dibuja las cosas, y escribe "
-                        "en el hueco cuántas te dan.",
+            instruccion=instruccion,
             dibujo=dibujo_trueque(oa, na, ob, nb, de, n, otra),
-        ), ("trueque", f"{respuesta} {nombre_objeto(otra, respuesta)}")
+        ), ("trueque", clave)
 
     if tipo == "dinero":
         # Contar monedas y billetes.
@@ -742,14 +687,14 @@ def render_actividad(d):
         comprobar_dinero(num, semana, a["dinero"], "en 'dinero', las monedas y los billetes")
         if not 2 <= len(a["dinero"]) <= 8:
             raise ErrorDeContenido(f"día {num}: 'dinero' lleva de 2 a 8 monedas y billetes")
-        total = sum(a["dinero"])
+        defecto, instruccion, respuesta, clave = L.dinero(sum(a["dinero"]))
         return PLANTILLA_CON_RESPUESTA.substitute(
             caja="cajaDinero",
-            enunciado=escapar(a.get("pregunta", "¿Cuánto dinero hay?")),
-            instruccion="Cuenta primero los billetes y después las monedas, y escribe cuántos euros hay en total.",
+            enunciado=escapar(a.get("pregunta", defecto)),
+            instruccion=instruccion,
             dibujo=dibujo_dinero(a["dinero"]),
-            respuesta="Hay \\huecoRespuesta\\ €",
-        ), ("dinero", f"{total} €")
+            respuesta=respuesta,
+        ), ("dinero", clave)
 
     if tipo == "reparte":
         # Repartir entre varios, y lo que sobra.
@@ -761,26 +706,20 @@ def render_actividad(d):
         cada, sobran = divmod(total, entre)
         if cada < 1:
             raise ErrorDeContenido(f"día {num}: en 'reparte', a cada uno le toca al menos una")
-        f = femenino(a["objeto"])
-        enunciado = a.get("pregunta", f"Reparte {total} {nombre_objeto(a['objeto'], total)} entre {entre}. "
-                                      f"¿{'Cuántas' if f else 'Cuántos'} le tocan a cada uno? "
-                                      f"¿Sobra {'alguna' if f else 'alguno'}?")
         # "A cada uno", o lo que diga el JSON cuando se reparte entre
         # otras cosas: "En cada una" (estanterías), "Cada una" (mamás).
-        cada_uno = a.get("cada", "A cada uno")
+        cada_uno = a.get("cada", L.cada_uno)
         if not isinstance(cada_uno, str) or not cada_uno or len(cada_uno) > 14:
             raise ErrorDeContenido(f"día {num}: en 'reparte', 'cada' es un texto corto, como \"En cada una\" ({cada_uno!r})")
-        sitio = "plato" if a["objeto"] in COMIDA else "recuadro"
+        defecto, instruccion, respuesta, clave = L.reparte(
+            a["objeto"], total, entre, a["objeto"] in COMIDA, cada_uno, escapar(cada_uno), cada, sobran)
         return PLANTILLA_CON_RESPUESTA.substitute(
             caja="cajaReparte",
-            enunciado=escapar(enunciado),
-            instruccion=f"Dibuja en cada {sitio} lo que le toca, de uno en uno, hasta que ya no "
-                        "se pueda más: lo que no se puede repartir, sobra.",
+            enunciado=escapar(a.get("pregunta", defecto)),
+            instruccion=instruccion,
             dibujo=dibujo_reparte(a["objeto"], total, entre),
-            respuesta=f"{{\\fontsize{{26}}{{32}}\\selectfont {escapar(cada_uno)}: \\huecoRespuesta[20mm]\\hspace{{10mm}}"
-                      "Sobran: \\huecoRespuesta[20mm]}",
-        ), ("reparte", f"{cada} {cada_uno[0].lower() + cada_uno[1:]}; "
-            + ("no sobra nada" if not sobran else "sobra 1" if sobran == 1 else f"sobran {sobran}"))
+            respuesta=respuesta,
+        ), ("reparte", clave)
 
     if tipo in ("compra", "llega"):
         # Cosas con su precio: sumar lo que se compra, o ver qué se puede
@@ -793,7 +732,7 @@ def render_actividad(d):
             comprobar_objeto(num, objeto)
             if not isinstance(precio, int) or precio < 1:
                 raise ErrorDeContenido(f"día {num}: en '{tipo}', cada cosa cuesta 1 € o más ({objeto}: {precio!r})")
-            comprobar_cantidad(num, semana, precio, f"en '{tipo}', el precio de {un(objeto)}")
+            comprobar_cantidad(num, semana, precio, f"en '{tipo}', el precio de {L.un(objeto)}")
         precios = dict(cosas)
         if tipo == "compra":
             compra = a["compra"]
@@ -801,25 +740,26 @@ def render_actividad(d):
                 raise ErrorDeContenido(f"día {num}: en 'compra', lo que se compra es una o más de las cosas, sin repetir ({compra})")
             total = sum(precios[c] for c in compra)
             comprobar_cantidad(num, semana, total, "en 'compra', el total")
-            enunciado = a.get("pregunta", f"Compras {enumerar([un(c) for c in compra])}. ¿Cuánto pagas?")
+            defecto, instruccion, respuesta, clave = L.compra(compra, precios, total)
             return PLANTILLA_CON_RESPUESTA.substitute(
                 caja="cajaCompra",
-                enunciado=escapar(enunciado),
-                instruccion="Busca el precio de cada cosa que se compra, súmalos, y escribe cuánto se paga en total.",
+                enunciado=escapar(a.get("pregunta", defecto)),
+                instruccion=instruccion,
                 dibujo=dibujo_precios(cosas),
-                respuesta="Total: \\huecoRespuesta\\ €",
-            ), ("compra", " + ".join(str(precios[c]) for c in compra) + f" = {total} €")
+                respuesta=respuesta,
+            ), ("compra", clave)
         tengo = a["tengo"]
         comprobar_cantidad(num, semana, tengo, "en 'llega', lo que se tiene")
         si = [o for o, pr in cosas if pr <= tengo]
         if not si or len(si) == len(cosas):
             raise ErrorDeContenido(f"día {num}: en 'llega', alguna cosa se puede comprar y alguna no")
+        defecto, instruccion, clave = L.llega(tengo, si)
         return PLANTILLA_CAJA.substitute(
             caja="cajaLlega",
-            enunciado=escapar(a.get("pregunta", f"Tienes {tengo} €. Rodea lo que puedes comprar.")),
-            instruccion="Mira el precio de cada cosa: si cuesta lo mismo o menos que lo que tienes, te llega.",
+            enunciado=escapar(a.get("pregunta", defecto)),
+            instruccion=instruccion,
             dibujo=dibujo_precios(cosas),
-        ), ("llega", f"con {tengo} € llega para {enumerar([un(o) for o in si])}")
+        ), ("llega", clave)
 
     if tipo == "cambio":
         # La vuelta: se paga con más de lo que cuesta.
@@ -833,16 +773,14 @@ def render_actividad(d):
             raise ErrorDeContenido(f"día {num}: en 'cambio' se paga con más de lo que cuesta ({pago} €, {precio} €)")
         if any(pago - v >= precio for v in a["paga"]):
             raise ErrorDeContenido(f"día {num}: en 'cambio', sobra una de las monedas o billetes con que se paga ({a['paga']})")
-        enunciado = a.get("pregunta", f"{un(objeto).capitalize()} cuesta {precio} €. Pagas con "
-                                      f"{describir_dinero(a['paga'])}. ¿Cuánto te devuelven?")
+        defecto, instruccion, respuesta, clave = L.cambio(objeto, precio, a["paga"], pago)
         return PLANTILLA_CON_RESPUESTA.substitute(
             caja="cajaVuelta",
-            enunciado=escapar(enunciado),
-            instruccion="La vuelta es lo que te devuelven: lo que das, menos lo que cuesta. Si ayuda, "
-                        "cuenta desde el precio hasta lo que das.",
+            enunciado=escapar(a.get("pregunta", defecto)),
+            instruccion=instruccion,
             dibujo=f"{dibujo_precios([(objeto, precio)])}\\hspace{{16mm}}{dibujo_dinero(a['paga'])}",
-            respuesta="Te devuelven \\huecoRespuesta\\ €",
-        ), ("vuelta", f"{pago} − {precio} = {pago - precio} €")
+            respuesta=respuesta,
+        ), ("vuelta", clave)
 
     if tipo == "problema":
         campos(num, a, ["texto", "operacion"])
@@ -860,7 +798,7 @@ def render_actividad(d):
         return PLANTILLA_CON_RESPUESTA.substitute(
             caja="cajaProblema",
             enunciado=escapar(a["texto"]),
-            instruccion="Lee el problema despacio. Dibújalo en el recuadro, si ayuda, y escribe la cuenta y el resultado.",
+            instruccion=L.problema(),
             dibujo=r"\tikz\draw[dashed, line width=0.8pt, rounded corners=4mm, colorGris] (0,0) rectangle (13,5);",
             respuesta=f"\\huecoRespuesta\\ {SIGNOS[signo]} \\huecoRespuesta\\ = \\huecoRespuesta",
         ), ("problema", f"{x} {SIGNOS[signo]} {y} = {resultado}")
@@ -878,14 +816,15 @@ def render_actividad(d):
             if not re.search(rf"(?<!\d){v}(?!\d)", a["pregunta"]):
                 raise ErrorDeContenido(f"día {num}: la pregunta de 'botes' tiene que decir el {v}: «{a['pregunta']}»")
         nombres = [r"\lblAhorrar", r"\lblGastar", r"\lblCompartir"]
-        contenidos = [r"\huecoRespuesta[22mm]" if i == falta else f"{b} €" for i, b in enumerate(botes)]
+        contenidos = [r"\huecoRespuesta[22mm]" if i == falta else L.euros(b) for i, b in enumerate(botes)]
         tarros = r"\hspace{6mm}".join(f"\\bote{{{n}}}{{{c}}}" for n, c in zip(nombres, contenidos))
+        instruccion, clave = L.botes(falta, botes[falta])
         return PLANTILLA_CAJA.substitute(
             caja="cajaBotes",
             enunciado=escapar(a["pregunta"]),
-            instruccion="Lo que hay en los tres botes, junto, es todo el dinero. Escribe en el bote vacío lo que falta.",
+            instruccion=instruccion,
             dibujo=tarros,
-        ), ("botes", f"{['ahorrar', 'gastar', 'compartir'][falta]}: {botes[falta]} €")
+        ), ("botes", clave)
 
     if tipo == "hucha":
         # Ahorrar tanto cada semana, hasta una meta.
@@ -898,16 +837,14 @@ def render_actividad(d):
         semanas = (meta - tiene) // cada
         if semanas > 10:
             raise ErrorDeContenido(f"día {num}: en 'hucha' se llega a la meta en 10 semanas o menos ({semanas})")
-        empieza = f"Tienes {tiene} € en la hucha." if tiene else "Tu hucha está vacía."
-        enunciado = a.get("pregunta", f"{empieza} Si ahorras {cada} € cada semana, ¿cuántas semanas tardas en tener {meta} €?")
+        defecto, instruccion, respuesta, clave = L.hucha(tiene, cada, meta, semanas)
         return PLANTILLA_CON_RESPUESTA.substitute(
             caja="cajaHucha",
-            enunciado=escapar(enunciado),
-            instruccion="Apunta en cada casilla lo que hay en la hucha al final de cada semana, hasta llegar "
-                        "a la meta. Después, cuenta las semanas.",
-            dibujo=dibujo_hucha(10),
-            respuesta="\\huecoRespuesta\\ semanas",
-        ), ("hucha", f"{semanas} semanas (" + ", ".join(f"{tiene + cada * k}" for k in range(1, semanas + 1)) + " €)")
+            enunciado=escapar(a.get("pregunta", defecto)),
+            instruccion=instruccion,
+            dibujo=dibujo_hucha(10, L),
+            respuesta=respuesta,
+        ), ("hucha", clave)
 
     if tipo == "ordena":
         campos(num, a, ["pasos"])
@@ -917,12 +854,13 @@ def render_actividad(d):
         rng, orden = random.Random(num), list(pasos)
         while orden == pasos:
             rng.shuffle(orden)
+        defecto, instruccion, clave = L.ordena([pasos.index(x) + 1 for x in orden])
         return PLANTILLA_CAJA.substitute(
             caja="cajaOrdena",
-            enunciado=escapar(a.get("pregunta", "¿En qué orden va? Escribe 1, 2, 3...")),
-            instruccion="Lee todos los pasos, y escribe en cada casilla su número: 1 el primero, 2 el segundo...",
+            enunciado=escapar(a.get("pregunta", defecto)),
+            instruccion=instruccion,
             dibujo=dibujo_ordena(orden),
-        ), ("ordena", "de arriba abajo: " + ", ".join(str(pasos.index(x) + 1) for x in orden))
+        ), ("ordena", clave)
 
     if tipo == "elige":
         # Solo llega para una: la que se elige, y la que se deja.
@@ -939,20 +877,14 @@ def render_actividad(d):
         if any(p + q <= tengo for (_, p), (_, q) in itertools.combinations(cosas, 2)):
             raise ErrorDeContenido(f"día {num}: en 'elige' no llega para dos cosas; si llegara, no habría "
                                    f"que elegir ({cosas}, {tengo} €)")
-        if len(cosas) == 2:
-            dos = "las dos" if all(femenino(o) for o, _ in cosas) else "los dos"
-            defecto = (f"Tienes {tengo} €: te llega para {un(cosas[0][0])} o para {un(cosas[1][0])}, "
-                       f"pero no para {dos}. ¿Qué eliges?")
-        else:
-            defecto = f"Tienes {tengo} €: te llega para una de estas cosas, pero no para dos. ¿Cuál eliges?"
+        defecto, instruccion, respuesta, clave = L.elige(tengo, cosas)
         return PLANTILLA_CON_RESPUESTA.substitute(
             caja="cajaElige",
             enunciado=escapar(a.get("pregunta", defecto)),
-            instruccion="Rodea lo que eliges y tacha lo que dejas: elegir una cosa es dejar otra. "
-                        "Después, escribe cuánto dinero te sobra.",
+            instruccion=instruccion,
             dibujo=dibujo_precios(cosas),
-            respuesta="Me sobran \\huecoRespuesta\\ €",
-        ), ("elige", "vale cualquiera: " + "; ".join(f"{el(o)}, {sobra(tengo - p)}" for o, p in cosas))
+            respuesta=respuesta,
+        ), ("elige", clave)
 
     if tipo == "compara":
         # La misma cosa en dos tiendas: dónde es más barata, y cuánto se ahorra.
@@ -972,15 +904,14 @@ def render_actividad(d):
                 raise ErrorDeContenido(f"día {num}: la pregunta de 'compara' tiene que decir el {pr}: «{a['pregunta']}»")
         if p1 == p2:
             raise ErrorDeContenido(f"día {num}: en 'compara', los precios son distintos; si no, no hay nada que comparar")
-        barata, cara = sorted(tiendas, key=lambda t: t[1])
+        instruccion, respuesta, clave = L.compara(*sorted(tiendas, key=lambda t: t[1]))
         return PLANTILLA_CON_RESPUESTA.substitute(
             caja="cajaCompara",
             enunciado=escapar(a["pregunta"]),
-            instruccion="Mira el precio en las dos tiendas. Rodea la tienda donde es más barato, y escribe "
-                        "cuánto te ahorras: lo que va de un precio al otro.",
+            instruccion=instruccion,
             dibujo=dibujo_tiendas(a["objeto"], tiendas),
-            respuesta="Me ahorro \\huecoRespuesta\\ €",
-        ), ("compara", f"«{barata[0]}», {barata[1]} € y no {cara[1]} €: te ahorras {cara[1] - barata[1]} €")
+            respuesta=respuesta,
+        ), ("compara", clave)
 
     if tipo == "cuentas":
         # El cuaderno de cuentas: lo que entra, lo que sale y lo que queda.
@@ -1004,13 +935,13 @@ def render_actividad(d):
             quedas.append(queda)
         if not any(x[1] > 0 for x in apuntes) or not any(x[1] < 0 for x in apuntes):
             raise ErrorDeContenido(f"día {num}: en 'cuentas', algo entra y algo sale")
+        defecto, instruccion, clave = L.cuentas(quedas)
         return PLANTILLA_CAJA.substitute(
             caja="cajaCuentas",
-            enunciado=escapar(a.get("pregunta", "¿Cuánto queda después de cada apunte?")),
-            instruccion="Empieza por lo que hay al principio. Si entra dinero, se suma; si sale, se resta. "
-                        "Escribe en cada casilla lo que queda.",
-            dibujo=dibujo_cuentas(empieza, apuntes),
-        ), ("cuentas", "queda: " + ", ".join(str(q) for q in quedas) + f" €; al final, {quedas[-1]} €")
+            enunciado=escapar(a.get("pregunta", defecto)),
+            instruccion=instruccion,
+            dibujo=dibujo_cuentas(empieza, apuntes, L),
+        ), ("cuentas", clave)
 
     if tipo == "dibuja":
         campos(num, a, ["prompt"])
@@ -1047,6 +978,135 @@ def cargar():
     return sorted(dias, key=lambda d: d["dia"]), semanas
 
 
+# Lo que se escribe a mano en cada actividad: lo que "First Economics"
+# trae en inglés en content/english/q*.json. Todo lo demás -- las cosas,
+# los precios, el dinero, en qué caja va cada tarjeta, qué frase es
+# verdad -- es lo de "Aprendo economía", y el enunciado que no se
+# escribe a mano lo compone tools/idiomas.py. Un texto que un día en
+# español puede traer o no ('pregunta', 'cada') lo trae el día en
+# inglés si, y solo si, lo trae el día en español.
+TEXTOS_ACTIVIDAD = {
+    "clasifica": ("pregunta", "cajas", "cosas"),
+    "une": ("pregunta", "pares"),
+    "vf": ("pregunta", "frases"),
+    "trueque": (),
+    "dinero": ("pregunta",),
+    "reparte": ("pregunta", "cada"),
+    "compra": ("pregunta",),
+    "llega": ("pregunta",),
+    "cambio": ("pregunta",),
+    "problema": ("texto",),
+    "botes": ("pregunta",),
+    "hucha": ("pregunta",),
+    "ordena": ("pregunta", "pasos"),
+    "elige": ("pregunta",),
+    "compara": ("pregunta", "tiendas"),
+    "cuentas": ("pregunta", "apuntes"),
+    "dibuja": ("prompt",),
+    "repasa": ("checklist", "prompt"),
+}
+
+
+def _forma(valor):
+    """Lo que no se traduce de un valor del JSON: el mismo valor, con
+    cada texto cambiado por str. Las tarjetas de "Clasifica" en inglés
+    son las mismas, en el mismo orden y en las mismas cajas; las frases
+    de "¿Verdad o mentira?", las mismas verdades y las mismas mentiras;
+    las tiendas de "Compara", los mismos precios; los apuntes de "Las
+    cuentas", las mismas cantidades. Así los dos cuadernos son, página a
+    página, el mismo: también cuando se barajan (random.Random(día))."""
+    if isinstance(valor, str):
+        return str
+    if isinstance(valor, list):
+        return [_forma(v) for v in valor]
+    return type(valor), valor
+
+
+def _textos(valor):
+    """Todos los textos de un valor del JSON."""
+    if isinstance(valor, str):
+        yield valor
+    elif isinstance(valor, list):
+        for v in valor:
+            yield from _textos(v)
+    elif isinstance(valor, dict):
+        for v in valor.values():
+            yield from _textos(v)
+
+
+def comprobar_euros_ingles(donde, valor):
+    """En inglés, el símbolo del euro va delante del número, y pegado:
+    €5, no "5 €" como en español."""
+    for texto in _textos(valor):
+        if re.search(r"\d\s*€|€\s", texto):
+            raise ErrorDeContenido(f"{donde}: en inglés, el euro va delante del número, y pegado: €5 («{texto}»)")
+
+
+def cargar_ingles(dias_es):
+    """Los días de "First Economics": los de "Aprendo economía", uno a
+    uno, con el tema de su semana en inglés (tools/idiomas.py), y su
+    historia y los textos de su actividad de content/english/q*.json
+    (TEXTOS_ACTIVIDAD); y las palabras de las semanas, en inglés, de las
+    'semanas' de content/english/q*.json. La actividad es la misma, con
+    las mismas cosas, los mismos números y las mismas respuestas: de cada
+    texto, solo cambia la lengua."""
+    textos, semanas = {}, {}
+    for ruta in sorted(INGLES_DIR.glob("q*.json")):
+        datos = json.loads(ruta.read_text(encoding="utf-8"))
+        for t in datos["dias"]:
+            if t.get("dia") in textos:
+                raise ErrorDeContenido(f"el día {t.get('dia')} está dos veces en content/english/")
+            textos[t.get("dia")] = t
+        for s in datos.get("semanas", []):
+            if s.get("semana") in semanas:
+                raise ErrorDeContenido(f"la semana {s.get('semana')} está dos veces en las 'semanas' de content/english/")
+            semanas[s.get("semana")] = s
+    total = DIAS_ESCRITOS_INGLES or TOTAL_DIAS
+    if total > len(dias_es):
+        raise ErrorDeContenido("no puede tener días que no tenga todavía «Aprendo economía»")
+    if sorted(textos) != list(range(1, total + 1)):
+        raise ErrorDeContenido(
+            f"tienen que estar los días del 1 al {total} en content/english/, sin huecos ni repetidos"
+            + (" (en obras: DIAS_ESCRITOS_INGLES)" if DIAS_ESCRITOS_INGLES else ""))
+    for n, s in semanas.items():
+        comprobar_euros_ingles(f"semana {n}", s)
+    dias = []
+    for d in dias_es[:total]:
+        num, t = d["dia"], textos[d["dia"]]
+        sobran = set(t) - {"dia", "historia", "actividad"}
+        if sobran:
+            raise ErrorDeContenido(f"día {num}: no se usa {', '.join(sorted(sobran))}")
+        if not isinstance(t.get("historia"), str) or not t["historia"]:
+            raise ErrorDeContenido(f"día {num}: falta 'historia'")
+        es, en = d["actividad"], t.get("actividad")
+        tipo = es["tipo"]
+        if not isinstance(en, dict) or en.get("tipo") != tipo:
+            raise ErrorDeContenido(
+                f"día {num}: la actividad es la de «Aprendo economía», con su tipo: "
+                f"{{\"tipo\": \"{tipo}\"}} ({en!r})")
+        traducibles = TEXTOS_ACTIVIDAD[tipo]
+        sobran = set(en) - {"tipo"} - set(traducibles)
+        if sobran:
+            raise ErrorDeContenido(
+                f"día {num}: de '{tipo}' se traduce " + (", ".join(f"'{c}'" for c in traducibles) or "nada")
+                + f", y {', '.join(sorted(sobran))} es lo de «Aprendo economía»")
+        a = dict(es)
+        for c in traducibles:
+            if (c in en) != (c in es):
+                raise ErrorDeContenido(
+                    f"día {num}: '{tipo}' " + ("lleva" if c in es else "no lleva")
+                    + f" '{c}', como el día en «Aprendo economía»")
+            if c in en:
+                if _forma(en[c]) != _forma(es[c]):
+                    raise ErrorDeContenido(
+                        f"día {num}: en '{tipo}', '{c}' es lo mismo que en «Aprendo economía», en inglés: "
+                        f"los mismos textos, en el mismo orden y con los mismos números ({en[c]!r})")
+                a[c] = en[c]
+        comprobar_euros_ingles(f"día {num}", [t["historia"]] + [en[c] for c in traducibles if c in en])
+        dias.append(dict(d, tema=INGLES.temas[d["semana"] - 1], historia=t["historia"], actividad=a))
+    return dias, semanas
+
+
 def validar_semanas(semanas, total_semanas):
     """Cada semana tiene su palabra: la palabra, lo que quiere decir, y
     las formas en que puede salir en la historia del lunes. Ninguna se
@@ -1078,13 +1138,13 @@ def dice(texto, formas):
     return any(re.search(rf"(?<!\w){re.escape(f)}(?!\w)", t) for f in formas)
 
 
-def validar_dias(dias, semanas):
-    total = DIAS_ESCRITOS or TOTAL_DIAS
+def validar_dias(dias, semanas, L=ESPANOL, escritos=DIAS_ESCRITOS):
+    total = escritos or TOTAL_DIAS
     numeros = [d["dia"] for d in dias]
     if numeros != list(range(1, total + 1)):
         raise ErrorDeContenido(
             f"tienen que estar los días del 1 al {total}, sin huecos ni repetidos"
-            + (" (en obras: DIAS_ESCRITOS)" if DIAS_ESCRITOS else "")
+            + (" (en obras: DIAS_ESCRITOS)" if escritos else "")
         )
     if total % DIAS_POR_SEMANA:
         raise ErrorDeContenido("los días escritos son semanas enteras (DIAS_ESCRITOS)")
@@ -1095,9 +1155,9 @@ def validar_dias(dias, semanas):
         dia_semana = (num - 1) % DIAS_POR_SEMANA
         if d.get("semana") != semana:
             raise ErrorDeContenido(f"día {num}: es de la semana {semana}, no {d.get('semana')}")
-        if d.get("tema") != TEMAS[semana - 1]:
+        if d.get("tema") != L.temas[semana - 1]:
             raise ErrorDeContenido(
-                f"día {num}: el tema de la semana {semana} es «{TEMAS[semana - 1]}», "
+                f"día {num}: el tema de la semana {semana} es «{L.temas[semana - 1]}», "
                 f"no «{d.get('tema')}»"
             )
         for c in ("objeto", "historia", "actividad"):
@@ -1128,21 +1188,22 @@ def validar_dias(dias, semanas):
 # --------------------------------------------------------------------
 CABECERA = (
     "% {nombre}\n"
-    "% GENERADO por tools/gen_economia.py a partir de content/q*.json.\n"
+    "% GENERADO por tools/gen_economia.py a partir de {fuentes}.\n"
     "% NO EDITAR A MANO -- los cambios se perderán en la siguiente\n"
-    "% ejecución de `make generate`. Edita content/q*.json en su lugar.\n\n"
+    "% ejecución de `make generate`. Edita {fuentes} en su lugar.\n\n"
 )
 
 
-def generar(dias, semanas):
-    piezas = [CABECERA.format(nombre="content/generated-days.tex")]
-    claves = [CABECERA.format(nombre="content/generated-clave.tex")]
+def generar(dias, semanas, cuaderno, fuentes):
+    L = cuaderno.lengua
+    piezas = [CABECERA.format(nombre=cuaderno.salida_dias.relative_to(ROOT), fuentes=fuentes)]
+    claves = [CABECERA.format(nombre=cuaderno.salida_clave.relative_to(ROOT), fuentes=fuentes)]
     for d in dias:
         num, semana = d["dia"], d["semana"]
         trimestre = trimestre_de(semana)
         palabra = semanas[semana]
         d = dict(d, palabra_semana=palabra)
-        actividad, clave = render_actividad(d)
+        actividad, clave = render_actividad(d, L)
         es_lunes = (num - 1) % DIAS_POR_SEMANA == 0
         piezas.append(PLANTILLA_DIA.substitute(
             dia=num, semana=semana, trimestre=trimestre,
@@ -1157,53 +1218,65 @@ def generar(dias, semanas):
             etiqueta, texto = clave
             claves.append(f"\\claveEntrada{{{num}}}{{\\lbl{etiqueta.capitalize() if etiqueta != 'vf' else 'VF'}}}"
                           f"{{{escapar(texto)}}}\n")
-        if num == ULTIMO_DIA_TRIMESTRE.get(trimestre) and trimestre in NOMBRE_MEDALLA:
-            piezas.append(PLANTILLA_MEDALLA.substitute(dia=num, estacion=NOMBRE_MEDALLA[trimestre]))
+        if num == ULTIMO_DIA_TRIMESTRE.get(trimestre) and trimestre in L.nombre_medalla:
+            piezas.append(L.plantilla_medalla.substitute(dia=num, estacion=L.nombre_medalla[trimestre]))
     # "Mi diccionario de economía": las palabras de las semanas, por orden
-    # alfabético (sin tildes para ordenar: "ahorro" antes que "árbol").
-    orden = sorted(semanas.values(), key=lambda s: s["palabra"].translate(str.maketrans("áéíóúü", "aeiouu")))
-    diccionario = CABECERA.format(nombre="content/generated-diccionario.tex") + "".join(
+    # alfabético (en español, sin tildes para ordenar: "ahorro" antes que
+    # "árbol").
+    orden = sorted(semanas.values(), key=lambda s: L.orden_alfabetico(s["palabra"]))
+    diccionario = CABECERA.format(nombre=cuaderno.salida_diccionario.relative_to(ROOT), fuentes=fuentes) + "".join(
         f"\\entradaDiccionario{{{escapar(s['palabra'].capitalize())}}}{{{escapar(s['definicion'])}}}{{{s['semana']}}}\n"
         for s in orden)
     return "\n".join(piezas), "".join(claves), diccionario
 
 
-def comprobar_totaldias():
-    """lang/es.tex promete los mismos 260 días que este script."""
-    m = re.search(r"\\newcommand\{\\totaldias\}\{(\d+)\}", LANG_FILE.read_text(encoding="utf-8"))
+def comprobar_totaldias(cuaderno):
+    """lang/es.tex y lang/en.tex prometen los mismos 260 días que este
+    script."""
+    m = re.search(r"\\newcommand\{\\totaldias\}\{(\d+)\}", cuaderno.lang.read_text(encoding="utf-8"))
     if not m or int(m.group(1)) != TOTAL_DIAS:
-        raise ErrorDeContenido(f"\\totaldias en lang/es.tex tiene que ser {TOTAL_DIAS}")
+        raise ErrorDeContenido(f"\\totaldias en {cuaderno.lang.relative_to(ROOT)} tiene que ser {TOTAL_DIAS}")
 
 
 def main():
     check_only = "--check" in sys.argv
-    try:
-        comprobar_totaldias()
-        dias, semanas = cargar()
-        validar_dias(dias, semanas)
-        tex, clave, diccionario = generar(dias, semanas)
-    except ErrorDeContenido as exc:
-        print(f"ERROR: {exc}", file=sys.stderr)
-        return 1
+    salidas, resumen = [], []
+    for cuaderno in (APRENDO, FIRST):
+        try:
+            comprobar_totaldias(cuaderno)
+            if cuaderno is APRENDO:
+                dias, semanas = cargar()
+                dias_es = dias
+                escritos, fuentes = DIAS_ESCRITOS, "content/q*.json"
+            else:
+                dias, semanas = cargar_ingles(dias_es)
+                escritos, fuentes = DIAS_ESCRITOS_INGLES, "content/q*.json y content/english/q*.json"
+            validar_dias(dias, semanas, cuaderno.lengua, escritos)
+            tex, clave, diccionario = generar(dias, semanas, cuaderno, fuentes)
+        except ErrorDeContenido as exc:
+            print(f"ERROR ({cuaderno.nombre}): {exc}", file=sys.stderr)
+            return 1
+        salidas += [(cuaderno.salida_dias, tex), (cuaderno.salida_clave, clave),
+                    (cuaderno.salida_diccionario, diccionario)]
+        obras = f", en obras: {len(dias)} de {TOTAL_DIAS} días escritos" if escritos else ""
+        resumen.append(f"{cuaderno.nombre} ({len(dias)} días{obras})")
 
-    salidas = [(SALIDA_DIAS, tex), (SALIDA_CLAVE, clave), (SALIDA_DICCIONARIO, diccionario)]
     if check_only:
         for ruta, contenido in salidas:
             actual = ruta.read_text(encoding="utf-8") if ruta.exists() else None
             if actual != contenido:
                 print(
-                    f"DESACTUALIZADO: {ruta.relative_to(ROOT)} no coincide con "
-                    "content/q*.json -- ejecuta `make generate`.",
+                    f"DESACTUALIZADO: {ruta.relative_to(ROOT)} no coincide con su JSON "
+                    "-- ejecuta `make generate`.",
                     file=sys.stderr,
                 )
                 return 1
-        obras = f" (en obras: {len(dias)} de {TOTAL_DIAS} días escritos)" if DIAS_ESCRITOS else ""
-        print(f"OK: {len(dias)} días validados{obras}, y lo generado, al día.")
+        print(f"OK: {' y '.join(resumen)} validados, y lo generado, al día.")
         return 0
 
     for ruta, contenido in salidas:
         ruta.write_text(contenido, encoding="utf-8")
-    print(f"Escritos los {len(dias)} días, la clave y el diccionario.")
+    print(f"Escritos: {' y '.join(resumen)}, con su clave y su diccionario.")
     return 0
 
 

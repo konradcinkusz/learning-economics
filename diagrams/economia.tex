@@ -64,14 +64,15 @@
 
 % --- Las piezas de las actividades con dinero ----------------------------
 
-% Una etiqueta de precio: el cartón, su agujero y el precio (#2 €); para
-% los precios de dos cifras, el cartón crece #1 por cada lado. En las
-% unidades de las cosas, para ponerla debajo de una.
+% Una etiqueta de precio: el cartón, su agujero y el precio (\importe{#2}:
+% "5 €" en español, "€5" en inglés, ver lang/); para los precios de dos
+% cifras, el cartón crece #1 por cada lado. En las unidades de las cosas,
+% para ponerla debajo de una.
 \newcommand{\etiqueta}[2][0]{%
   \filldraw[fill=white, line width=1pt, line join=round]
     (-0.7-#1,-0.38) -- (0.5+#1,-0.38) -- (0.78+#1,0) -- (0.5+#1,0.38) -- (-0.7-#1,0.38) -- cycle;
   \draw[line width=0.8pt] (0.52+#1,0) circle (0.07);
-  \node[font=\fontsize{17}{17}\selectfont\bfseries] at (-0.12,0) {#2\,€};}
+  \node[font=\fontsize{17}{17}\selectfont\bfseries] at (-0.12,0) {\importe{#2}};}
 
 % Un bote de "Los tres botes": el tarro, su tapa y su nombre (#1), y
 % debajo lo que hay dentro (#2: una cantidad, o \huecoRespuesta). En cm.

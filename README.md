@@ -44,6 +44,25 @@ y en verano, siempre en euros enteros.
 El plan completo, semana a semana, está en
 [`notes/01-plan.md`](notes/01-plan.md).
 
+## First Economics (en inglés)
+
+El mismo cuaderno en inglés (británico, como *First Numbers*, el
+*Aprendo los números* en inglés, y como *Read and Draw* y *First Words*
+de *Aprendo a leer*), **página a página**: la misma historia, el mismo
+dibujo y la misma actividad cada día, con las mismas cosas, los mismos
+precios y las mismas respuestas, así que se puede hacer uno, el otro o
+los dos. Lo que cambia es la lengua: la historia, los temas, las
+palabras de la semana (*value*, *barter*, *money*, *scarcity*...), los
+enunciados, las instrucciones, las páginas para el adulto, la clave, *My
+economics dictionary* y el diploma. Los personajes y lo que es de aquí
+se quedan como en esos cuadernos (Lucía, Grandma Rosa, el roscón, los
+churros), y el dinero son euros, escritos a la inglesa: €5.
+
+Está en `english.tex` (y `english-bw.tex`), con el texto de cada día en
+`content/english/q*.json`; todo lo que se escribe en una lengua o en la
+otra sale de `tools/idiomas.py`, y las comprobaciones son las mismas. El
+plan, en [`notes/02-english.md`](notes/02-english.md).
+
 ## Descargar el PDF sin instalar nada
 
 **[⬇ PDF (color)](https://konradcinkusz.github.io/learning-economics/aprendo-economia.pdf)**
@@ -54,7 +73,8 @@ Enlaces fijos, publicados por GitHub Pages en cada push a `main` (ver
 mismo contenido y la misma paginación: nada en el cuaderno se distingue
 solo por el color. Mientras Pages no esté activado, los mismos PDF están
 en la pestaña *Actions* → el último run de *Build* → artefactos
-`pdf-color` / `pdf-bw`.
+`pdf-color` / `pdf-bw` -- y los de *First Economics*, mientras se
+escribe, `pdf-english` / `pdf-english-bw`.
 
 ## Construir el PDF a mano
 
@@ -64,8 +84,9 @@ cargada con `fontspec` desde `fonts/andika/`) + `latexmk`, con `babel`,
 
 ```sh
 make              # genera, compila el cuaderno en color y comprueba
-make all-formats  # los dos PDF, color Y blanco-y-negro -- lo que corre el CI
-make generate     # solo regenera los .tex desde el JSON
+make english      # lo mismo, "First Economics" (english.tex)
+make all-formats  # los cuatro PDF, color Y blanco-y-negro de los dos -- lo que corre el CI
+make generate     # solo regenera los .tex de los dos cuadernos desde el JSON
 make build        # solo compila en color (asume que ya está generado)
 make build-bw     # solo compila en blanco y negro
 make check        # lee main.log + 1 día = 1 página (main.aux) + valida el JSON
@@ -76,19 +97,25 @@ make clean
 
 ```
 main.tex, main-bw.tex          -- el cuaderno, color y blanco-y-negro; solo fijan \bookcolor
+english.tex, english-bw.tex    -- "First Economics": lo mismo, con \booklang{english}
 preamble.tex, lang/es.tex      -- el motor LaTeX y todas las cadenas de texto
-body.tex                       -- el orden del documento
+lang/en.tex                    -- las mismas cadenas, en inglés
+body.tex, body-english.tex     -- el orden del documento
 frontmatter/, backmatter/      -- portada, instrucciones, mapa del curso; clave, diccionario y diploma
+frontmatter/english/, backmatter/english/ -- lo mismo, en inglés
 content/q1.json ...            -- las semanas (su palabra) y los días, uno por trimestre, editados a mano
-content/generated-*.tex        -- GENERADO por tools/gen_economia.py, no editar
+content/english/q1.json ...    -- el texto en inglés de cada día y las palabras de la semana (lo demás es el de content/q*.json)
+content/generated-*.tex        -- GENERADO por tools/gen_economia.py, no editar (y content/english/generated-*.tex)
 diagrams/kit.tex               -- las piezas de los dibujos de «First Words» (de Aprendo a leer)
 diagrams/objetos.tex           -- las cosas de Aprendo los números, con las monedas y los billetes
 diagrams/economia.tex          -- las cosas nuevas de este cuaderno: la lupa, los cromos, la hucha...
 tools/gen_economia.py          -- JSON -> LaTeX, la escalera del dinero, las comprobaciones, la clave y el diccionario
+tools/idiomas.py               -- lo que se escribe en la página, en español y en inglés
 tools/checklog.py              -- lee el .log de LuaLaTeX correctamente (de Aprendo a leer)
 tools/check_pages.py           -- comprueba que cada día ocupa una sola página (de Aprendo a leer)
 docs/index.html                -- la página que publica .github/workflows/pages.yml
 notes/01-plan.md               -- el plan: las 52 semanas, las actividades, las comprobaciones y las fases
+notes/02-english.md            -- el plan de "First Economics"
 ```
 
 ## Licencia
@@ -117,3 +144,7 @@ Cada push comprueba el cuaderno entero: 1 día = 1 página, ninguna caja
 que se salga, y todas las cuentas y la clave, calculadas por el script.
 Se escribió en cinco fases, como *Aprendo los números*: ver "Las fases"
 en [`notes/01-plan.md`](notes/01-plan.md).
+
+**First Economics**, en obras: el motor en dos lenguas y el otoño (días
+1--65) en inglés, con sus 13 palabras, en color y en blanco y negro. Se
+escribe en tres fases: ver [`notes/02-english.md`](notes/02-english.md).

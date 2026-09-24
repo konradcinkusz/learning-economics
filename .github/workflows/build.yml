@@ -44,8 +44,10 @@ jobs:
       # La escalera del dinero (nada pasa del máximo de su trimestre), el
       # calendario (días, semanas, temas, la palabra de cada semana, el
       # viernes se repasa) y lo que se comprueba de cada actividad (ver
-      # render_actividad en tools/gen_economia.py).
-      - name: Valida el contenido (escalera, calendario, actividades)
+      # render_actividad en tools/gen_economia.py), en los dos cuadernos:
+      # "Aprendo economía" y "First Economics", que además tiene que ser,
+      # página a página, el mismo (cargar_ingles).
+      - name: Valida el contenido (escalera, calendario, actividades, las dos lenguas)
         run: python3 tools/gen_economia.py --check
 
   build:
@@ -56,15 +58,20 @@ jobs:
     strategy:
       fail-fast: false
       # Color y blanco-y-negro comparten body.tex y el contenido generado
-      # letra por letra; una matriz en vez de un job duplicado: un cambio
-      # que solo rompe uno de los dos formatos tiene que ser tan visible
-      # como uno que rompe los dos.
+      # letra por letra, y "First Economics" (english.tex) es el mismo
+      # cuaderno en inglés; una matriz en vez de cuatro jobs duplicados: un
+      # cambio que solo rompe uno de los cuatro PDF tiene que ser tan
+      # visible como uno que los rompe todos.
       matrix:
         include:
           - variant: color
             root: main
           - variant: bw
             root: main-bw
+          - variant: english
+            root: english
+          - variant: english-bw
+            root: english-bw
     steps:
       - uses: actions/checkout@v4
 
@@ -92,7 +99,7 @@ jobs:
         run: python3 tools/checklog.py ${{ matrix.root }}.log
 
       # Cada día cabe en una sola cara A4: se comprueba en las páginas
-      # reales del .aux, en los dos formatos.
+      # reales del .aux, en los cuatro PDF.
       - name: Cada día ocupa exactamente una página
         run: python3 tools/check_pages.py ${{ matrix.root }}.aux
 

@@ -105,6 +105,7 @@ cuántos días están escritos.
    texto en español de relleno) para ver cómo quedan en inglés todas
    las actividades, también las que llegan después: *Choose*,
    *Compare* y *Money in and out*. **Hecho.**
-2. **El invierno y la primavera** (días 66--195).
+2. **El invierno y la primavera** (días 66--195), con sus 26 palabras,
+   de *choose* a *sell*. **Hecho.**
 3. **El verano** (días 196--260), y publicarlo: la página de descarga y
    Pages con los cuatro PDF.

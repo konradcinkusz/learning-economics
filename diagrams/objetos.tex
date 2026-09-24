@@ -493,20 +493,21 @@
 % --- Las piezas de las actividades del verano ---------------------------
 
 % Una moneda de euro, de #1 euros (1 o 2): la de 2, más grande y con
-% el borde doble.
+% el borde doble. Lo que dice, \importe{#1}: "2 €" en español, "€2" en
+% inglés (lang/).
 \newcommand{\monedaEuro}[1]{%
   \ifnum#1=2
     \filldraw[fill=white, line width=1.1pt] (0,0) circle (0.95); \draw[line width=1.1pt] (0,0) circle (0.72);
   \else
     \filldraw[fill=white, line width=1.1pt] (0,0) circle (0.8);
   \fi
-  \node[font=\fontsize{20}{20}\selectfont\bfseries] at (0,0) {#1\,€};}
+  \node[font=\fontsize{20}{20}\selectfont\bfseries] at (0,0) {\importe{#1}};}
 % Un billete de #1 euros (5, 10, 20).
 \newcommand{\billete}[1]{%
   \filldraw[fill=white, line width=1.1pt, rounded corners=1.5mm] (-1.7,-0.85) rectangle (1.7,0.85);
   \draw[line width=0.8pt] (-1.5,-0.65) rectangle (1.5,0.65);
   \draw[line width=0.8pt] (-0.95,0) circle (0.42);
-  \node[font=\fontsize{22}{22}\selectfont\bfseries] at (0.55,0) {#1\,€};}
+  \node[font=\fontsize{22}{22}\selectfont\bfseries] at (0.55,0) {\importe{#1}};}
 
 % Un reloj grande, para "¿Qué hora es?": #1 la hora (1-12), #2 los
 % minutos (0 o 30). La aguja corta, la de las horas; la larga, la de los

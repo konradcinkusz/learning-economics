@@ -12,6 +12,9 @@
 content/generated-days.tex
 content/generated-clave.tex
 content/generated-diccionario.tex
+content/english/generated-days.tex
+content/english/generated-clave.tex
+content/english/generated-diccionario.tex
 
 # Python
 __pycache__/

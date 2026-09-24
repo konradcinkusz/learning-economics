@@ -32,12 +32,29 @@
   BoldItalicFont = *-BoldItalic,
 ]
 
-\usepackage[spanish]{babel}
-% babel-spanish hace de " un carácter activo; las comillas escritas a mano
-% en el texto se estropean sin esto (ver el mismo comentario, más largo,
-% en el preamble.tex de "Aprendo a leer"). Solo funciona así, al empezar
-% el documento.
-\AtBeginDocument{\shorthandoff{"}}
+% La lengua del cuaderno: english.tex (y english-bw.tex) fija
+% \booklang{english} antes de \input{preamble}, como \bookcolor, y el
+% mismo preámbulo compone "First Economics": el mismo cuaderno, en
+% inglés, con sus cadenas de texto en lang/en.tex en vez de lang/es.tex
+% (como en "First Numbers", de "Aprendo los números").
+\makeatletter
+\newif\ifenglishbook
+\def\aln@booklang@english{english}
+\@ifundefined{booklang}{\englishbookfalse}{%
+  \ifx\booklang\aln@booklang@english \englishbooktrue \else \englishbookfalse \fi
+}
+\makeatother
+
+\ifenglishbook
+  \usepackage[british]{babel}
+\else
+  \usepackage[spanish]{babel}
+  % babel-spanish hace de " un carácter activo; las comillas escritas a
+  % mano en el texto se estropean sin esto (ver el mismo comentario, más
+  % largo, en el preamble.tex de "Aprendo a leer"). Solo funciona así, al
+  % empezar el documento.
+  \AtBeginDocument{\shorthandoff{"}}
+\fi
 
 % El pie de página ("Día N / 260") vive en el pie de verdad, no en la
 % página de texto: la caja de actividad llena todo lo que queda de página
@@ -59,7 +76,7 @@
 \setlength{\parskip}{2pt}
 
 % --- cadenas de texto ----------------------------------------------------
-\input{lang/es}
+\ifenglishbook \input{lang/en} \else \input{lang/es} \fi
 
 % =========================================================================
 % Paleta

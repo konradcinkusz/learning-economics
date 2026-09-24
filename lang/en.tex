@@ -1,0 +1,86 @@
+% lang/en.tex
+% -----------------------------------------------------------------------
+% "First Economics": las cadenas de texto del cuaderno en inglés
+% (británico, como "First Numbers" y como "Read and Draw" y "First
+% Words" de "Aprendo a leer"), las mismas que lang/es.tex, una a una.
+% english.tex fija \booklang{english} antes de \input{preamble}, y
+% preamble.tex lee este fichero en vez de lang/es.tex. Lo que cambia cada
+% día (los enunciados, las instrucciones y la clave) lo escribe
+% tools/gen_economia.py con tools/idiomas.py.
+% -----------------------------------------------------------------------
+
+% Total de días del cuaderno. tools/gen_economia.py --check comprueba que
+% coincide con su propio TOTAL_DIAS.
+\newcommand{\totaldias}{260}
+
+% La cabecera de cada día (\cabeceraDia, preamble.tex). "Part", no
+% "Term", como en "First Numbers": cada parte es una estación.
+\newcommand{\lblFecha}{Date}
+\newcommand{\lblNotas}{Notes}
+\newcommand{\lblDia}{Day}
+\newcommand{\lblSemana}{Week}
+\newcommand{\lblTrimestre}{Part}
+\newcommand{\lblHecho}{Done}
+\newcommand{\lblHechoSola}{alone}
+\newcommand{\lblHechoConAyuda}{with help}
+\newcommand{\lblHechoConDificultad}{with difficulty}
+
+% La caja de arriba, la misma todos los días.
+\newcommand{\lblHoy}{Today}
+\newcommand{\lblPalabraSemana}{Word of the week}
+
+% Los títulos de las cajas de actividad.
+\newcommand{\lblClasifica}{Sort}
+\newcommand{\lblUne}{Match}
+\newcommand{\lblVF}{True or false?}
+\newcommand{\lblTrueque}{Swap}
+\newcommand{\lblDibuja}{Draw}
+\newcommand{\lblRepasa}{Look back}
+\newcommand{\lblDinero}{Money}
+\newcommand{\lblReparte}{Share}
+\newcommand{\lblCompra}{Shopping}
+\newcommand{\lblProblema}{Word problem}
+\newcommand{\lblBotes}{The three jars}
+\newcommand{\lblHucha}{The piggy bank}
+\newcommand{\lblLlega}{Can I afford it?}
+\newcommand{\lblVuelta}{Change}
+\newcommand{\lblOrdena}{Put in order}
+\newcommand{\lblElige}{Choose}
+\newcommand{\lblCompara}{Compare}
+\newcommand{\lblCuentas}{Money in and out}
+% Las columnas del cuaderno de cuentas.
+\newcommand{\lblQuePasa}{What happens}
+\newcommand{\lblEntra}{In}
+\newcommand{\lblSale}{Out}
+\newcommand{\lblQueda}{Left}
+\newcommand{\lblAlEmpezar}{At the start}
+
+% El dinero en los dibujos (las etiquetas de precio, las monedas y los
+% billetes): en inglés, el euro va delante, como en el texto.
+\newcommand{\importe}[1]{€#1}
+
+% Los nombres de los tres botes.
+\newcommand{\lblAhorrar}{Save}
+\newcommand{\lblGastar}{Spend}
+\newcommand{\lblCompartir}{Share}
+
+% Las dos letras de "True or false?".
+\newcommand{\lblVerdad}{T}
+\newcommand{\lblMentira}{F}
+
+% La portada.
+\newcommand{\lblTituloPortada}{First Economics}
+\newcommand{\lblSubtituloPortada}{Money, work and the choices we make every day}
+\newcommand{\lblSubtituloPortadaMetodo}{A daily workbook for learning to save, choose, swap and share -- with the family from \emph{First Words} and \emph{First Numbers}}
+\newcommand{\lblPortadaNombre}{Name}
+\newcommand{\lblPortadaCurso}{Class}
+
+% La medalla del final de cada parte (T1-T3) y el cartel de cada diez
+% páginas.
+\newcommand{\lblMedalla}[1]{#1 medal!}
+\newcommand{\lblMedallaAnimo}{Keep it up, \rule{55mm}{0.4pt}!}
+\newcommand{\lblPaginasHechas}[1]{#1 pages done!}
+
+% La clave de respuestas y el diccionario.
+\newcommand{\lblClave}{Answers}
+\newcommand{\lblDiccionario}{My economics dictionary}

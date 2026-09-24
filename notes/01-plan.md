@@ -184,3 +184,6 @@ los números*:
    Hecho.
 5. **El verano** (días 196--260), y publicarlo: el cuaderno entero
    (`DIAS_ESCRITOS = None`), la página de descarga y el README. Hecho.
+
+Después, el mismo cuaderno en inglés, *First Economics*, en tres fases
+más: ver [`02-english.md`](02-english.md).

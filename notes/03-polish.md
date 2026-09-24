@@ -83,7 +83,11 @@ que no hace falta, *zachcianka*), *oszczędności*, *nagroda*, *cena*,
 declina), *wydatek*, *warsztat*, *pensja*, *wymiana* (ahora sí la
 palabra: cambiar cosas entre varios, como en el Día del Libro),
 *sklep*, *odpowiedzialność*, *czas*, *skarbonka*, *łańcuch*,
-*konsumować*, *bank*, *sprzedawać*...
+*konsumować*, *bank*, *sprzedawać*; y en verano, *priorytet*,
+*porównywać*, *miara*, *rachunki*, *popyt*, *marzenie*, *zawód*,
+*kieszonkowe*, *skarb*, *zysk*, *wyprzedaż* (y lo que está
+*przecenione*), *planować* y, al final, la que lo junta todo:
+*ekonomia*.
 
 ## Las comprobaciones
 
@@ -108,7 +112,9 @@ cuántos días están escritos.
    **Hecho.**
 2. **El invierno y la primavera** (días 66--195), con sus 26 palabras,
    de *wybierać* a *sprzedawać*. **Hecho.**
-3. **El verano** (días 196--260), con sus 13 palabras, hasta
-   *ekonomia*, y publicarlo: el cuaderno entero
+3. **El verano** (días 196--260), con sus 13 palabras, de
+   *priorytet* a *ekonomia*, y publicarlo: el cuaderno entero
    (`DIAS_ESCRITOS_POLACO = None`), la página de descarga y Pages con
-   los seis PDF.
+   los seis PDF (`poznaje-ekonomie.pdf` y, en blanco y negro,
+   `poznaje-ekonomie-cz-b.pdf`: *cz-b* es como se abrevia en polaco
+   *czarno-biały*). **Hecho.**

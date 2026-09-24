@@ -76,7 +76,14 @@ niña de ocho años: *wartość*, *handel wymienny* (que en la página se
 explica con *wymiana*, la palabra de todos los días), *pieniądze*,
 *niedobór*, *podatki*, *pożyczka*, *użyć ponownie*, *potrzeba* (y lo
 que no hace falta, *zachcianka*), *oszczędności*, *nagroda*, *cena*,
-*zespół*, *prezent*...
+*zespół*, *prezent*; en invierno, *wybierać*, *peseta*, *kilogram*
+(con *kilo*, que es como se dice en la tienda), *produkować*, *dbać*,
+*zasoby*, *porozumienie*, *budżet*, *koszt*, *usługa*, *naprawiać*,
+*cel*, *przyroda*; y en primavera, *euro* (que en polaco no se
+declina), *wydatek*, *warsztat*, *pensja*, *wymiana* (ahora sí la
+palabra: cambiar cosas entre varios, como en el Día del Libro),
+*sklep*, *odpowiedzialność*, *czas*, *skarbonka*, *łańcuch*,
+*konsumować*, *bank*, *sprzedawać*...
 
 ## Las comprobaciones
 
@@ -99,7 +106,8 @@ cuántos días están escritos.
    `lang/pl.tex`, `polish.tex`, las páginas para el adulto y el texto
    de los 65 días, con sus 13 palabras, de *wartość* a *prezent*.
    **Hecho.**
-2. **El invierno y la primavera** (días 66--195), con sus 26 palabras.
+2. **El invierno y la primavera** (días 66--195), con sus 26 palabras,
+   de *wybierać* a *sprzedawać*. **Hecho.**
 3. **El verano** (días 196--260), con sus 13 palabras, hasta
    *ekonomia*, y publicarlo: el cuaderno entero
    (`DIAS_ESCRITOS_POLACO = None`), la página de descarga y Pages con

@@ -64,13 +64,14 @@
 
 % --- Las piezas de las actividades con dinero ----------------------------
 
-% Una etiqueta de precio: el cartón, su agujero y el precio (#1 €). En
-% las unidades de las cosas, para ponerla debajo de una.
-\newcommand{\etiqueta}[1]{%
+% Una etiqueta de precio: el cartón, su agujero y el precio (#2 €); para
+% los precios de dos cifras, el cartón crece #1 por cada lado. En las
+% unidades de las cosas, para ponerla debajo de una.
+\newcommand{\etiqueta}[2][0]{%
   \filldraw[fill=white, line width=1pt, line join=round]
-    (-0.7,-0.38) -- (0.5,-0.38) -- (0.78,0) -- (0.5,0.38) -- (-0.7,0.38) -- cycle;
-  \draw[line width=0.8pt] (0.52,0) circle (0.07);
-  \node[font=\fontsize{17}{17}\selectfont\bfseries] at (-0.12,0) {#1\,€};}
+    (-0.7-#1,-0.38) -- (0.5+#1,-0.38) -- (0.78+#1,0) -- (0.5+#1,0.38) -- (-0.7-#1,0.38) -- cycle;
+  \draw[line width=0.8pt] (0.52+#1,0) circle (0.07);
+  \node[font=\fontsize{17}{17}\selectfont\bfseries] at (-0.12,0) {#2\,€};}
 
 % Un bote de "Los tres botes": el tarro, su tapa y su nombre (#1), y
 % debajo lo que hay dentro (#2: una cantidad, o \huecoRespuesta). En cm.
@@ -81,3 +82,95 @@
     \node[font=\Large\bfseries] at (0,0.75) {#1};
     \node at (0,-0.55) {\fontsize{30}{36}\selectfont\bfseries #2};
   \end{tikzpicture}}
+
+% --- Las cosas del invierno ------------------------------------------------
+
+% Una uva, sola, con su rabito: para repartir uvas de una en una.
+\newcommand{\objUva}{%
+  \draw (0.02,0.5) .. controls (0.05,0.72) and (0.18,0.84) .. (0.3,0.88);
+  \filldraw[fill=white] (0,-0.05) ellipse (0.5 and 0.58);
+  \draw (-0.24,0.2) arc (150:110:0.36);}
+
+% Un racimo de uvas (las doce uvas): de abajo arriba, para que las de
+% delante tapen a las de detrás; el rabo y una hoja.
+\newcommand{\objRacimo}{%
+  \draw (0.02,0.62) .. controls (0.04,0.8) and (0.1,0.9) .. (0.16,0.98);
+  \filldraw[fill=white] (0.14,0.8) .. controls (0.35,1.0) and (0.72,0.95) .. (0.82,0.7)
+    .. controls (0.6,0.6) and (0.3,0.62) .. cycle;
+  \foreach \x/\y in {-0.48/0.42, -0.16/0.46, 0.16/0.46, 0.48/0.42,
+                     -0.32/0.08, 0/0.1, 0.32/0.08,
+                     -0.16/-0.26, 0.16/-0.26,
+                     0/-0.6}
+    {\filldraw[fill=white] (\x,\y) circle (0.2);}}
+
+% Un roscón de Reyes, visto un poco desde arriba: el lado, la corona de
+% masa con su agujero y las frutas escarchadas encima.
+\newcommand{\objRoscon}{%
+  \filldraw[fill=white] (-0.95,0) -- (-0.95,-0.24)
+    arc[start angle=180, end angle=360, x radius=0.95, y radius=0.5] -- (0.95,0) -- cycle;
+  \filldraw[fill=white] (0,0) ellipse (0.95 and 0.5);
+  \filldraw[fill=white] (0,0.02) ellipse (0.34 and 0.15);
+  \foreach \x/\y/\r in {-0.64/0.1/15, 0.62/0.12/-20, 0.02/0.36/5, -0.3/-0.3/-10, 0.42/-0.28/25}
+    {\filldraw[fill=white, rotate around={\r:(\x,\y)}] (\x,\y) ellipse (0.12 and 0.07);}
+  \foreach \x/\y in {-0.4/0.3, 0.36/0.32, -0.72/-0.16, 0.74/-0.12, 0.05/-0.4}
+    {\fill (\x,\y) circle (0.025);}}
+
+% Una carta: el sobre, el sello y las tres rayas de la dirección.
+\newcommand{\objCarta}{%
+  \filldraw[fill=white, rounded corners=0.5mm] (-0.95,-0.62) rectangle (0.95,0.62);
+  \filldraw[fill=white] (0.4,0.12) rectangle (0.8,0.48);
+  \draw (0.47,0.19) rectangle (0.73,0.41);
+  \draw (-0.62,-0.08) -- (0.25,-0.08);
+  \draw (-0.62,-0.26) -- (0.25,-0.26);
+  \draw (-0.62,-0.44) -- (0.05,-0.44);}
+
+% Un telescopio, en su trípode: primero las patas, que el tubo tapa.
+\newcommand{\objTelescopio}{%
+  \draw (0,0.05) -- (-0.55,-0.95);
+  \draw (0,0.05) -- (0,-0.95);
+  \draw (0,0.05) -- (0.55,-0.95);
+  \begin{scope}[rotate=24]
+    \filldraw[fill=white] (-0.98,0.16) rectangle (-0.8,0.38);
+    \filldraw[fill=white] (-0.8,0.1) rectangle (0.62,0.44);
+    \filldraw[fill=white] (0.62,0.03) rectangle (0.84,0.51);
+  \end{scope}
+  \filldraw[fill=white] (0,0.05) circle (0.07);}
+
+% Un antifaz de Carnaval, con sus dos agujeros y una pluma.
+\newcommand{\objAntifaz}{%
+  \filldraw[fill=white] (-0.62,0.32) .. controls (-0.9,0.7) and (-0.72,0.98) .. (-0.5,0.95)
+    .. controls (-0.5,0.7) and (-0.5,0.5) .. (-0.4,0.34) -- cycle;
+  \filldraw[fill=white] (-0.95,0.18) .. controls (-0.9,0.5) and (-0.35,0.52) .. (0,0.28)
+    .. controls (0.35,0.52) and (0.9,0.5) .. (0.95,0.18)
+    .. controls (0.95,-0.25) and (0.5,-0.45) .. (0.2,-0.2)
+    .. controls (0.1,-0.1) and (-0.1,-0.1) .. (-0.2,-0.2)
+    .. controls (-0.5,-0.45) and (-0.95,-0.25) .. cycle;
+  \filldraw[fill=white] (-0.45,0.06) ellipse (0.2 and 0.12);
+  \filldraw[fill=white] (0.45,0.06) ellipse (0.2 and 0.12);}
+
+% El mapa del tesoro de la abuela: el papel doblado en tres, el camino
+% de puntos y la X.
+\newcommand{\objMapa}{%
+  \filldraw[fill=white] (-0.95,-0.62) -- (-0.32,-0.72) -- (0.32,-0.62) -- (0.95,-0.72)
+    -- (0.95,0.72) -- (0.32,0.62) -- (-0.32,0.72) -- (-0.95,0.62) -- cycle;
+  \draw[line width=0.6pt] (-0.32,-0.72) -- (-0.32,0.72);
+  \draw[line width=0.6pt] (0.32,-0.62) -- (0.32,0.62);
+  \draw[dashed, line width=0.9pt] (-0.7,-0.42) .. controls (-0.3,0.2) and (0.1,-0.4) .. (0.5,0.22);
+  \draw[line width=1.6pt] (0.46,0.18) -- (0.72,0.44) (0.46,0.44) -- (0.72,0.18);}
+
+% --- Las piezas de "Compara" ---------------------------------------------
+
+% Una tienda: la pared, el escaparate, el toldo de rayas con sus seis
+% ondas y el letrero con su nombre (#1). En cm, centrada en el
+% escaparate, donde van la cosa y su precio.
+\newcommand{\tienda}[1]{%
+  \filldraw[fill=white, line width=1.2pt] (-2.6,-2.3) rectangle (2.6,1.5);
+  \filldraw[fill=white, line width=1pt, rounded corners=1mm] (-2.1,-1.95) rectangle (2.1,0.9);
+  \filldraw[fill=white, line width=1.2pt, line join=round] (-2.8,1.5) -- (-2.6,2.3) -- (2.6,2.3) -- (2.8,1.5)
+    arc[start angle=0, end angle=-180, radius=0.4667] arc[start angle=0, end angle=-180, radius=0.4667]
+    arc[start angle=0, end angle=-180, radius=0.4667] arc[start angle=0, end angle=-180, radius=0.4667]
+    arc[start angle=0, end angle=-180, radius=0.4667] arc[start angle=0, end angle=-180, radius=0.4667] -- cycle;
+  \foreach \x in {-1.8667, -0.9333, 0, 0.9333, 1.8667}
+    {\draw[line width=0.8pt] (\x,1.5) -- ({\x*2.6/2.8},2.3);}
+  \filldraw[fill=white, line width=1.1pt, rounded corners=1mm] (-2.0,2.45) rectangle (2.0,3.15);
+  \node[font=\large\bfseries] at (0,2.8) {#1};}

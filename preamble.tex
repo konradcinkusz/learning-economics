@@ -168,6 +168,9 @@
 \cajaActividad{cajaLlega}{\lblLlega}{colorRelaciona}
 \cajaActividad{cajaVuelta}{\lblVuelta}{colorCompleta}
 \cajaActividad{cajaOrdena}{\lblOrdena}{colorDibuja}
+% Las del invierno.
+\cajaActividad{cajaElige}{\lblElige}{colorResponde}
+\cajaActividad{cajaCompara}{\lblCompara}{colorDibuja}
 
 % La instrucción de cada actividad: la lee el adulto.
 \newcommand{\instruccion}[1]{{\footnotesize\color{colorGris}#1\par}}
@@ -264,7 +267,7 @@
 \newtcolorbox{cajaPalabra}{enhanced, colback=white, colframe=colorLectura, boxrule=0.8pt,
   arc=2mm, left=3mm, right=3mm, top=1.5mm, bottom=1.5mm, before skip=2.5mm, after skip=0mm}
 \newcommand{\palabraSemana}[2]{%
-  \begin{cajaPalabra}\normalsize\textbf{\color{colorLectura}\lblPalabraSemana:}
+  \begin{cajaPalabra}\sinPartir\normalsize\textbf{\color{colorLectura}\lblPalabraSemana:}
   \textbf{\large #1}. #2\end{cajaPalabra}}
 
 % =========================================================================

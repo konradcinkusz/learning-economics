@@ -149,8 +149,8 @@ mano).
 | **¿Me llega?** | Con lo que tengo, ¿qué puedo comprar? | 11 | alguna cosa que sí, y alguna que no |
 | **La vuelta** | Pagar con un billete, y calcular la vuelta | 11 | que el pago llega, con billetes y monedas de verdad |
 | **Ordena** | Poner en orden los pasos (del trigo al pan) | 12 | de 3 a 5 pasos |
-| **Elige** | Solo se puede una: la que se elige, y la que se deja | 14 | que cada una se puede comprar, pero las dos no |
-| **Compara** | La misma cosa en dos tiendas: ¿dónde es más barata, y cuánto se ahorra? | 16 | precios distintos |
+| **Elige** | Solo llega para una: la que se elige, la que se deja y lo que sobra (vale cualquiera) | 14 | 2 o 3 cosas: cada una se puede comprar, pero dos juntas no |
+| **Compara** | La misma cosa en dos tiendas: ¿dónde es más barata, y cuánto se ahorra? | 16 | dos tiendas con su nombre, precios distintos, y la pregunta los dice |
 | **Las cuentas** | Un cuaderno de cuentas: lo que entra, lo que sale y lo que queda | 28 | que nunca queda menos de 0 |
 
 ## Las comprobaciones
@@ -177,6 +177,7 @@ los números*:
    clave, las medallas y el diploma; el CI. Hecho.
 2. **El otoño** (días 11--65): las nueve actividades con dinero y con
    pasos, de *El dinero* a *Ordena*; la medalla de otoño. Hecho.
-3. **El invierno** (días 66--130).
+3. **El invierno** (días 66--130): *Elige* y *Compara*; el billete de
+   50 €; la medalla de invierno. Hecho.
 4. **La primavera** (días 131--195).
 5. **El verano** (días 196--260), y publicarlo.

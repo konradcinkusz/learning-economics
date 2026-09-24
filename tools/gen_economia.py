@@ -29,6 +29,7 @@ Uso:
                                              # desactualizado
 """
 
+import itertools
 import json
 import random
 import re
@@ -53,7 +54,7 @@ SEMANAS_POR_TRIMESTRE = 13
 # uno en verde antes de fusionarse), cuántos días tiene ya escritos: se
 # exigen exactamente esos, del 1 en adelante y sin huecos. None = el
 # cuaderno está entero, con sus 260 días.
-DIAS_ESCRITOS = 65
+DIAS_ESCRITOS = 130
 
 NOMBRE_MEDALLA = {1: "Otoño", 2: "Invierno", 3: "Primavera"}
 ULTIMO_DIA_TRIMESTRE = {1: 65, 2: 130, 3: 195, 4: 260}
@@ -119,12 +120,15 @@ DESDE_SEMANA = {
     "llega": 11,    # el precio: ¿me llega?, y la vuelta
     "cambio": 11,
     "ordena": 12,   # el equipo: primero esto, después aquello
+    "elige": 14,    # elegir: no se puede tener todo
+    "compara": 16,  # el kilo: la misma fruta, en dos tiendas
 }
 
 
 # Lo que se come: al repartirlo, va en platos; lo demás, en recuadros.
 COMIDA = {"manzana", "caramelo", "galleta", "castana", "huevo", "mandarina", "fresa", "piruleta",
-          "tarta", "torrija", "zanahoria", "tomate", "pan", "lechuga", "helado", "churro"}
+          "tarta", "torrija", "zanahoria", "tomate", "pan", "lechuga", "helado", "churro",
+          "uva", "racimo", "roscon"}
 
 
 class ErrorDeContenido(Exception):
@@ -133,12 +137,13 @@ class ErrorDeContenido(Exception):
 
 def escapar(texto):
     """Lo mínimo para que un texto del JSON se pueda poner tal cual en
-    LaTeX."""
-    return (
+    LaTeX; y el número y su € nunca se separan al final de una línea
+    ("5~€")."""
+    return re.sub(r"(\d) €", r"\1~€", (
         texto.replace("\\", r"\textbackslash{}")
         .replace("&", r"\&").replace("%", r"\%").replace("$", r"\$")
         .replace("#", r"\#").replace("_", r"\_")
-    )
+    ))
 
 
 def campos(dia, actividad, requeridos):
@@ -180,6 +185,16 @@ def un(objeto):
     return ("una " if femenino(objeto) else "un ") + nombre_objeto(objeto, 1)
 
 
+def el(objeto):
+    """"el lápiz", "la canica"."""
+    return ("la " if femenino(objeto) else "el ") + nombre_objeto(objeto, 1)
+
+
+def sobra(n):
+    """"no sobra nada", "sobra 1 €", "sobran 3 €"."""
+    return "no sobra nada" if n == 0 else "sobra 1 €" if n == 1 else f"sobran {n} €"
+
+
 # --------------------------------------------------------------------
 # Las cosas (diagrams/objetos.tex y diagrams/economia.tex)
 # --------------------------------------------------------------------
@@ -192,6 +207,13 @@ OBJETOS = {
     "canica": (r"\objCanica", "canica", "canicas", "f"),
     "hucha": (r"\objHucha", "hucha", "huchas", "f"),
     "entrada": (r"\objEntrada", "entrada", "entradas", "f"),
+    "uva": (r"\objUva", "uva", "uvas", "f"),
+    "racimo": (r"\objRacimo", "racimo de uvas", "racimos de uvas", "m"),
+    "roscon": (r"\objRoscon", "roscón", "roscones", "m"),
+    "carta": (r"\objCarta", "carta", "cartas", "f"),
+    "telescopio": (r"\objTelescopio", "telescopio", "telescopios", "m"),
+    "antifaz": (r"\objAntifaz", "antifaz", "antifaces", "m"),
+    "mapa": (r"\objMapa", "mapa", "mapas", "m"),
     # Las de "Aprendo los números" (diagrams/objetos.tex).
     "manzana": (r"\objManzana", "manzana", "manzanas", "f"),
     "pelota": (r"\objPelota", "pelota", "pelotas", "f"),
@@ -243,6 +265,24 @@ OBJETOS = {
     "concha": (r"\objConcha", "concha", "conchas", "f"),
     "cubo": (r"\objCubo", "cubo", "cubos", "m"),
     "churro": (r"\objChurro", "churro", "churros", "m"),
+    "corona": (r"\objCorona", "corona", "coronas", "f"),
+    "muneco": (r"\objMuneco", "muñeco de nieve", "muñecos de nieve", "m"),
+    "pajaro": (r"\objPajaro", "pájaro", "pájaros", "m"),
+    "paloma": (r"\objPaloma", "paloma", "palomas", "f"),
+    "vela": (r"\objVela", "vela", "velas", "f"),
+    "reloj": (r"\objReloj", "reloj", "relojes", "m"),
+    "regadera": (r"\objRegadera", "regadera", "regaderas", "f"),
+    "rueda": (r"\objRueda", "rueda", "ruedas", "f"),
+    "cometa": (r"\objCometa", "cometa", "cometas", "f"),
+    "copo": (r"\objCopo", "copo de nieve", "copos de nieve", "m"),
+    "tarjeta": (r"\objTarjeta", "tarjeta", "tarjetas", "f"),
+    "nube": (r"\objNube", "nube", "nubes", "f"),
+    "gota": (r"\objGota", "gota", "gotas", "f"),
+    "rosa": (r"\objRosa", "rosa", "rosas", "f"),
+    "brote": (r"\objBrote", "brote", "brotes", "m"),
+    "pollito": (r"\objPollito", "pollito", "pollitos", "m"),
+    "mano": (r"\objMano", "mano", "manos", "f"),
+    "gorrofiesta": (r"\objGorroFiesta", "gorro de fiesta", "gorros de fiesta", "m"),
     "reloj": (r"\objReloj", "reloj", "relojes", "m"),
 }
 
@@ -331,6 +371,7 @@ PLANTILLA_DIBUJA = Template(r"""\begin{cajaDibuja}
 \end{cajaDibuja}""")
 
 PLANTILLA_REPASA = Template(r"""\begin{cajaRepasa}[abajo]
+\sinPartir
 {\large\textbf{\color{colorCrea}\lblPalabraSemana:} \textbf{$palabra}. $definicion\par}
 \vspace{3mm}
 \begin{listaRepaso}
@@ -488,6 +529,11 @@ def dibujo_dinero(valores):
     return "\\begin{tikzpicture}\n" + "\n".join(piezas) + "\n\\end{tikzpicture}"
 
 
+def etiqueta(precio):
+    """La etiqueta de un precio: más ancha si el precio tiene dos cifras."""
+    return f"\\etiqueta[{0.3 if precio >= 10 else 0}]{{{precio}}}"
+
+
 def dibujo_precios(cosas, escala=1.1):
     """Cosas en fila, cada una con su etiqueta de precio debajo. En las
     unidades de las cosas (una caja de 2 x 2), a `escala`."""
@@ -496,7 +542,7 @@ def dibujo_precios(cosas, escala=1.1):
     for i, (objeto, precio) in enumerate(cosas):
         x = (i - (len(cosas) - 1) / 2) * paso
         piezas.append(_cosa(OBJETOS[objeto][0], x, 0.35))
-        piezas.append(f"\\begin{{scope}}[shift={{({x:.2f},-1.25)}}, transform shape]\\etiqueta{{{precio}}}\\end{{scope}}")
+        piezas.append(f"\\begin{{scope}}[shift={{({x:.2f},-1.25)}}, transform shape]{etiqueta(precio)}\\end{{scope}}")
     return f"\\begin{{tikzpicture}}[objeto, scale={escala}]\n" + "\n".join(piezas) + "\n\\end{tikzpicture}"
 
 
@@ -540,6 +586,20 @@ def dibujo_hucha(semanas):
         piezas.append(f"\\draw[line width=1.1pt, rounded corners=1mm, fill=white] ({x:.2f},{arriba - alto:.2f}) rectangle ({x + ancho:.2f},{arriba:.2f});"
                       f"\\node[font=\\footnotesize, text=colorGris] at ({x + ancho / 2:.2f},{arriba - alto - 0.3:.2f}) {{{i + 1}.ª}};")
     return "\\begin{tikzpicture}\n" + "\n".join(piezas) + "\n\\end{tikzpicture}"
+
+
+def dibujo_tiendas(objeto, tiendas):
+    """Dos tiendas, una al lado de la otra, con su nombre en el letrero y,
+    en el escaparate, la misma cosa con su precio. En cm."""
+    piezas = []
+    for i, (nombre, precio) in enumerate(tiendas):
+        x = (i - 0.5) * 6.6
+        piezas.append(
+            f"\\begin{{scope}}[shift={{({x:.2f},0)}}]\\tienda{{{escapar(nombre)}}}"
+            f"\\begin{{scope}}[shift={{(0,-0.05)}}, scale=0.85, objeto]{OBJETOS[objeto][0]}\\end{{scope}}"
+            f"\\begin{{scope}}[shift={{(0,-1.45)}}, scale=1.1, transform shape]{etiqueta(precio)}\\end{{scope}}"
+            "\\end{scope}")
+    return "\\begin{tikzpicture}[scale=1.2]\n" + "\n".join(piezas) + "\n\\end{tikzpicture}"
 
 
 # --------------------------------------------------------------------
@@ -841,6 +901,64 @@ def render_actividad(d):
             instruccion="Lee todos los pasos, y escribe en cada casilla su número: 1 el primero, 2 el segundo...",
             dibujo=dibujo_ordena(orden),
         ), ("ordena", "de arriba abajo: " + ", ".join(str(pasos.index(x) + 1) for x in orden))
+
+    if tipo == "elige":
+        # Solo llega para una: la que se elige, y la que se deja.
+        campos(num, a, ["tengo", "cosas"])
+        tengo, cosas = a["tengo"], a["cosas"]
+        comprobar_cantidad(num, semana, tengo, "en 'elige', lo que se tiene")
+        if not 2 <= len(cosas) <= 3 or len({c[0] for c in cosas}) != len(cosas):
+            raise ErrorDeContenido(f"día {num}: 'elige' lleva 2 o 3 cosas distintas, cada una con su precio")
+        for objeto, precio in cosas:
+            comprobar_objeto(num, objeto)
+            if not isinstance(precio, int) or not 1 <= precio <= tengo:
+                raise ErrorDeContenido(f"día {num}: en 'elige', cada cosa se puede comprar con lo que se tiene "
+                                       f"({objeto}: {precio!r}, y hay {tengo} €)")
+        if any(p + q <= tengo for (_, p), (_, q) in itertools.combinations(cosas, 2)):
+            raise ErrorDeContenido(f"día {num}: en 'elige' no llega para dos cosas; si llegara, no habría "
+                                   f"que elegir ({cosas}, {tengo} €)")
+        if len(cosas) == 2:
+            dos = "las dos" if all(femenino(o) for o, _ in cosas) else "los dos"
+            defecto = (f"Tienes {tengo} €: te llega para {un(cosas[0][0])} o para {un(cosas[1][0])}, "
+                       f"pero no para {dos}. ¿Qué eliges?")
+        else:
+            defecto = f"Tienes {tengo} €: te llega para una de estas cosas, pero no para dos. ¿Cuál eliges?"
+        return PLANTILLA_CON_RESPUESTA.substitute(
+            caja="cajaElige",
+            enunciado=escapar(a.get("pregunta", defecto)),
+            instruccion="Rodea lo que eliges y tacha lo que dejas: elegir una cosa es dejar otra. "
+                        "Después, escribe cuánto dinero te sobra.",
+            dibujo=dibujo_precios(cosas),
+            respuesta="Me sobran \\huecoRespuesta\\ €",
+        ), ("elige", "vale cualquiera: " + "; ".join(f"{el(o)}, {sobra(tengo - p)}" for o, p in cosas))
+
+    if tipo == "compara":
+        # La misma cosa en dos tiendas: dónde es más barata, y cuánto se ahorra.
+        campos(num, a, ["objeto", "tiendas", "pregunta"])
+        comprobar_objeto(num, a["objeto"])
+        tiendas = a["tiendas"]
+        if len(tiendas) != 2 or any(len(t) != 2 for t in tiendas):
+            raise ErrorDeContenido(f"día {num}: 'compara' lleva dos tiendas, cada una [nombre, precio]")
+        (n1, p1), (n2, p2) = tiendas
+        if not all(isinstance(n, str) and 0 < len(n) <= 14 for n in (n1, n2)) or n1 == n2:
+            raise ErrorDeContenido(f"día {num}: en 'compara', cada tienda tiene su nombre, corto y distinto ({n1!r}, {n2!r})")
+        for pr in (p1, p2):
+            if not isinstance(pr, int) or pr < 1:
+                raise ErrorDeContenido(f"día {num}: en 'compara', cada precio es de 1 € o más ({pr!r})")
+            comprobar_cantidad(num, semana, pr, "en 'compara', un precio")
+            if not re.search(rf"(?<!\d){pr}(?!\d)", a["pregunta"]):
+                raise ErrorDeContenido(f"día {num}: la pregunta de 'compara' tiene que decir el {pr}: «{a['pregunta']}»")
+        if p1 == p2:
+            raise ErrorDeContenido(f"día {num}: en 'compara', los precios son distintos; si no, no hay nada que comparar")
+        barata, cara = sorted(tiendas, key=lambda t: t[1])
+        return PLANTILLA_CON_RESPUESTA.substitute(
+            caja="cajaCompara",
+            enunciado=escapar(a["pregunta"]),
+            instruccion="Mira el precio en las dos tiendas. Rodea la tienda donde es más barato, y escribe "
+                        "cuánto te ahorras: lo que va de un precio al otro.",
+            dibujo=dibujo_tiendas(a["objeto"], tiendas),
+            respuesta="Me ahorro \\huecoRespuesta\\ €",
+        ), ("compara", f"«{barata[0]}», {barata[1]} € y no {cara[1]} €: te ahorras {cara[1] - barata[1]} €")
 
     if tipo == "dibuja":
         campos(num, a, ["prompt"])

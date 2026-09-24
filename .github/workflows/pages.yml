@@ -1,8 +1,9 @@
-# El cuaderno necesita una dirección: esto compila y publica los cuatro
-# PDF -- "Aprendo economía" y "First Economics", en color y en blanco y
-# negro -- en GitHub Pages en cada push a `main`, como en "Aprendo a
-# leer". Repite a propósito los pasos de build.yml y lee su propio log:
-# Pages no debe publicar nunca un PDF que no se haya construido limpio.
+# El cuaderno necesita una dirección: esto compila y publica los seis
+# PDF -- "Aprendo economía", "First Economics" y "Poznaję ekonomię", en
+# color y en blanco y negro -- en GitHub Pages en cada push a `main`,
+# como en "Aprendo a leer". Repite a propósito los pasos de build.yml y
+# lee su propio log: Pages no debe publicar nunca un PDF que no se haya
+# construido limpio.
 #
 # PRIMER DESPLIEGUE: crear la página de Pages de un repositorio es una
 # acción administrativa que ningún token de workflow puede hacer. Alguien
@@ -45,7 +46,7 @@ jobs:
       - name: Valida el contenido antes de publicar nada
         run: python3 tools/gen_economia.py --check
 
-      - name: Compila los dos cuadernos (color y blanco y negro)
+      - name: Compila los tres cuadernos (color y blanco y negro)
         uses: xu-cheng/latex-action@v3
         with:
           root_file: |
@@ -53,12 +54,14 @@ jobs:
             main-bw.tex
             english.tex
             english-bw.tex
+            polish.tex
+            polish-bw.tex
           latexmk_use_lualatex: true
           args: -interaction=nonstopmode -file-line-error
 
       - name: Lee los logs y comprueba las páginas
         run: |
-          for r in main main-bw english english-bw; do
+          for r in main main-bw english english-bw polish polish-bw; do
             python3 tools/checklog.py "$r.log"
             python3 tools/check_pages.py "$r.aux"
           done
@@ -71,6 +74,8 @@ jobs:
           cp main-bw.pdf _site/aprendo-economia-bn.pdf
           cp english.pdf _site/first-economics.pdf
           cp english-bw.pdf _site/first-economics-bw.pdf
+          cp polish.pdf _site/poznaje-ekonomie.pdf
+          cp polish-bw.pdf _site/poznaje-ekonomie-cz-b.pdf
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

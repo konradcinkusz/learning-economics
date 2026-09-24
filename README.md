@@ -78,9 +78,8 @@ Rosa, pan Paco, pani Marta), y el dinero son euros, escritos como en
 español: 5 €.
 
 Está en `polish.tex` (y `polish-bw.tex`), con el texto de cada día en
-`content/polish/q*.json`, y las comprobaciones son las mismas. Se está
-escribiendo: el otoño, el invierno y la primavera, días 1--195, ya
-están. El plan, en [`notes/03-polish.md`](notes/03-polish.md).
+`content/polish/q*.json`, y las comprobaciones son las mismas. El plan,
+en [`notes/03-polish.md`](notes/03-polish.md).
 
 ## Descargar el PDF sin instalar nada
 
@@ -90,14 +89,17 @@ están. El plan, en [`notes/03-polish.md`](notes/03-polish.md).
 *First Economics*: **[⬇ PDF (colour)](https://konradcinkusz.github.io/learning-economics/first-economics.pdf)**
 · **[⬇ PDF (black and white)](https://konradcinkusz.github.io/learning-economics/first-economics-bw.pdf)**
 
+*Poznaję ekonomię*: **[⬇ PDF (kolorowy)](https://konradcinkusz.github.io/learning-economics/poznaje-ekonomie.pdf)**
+· **[⬇ PDF (czarno-biały)](https://konradcinkusz.github.io/learning-economics/poznaje-ekonomie-cz-b.pdf)**
+
 Enlaces fijos, publicados por GitHub Pages en cada push a `main` (ver
 `.github/workflows/pages.yml`). Las dos versiones tienen exactamente el
 mismo contenido y la misma paginación: nada en el cuaderno se distingue
 solo por el color. Mientras Pages no esté activado, los mismos PDF están
 en la pestaña *Actions* → el último run de *Build* → artefactos
 `pdf-color` / `pdf-bw` -- y los de *First Economics*, `pdf-english` /
-`pdf-english-bw`; y los de *Poznaję ekonomię*, mientras se escribe,
-`pdf-polish` / `pdf-polish-bw`.
+`pdf-english-bw`; y los de *Poznaję ekonomię*, `pdf-polish` /
+`pdf-polish-bw`.
 
 ## Construir el PDF a mano
 
@@ -178,7 +180,8 @@ economics dictionary* y su diploma, en color y en blanco y negro,
 publicado junto al español. Se escribió en tres fases: ver
 [`notes/02-english.md`](notes/02-english.md).
 
-**Poznaję ekonomię**, en obras: el otoño, el invierno y la primavera
-(días 1--195, de *wartość* a *sprzedawać*), con sus medallas, en color
-y en blanco y negro. Falta el verano: ver
+**Poznaję ekonomię**, también completo: los 260 días en polaco, con sus
+52 palabras (de *wartość* a *ekonomia*), sus medallas, sus respuestas,
+*Mój słowniczek ekonomiczny* y su diploma, en color y en blanco y negro,
+publicado junto a los otros dos. Se escribió en tres fases: ver
 [`notes/03-polish.md`](notes/03-polish.md).

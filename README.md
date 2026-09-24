@@ -79,8 +79,8 @@ español: 5 €.
 
 Está en `polish.tex` (y `polish-bw.tex`), con el texto de cada día en
 `content/polish/q*.json`, y las comprobaciones son las mismas. Se está
-escribiendo: el otoño, días 1--65, ya está. El plan, en
-[`notes/03-polish.md`](notes/03-polish.md).
+escribiendo: el otoño, el invierno y la primavera, días 1--195, ya
+están. El plan, en [`notes/03-polish.md`](notes/03-polish.md).
 
 ## Descargar el PDF sin instalar nada
 
@@ -178,7 +178,7 @@ economics dictionary* y su diploma, en color y en blanco y negro,
 publicado junto al español. Se escribió en tres fases: ver
 [`notes/02-english.md`](notes/02-english.md).
 
-**Poznaję ekonomię**, en obras: el otoño (días 1--65, de *wartość* a
-*prezent*), con su medalla, en color y en blanco y negro. Faltan el
-invierno, la primavera y el verano: ver
+**Poznaję ekonomię**, en obras: el otoño, el invierno y la primavera
+(días 1--195, de *wartość* a *sprzedawać*), con sus medallas, en color
+y en blanco y negro. Falta el verano: ver
 [`notes/03-polish.md`](notes/03-polish.md).

@@ -70,7 +70,7 @@ SEMANAS_POR_TRIMESTRE = 13
 # primeros de "Aprendo economía".
 DIAS_ESCRITOS = None
 DIAS_ESCRITOS_INGLES = None
-DIAS_ESCRITOS_POLACO = 65
+DIAS_ESCRITOS_POLACO = 195
 
 
 # Los cuadernos: su lengua, dónde están sus textos (y lo que generan), el

@@ -1,0 +1,18 @@
+% backmatter/polish/diccionario.tex -- "Mój słowniczek ekonomiczny": la
+% palabra de cada semana, con lo que quiere decir, por el orden del
+% alfabeto polaco (content/polish/generated-diccionario.tex, generado por
+% tools/gen_economia.py a partir de las 'semanas' de
+% content/polish/q*.json).
+\section*{\lblDiccionario}
+
+Słowa ze wszystkich tygodni, od A do Ż. W nawiasie: tydzień, w którym
+się pojawiło.
+
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=0mm, label={}, itemsep=3mm, topsep=0mm]
+% Cada palabra, entera en su columna (como en backmatter/diccionario.tex).
+\interlinepenalty=10000
+\input{content/polish/generated-diccionario}
+\end{itemize}
+\end{multicols}
+\newpage

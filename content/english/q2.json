@@ -1,5 +1,5 @@
 {
-  "_comentario": "First Economics, Part 2 (winter, days 66-130): the English text of each day of Aprendo economía -- the day's story ('historia') and the text of its activity ('actividad', with its 'tipo') -- and the words of weeks 14-26 ('semanas'). Everything else is the one in content/q2.json, page by page: see cargar_ingles in tools/gen_economia.py and notes/02-english.md.",
+  "_comentario": "First Economics, Part 2 (winter, days 66-130): the English text of each day of Aprendo economía -- the day's story ('historia') and the text of its activity ('actividad', with its 'tipo') -- and the words of weeks 14-26 ('semanas'). Everything else is the one in content/q2.json, page by page: see cargar_traduccion in tools/gen_economia.py and notes/02-english.md.",
   "semanas": [
     {"semana": 14, "palabra": "choose", "definicion": "To take one thing and leave another, when you cannot have both.", "formas": ["choose", "chooses", "chose", "chosen", "choosing", "choice", "choices"]},
     {"semana": 15, "palabra": "peseta", "definicion": "The money Spain had before the euro.", "formas": ["peseta", "pesetas"]},

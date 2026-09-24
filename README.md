@@ -63,6 +63,25 @@ Está en `english.tex` (y `english-bw.tex`), con el texto de cada día en
 otra sale de `tools/idiomas.py`, y las comprobaciones son las mismas. El
 plan, en [`notes/02-english.md`](notes/02-english.md).
 
+## Poznaję ekonomię (en polaco)
+
+El mismo cuaderno en polaco, **página a página**, como *First
+Economics*: la misma historia, el mismo dibujo y la misma actividad
+cada día, con las mismas cosas, los mismos precios y las mismas
+respuestas. Lo que cambia es la lengua: la historia, los temas, las
+palabras de la semana (*wartość*, *handel wymienny*, *pieniądze*,
+*niedobór*...), los enunciados, con cada número y su palabra en la
+forma que le toca (*1 muszelka*, *2 karty*, *5 kart*), las
+instrucciones, las páginas para el adulto, la clave, *Mój słowniczek
+ekonomiczny* y el diploma. Los personajes se quedan (Lucía, babcia
+Rosa, pan Paco, pani Marta), y el dinero son euros, escritos como en
+español: 5 €.
+
+Está en `polish.tex` (y `polish-bw.tex`), con el texto de cada día en
+`content/polish/q*.json`, y las comprobaciones son las mismas. Se está
+escribiendo: el otoño, días 1--65, ya está. El plan, en
+[`notes/03-polish.md`](notes/03-polish.md).
+
 ## Descargar el PDF sin instalar nada
 
 **[⬇ PDF (color)](https://konradcinkusz.github.io/learning-economics/aprendo-economia.pdf)**
@@ -77,7 +96,8 @@ mismo contenido y la misma paginación: nada en el cuaderno se distingue
 solo por el color. Mientras Pages no esté activado, los mismos PDF están
 en la pestaña *Actions* → el último run de *Build* → artefactos
 `pdf-color` / `pdf-bw` -- y los de *First Economics*, `pdf-english` /
-`pdf-english-bw`.
+`pdf-english-bw`; y los de *Poznaję ekonomię*, mientras se escribe,
+`pdf-polish` / `pdf-polish-bw`.
 
 ## Construir el PDF a mano
 
@@ -88,8 +108,9 @@ cargada con `fontspec` desde `fonts/andika/`) + `latexmk`, con `babel`,
 ```sh
 make              # genera, compila el cuaderno en color y comprueba
 make english      # lo mismo, "First Economics" (english.tex)
-make all-formats  # los cuatro PDF, color Y blanco-y-negro de los dos -- lo que corre el CI
-make generate     # solo regenera los .tex de los dos cuadernos desde el JSON
+make polish       # lo mismo, "Poznaję ekonomię" (polish.tex)
+make all-formats  # los seis PDF, color Y blanco-y-negro de los tres -- lo que corre el CI
+make generate     # solo regenera los .tex de los tres cuadernos desde el JSON
 make build        # solo compila en color (asume que ya está generado)
 make build-bw     # solo compila en blanco y negro
 make check        # lee main.log + 1 día = 1 página (main.aux) + valida el JSON
@@ -101,24 +122,27 @@ make clean
 ```
 main.tex, main-bw.tex          -- el cuaderno, color y blanco-y-negro; solo fijan \bookcolor
 english.tex, english-bw.tex    -- "First Economics": lo mismo, con \booklang{english}
+polish.tex, polish-bw.tex      -- "Poznaję ekonomię": lo mismo, con \booklang{polish}
 preamble.tex, lang/es.tex      -- el motor LaTeX y todas las cadenas de texto
-lang/en.tex                    -- las mismas cadenas, en inglés
-body.tex, body-english.tex     -- el orden del documento
+lang/en.tex, lang/pl.tex       -- las mismas cadenas, en inglés y en polaco
+body.tex, body-english.tex, body-polish.tex -- el orden del documento
 frontmatter/, backmatter/      -- portada, instrucciones, mapa del curso; clave, diccionario y diploma
-frontmatter/english/, backmatter/english/ -- lo mismo, en inglés
+frontmatter/english/, backmatter/english/ -- lo mismo, en inglés (y frontmatter/polish/, backmatter/polish/, en polaco)
 content/q1.json ...            -- las semanas (su palabra) y los días, uno por trimestre, editados a mano
 content/english/q1.json ...    -- el texto en inglés de cada día y las palabras de la semana (lo demás es el de content/q*.json)
-content/generated-*.tex        -- GENERADO por tools/gen_economia.py, no editar (y content/english/generated-*.tex)
+content/polish/q1.json ...     -- lo mismo, en polaco
+content/generated-*.tex        -- GENERADO por tools/gen_economia.py, no editar (y content/english/, content/polish/generated-*.tex)
 diagrams/kit.tex               -- las piezas de los dibujos de «First Words» (de Aprendo a leer)
 diagrams/objetos.tex           -- las cosas de Aprendo los números, con las monedas y los billetes
 diagrams/economia.tex          -- las cosas nuevas de este cuaderno: la lupa, los cromos, la hucha...
 tools/gen_economia.py          -- JSON -> LaTeX, la escalera del dinero, las comprobaciones, la clave y el diccionario
-tools/idiomas.py               -- lo que se escribe en la página, en español y en inglés
+tools/idiomas.py               -- lo que se escribe en la página, en español, en inglés y en polaco
 tools/checklog.py              -- lee el .log de LuaLaTeX correctamente (de Aprendo a leer)
 tools/check_pages.py           -- comprueba que cada día ocupa una sola página (de Aprendo a leer)
 docs/index.html                -- la página que publica .github/workflows/pages.yml
 notes/01-plan.md               -- el plan: las 52 semanas, las actividades, las comprobaciones y las fases
 notes/02-english.md            -- el plan de "First Economics"
+notes/03-polish.md             -- el plan de "Poznaję ekonomię"
 ```
 
 ## Licencia
@@ -153,3 +177,8 @@ en [`notes/01-plan.md`](notes/01-plan.md).
 economics dictionary* y su diploma, en color y en blanco y negro,
 publicado junto al español. Se escribió en tres fases: ver
 [`notes/02-english.md`](notes/02-english.md).
+
+**Poznaję ekonomię**, en obras: el otoño (días 1--65, de *wartość* a
+*prezent*), con su medalla, en color y en blanco y negro. Faltan el
+invierno, la primavera y el verano: ver
+[`notes/03-polish.md`](notes/03-polish.md).

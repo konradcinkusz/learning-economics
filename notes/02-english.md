@@ -17,7 +17,7 @@ dinero (`MAX_EUROS`), las actividades y cuándo llega cada una
 (`DESDE_SEMANA`), los dibujos, lo que se comprueba de cada actividad y
 la clave, que la calcula el script. No hay una segunda copia de los
 días: `content/english/q*.json` solo trae el texto de cada uno, y
-`cargar_ingles` (en `tools/gen_economia.py`) lo pone encima del día de
+`cargar_traduccion` (en `tools/gen_economia.py`) lo pone encima del día de
 `content/q*.json`:
 
 - `historia`: la historia del día, que lee la niña o el niño (el lunes,
@@ -35,7 +35,7 @@ Y cada uno, **igual que en español, en inglés**: las mismas tarjetas,
 en el mismo orden y en las mismas cajas; las mismas verdades y las
 mismas mentiras; las tiendas, con los mismos precios; los apuntes, con
 las mismas cantidades; una `pregunta` o un `cada`, si y solo si los
-lleva el día en español. `cargar_ingles` lo comprueba todo (`_forma`: el
+lleva el día en español. `cargar_traduccion` lo comprueba todo (`_forma`: el
 mismo valor, sin los textos), y así las dos páginas son la misma
 también cuando se barajan: las tarjetas, las parejas y los pasos se
 mezclan con `random.Random(día)`, y con lo mismo en el mismo sitio
@@ -74,7 +74,7 @@ vive en España. En inglés, el símbolo va **delante** del número, y
 pegado: €5, como £5 -- también en las etiquetas de precio, en las
 monedas y en los billetes (`\importe`, en `lang/en.tex`) --, y el
 script no deja escribir "5 €" ni "€ 5" en ningún texto en inglés
-(`comprobar_euros_ingles`). Lo que se completa dice *euros* ("Total: [ ]
+(`comprobar_euros`). Lo que se completa dice *euros* ("Total: [ ]
 euros", "I have [ ] euros left"), como en *First Numbers*.
 
 Las palabras de la semana son las de la economía, a la altura de una
@@ -85,8 +85,9 @@ niña de ocho años: *value*, *barter* (que en la página se explica con
 
 ## Las comprobaciones
 
-Las mismas, en los dos cuadernos: `python3 tools/gen_economia.py
---check` valida y genera los dos; `make all-formats` compila los cuatro
+Las mismas, en los dos cuadernos (y en *Poznaję ekonomię*, en polaco:
+ver [`03-polish.md`](03-polish.md)): `python3 tools/gen_economia.py
+--check` valida y genera todos; `make all-formats` compila todos los
 PDF (color y blanco y negro de cada uno) y comprueba el log y que cada
 día ocupa una página, y el día 1 la página 5 (también en inglés: las
 páginas para el adulto tienen que seguir cabiendo en una cada una). El
@@ -99,12 +100,13 @@ fusionarse. `DIAS_ESCRITOS_INGLES`, en `tools/gen_economia.py`, dice
 cuántos días están escritos.
 
 1. **El motor en dos lenguas y el otoño** (días 1--65):
-   `tools/idiomas.py`, `cargar_ingles`, `lang/en.tex`, `english.tex`,
-   las páginas para el adulto y el texto de los 65 días, con sus 13
-   palabras. Además, un cuaderno de prueba con los 260 días (con el
-   texto en español de relleno) para ver cómo quedan en inglés todas
-   las actividades, también las que llegan después: *Choose*,
-   *Compare* y *Money in and out*. **Hecho.**
+   `tools/idiomas.py`, `cargar_ingles` (hoy `cargar_traduccion`),
+   `lang/en.tex`, `english.tex`, las páginas para el adulto y el
+   texto de los 65 días, con sus 13 palabras. Además, un cuaderno de
+   prueba con los 260 días (con el texto en español de relleno) para
+   ver cómo quedan en inglés todas las actividades, también las que
+   llegan después: *Choose*, *Compare* y *Money in and out*.
+   **Hecho.**
 2. **El invierno y la primavera** (días 66--195), con sus 26 palabras,
    de *choose* a *sell*. **Hecho.**
 3. **El verano** (días 196--260), con sus 13 palabras, de *priority* a

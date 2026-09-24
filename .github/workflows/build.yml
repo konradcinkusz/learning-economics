@@ -44,10 +44,11 @@ jobs:
       # La escalera del dinero (nada pasa del máximo de su trimestre), el
       # calendario (días, semanas, temas, la palabra de cada semana, el
       # viernes se repasa) y lo que se comprueba de cada actividad (ver
-      # render_actividad en tools/gen_economia.py), en los dos cuadernos:
-      # "Aprendo economía" y "First Economics", que además tiene que ser,
-      # página a página, el mismo (cargar_ingles).
-      - name: Valida el contenido (escalera, calendario, actividades, las dos lenguas)
+      # render_actividad en tools/gen_economia.py), en los tres cuadernos:
+      # "Aprendo economía", "First Economics" y "Poznaję ekonomię", que
+      # además tienen que ser, página a página, el mismo
+      # (cargar_traduccion).
+      - name: Valida el contenido (escalera, calendario, actividades, las tres lenguas)
         run: python3 tools/gen_economia.py --check
 
   build:
@@ -58,10 +59,11 @@ jobs:
     strategy:
       fail-fast: false
       # Color y blanco-y-negro comparten body.tex y el contenido generado
-      # letra por letra, y "First Economics" (english.tex) es el mismo
-      # cuaderno en inglés; una matriz en vez de cuatro jobs duplicados: un
-      # cambio que solo rompe uno de los cuatro PDF tiene que ser tan
-      # visible como uno que los rompe todos.
+      # letra por letra, y "First Economics" (english.tex) y "Poznaję
+      # ekonomię" (polish.tex) son el mismo cuaderno en inglés y en polaco;
+      # una matriz en vez de seis jobs duplicados: un cambio que solo rompe
+      # uno de los seis PDF tiene que ser tan visible como uno que los
+      # rompe todos.
       matrix:
         include:
           - variant: color
@@ -72,6 +74,10 @@ jobs:
             root: english
           - variant: english-bw
             root: english-bw
+          - variant: polish
+            root: polish
+          - variant: polish-bw
+            root: polish-bw
     steps:
       - uses: actions/checkout@v4
 
@@ -99,7 +105,7 @@ jobs:
         run: python3 tools/checklog.py ${{ matrix.root }}.log
 
       # Cada día cabe en una sola cara A4: se comprueba en las páginas
-      # reales del .aux, en los cuatro PDF.
+      # reales del .aux, en los seis PDF.
       - name: Cada día ocupa exactamente una página
         run: python3 tools/check_pages.py ${{ matrix.root }}.aux
 

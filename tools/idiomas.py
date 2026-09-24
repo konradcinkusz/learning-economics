@@ -1,9 +1,10 @@
 """Las dos lenguas del cuaderno de economía.
 
-tools/gen_economia.py genera dos cuadernos que son, página a página, el
-mismo: "Aprendo economía" (main.tex), en español, y "First Economics"
+tools/gen_economia.py genera tres cuadernos que son, página a página, el
+mismo: "Aprendo economía" (main.tex), en español; "First Economics"
 (english.tex), en inglés británico, como "First Numbers" es "Aprendo los
-números" en inglés (https://github.com/konradcinkusz/learning-to-count).
+números" en inglés (https://github.com/konradcinkusz/learning-to-count),
+y "Poznaję ekonomię" (polish.tex), en polaco.
 Comparten todo lo que no es lengua -- el calendario, la escalera del
 dinero, los dibujos, las actividades y lo que se comprueba de cada una
 --, y lo que cambia de uno a otro está aquí, en un solo sitio:
@@ -11,7 +12,8 @@ dinero, los dibujos, las actividades y lo que se comprueba de cada una
   - cómo se llaman las cosas, con su artículo ("un lápiz", "una canica";
     "a pencil", "an ice cream"): el dibujo es el mismo (OBJETOS, en
     tools/gen_economia.py);
-  - cómo se escribe el dinero: "5 €" en español y "€5" en inglés;
+  - cómo se escribe el dinero: "5 €" en español y en polaco, y "€5" en
+    inglés;
   - el tema de cada semana y el nombre de cada medalla;
   - y el enunciado, la instrucción, lo que se completa y la entrada de la
     clave de cada actividad, que tools/gen_economia.py compone con las
@@ -23,12 +25,13 @@ Lo que la página dice siempre igual (los títulos de las cajas, la
 cabecera de cada día, la portada) no está aquí, sino en lang/es.tex y
 lang/en.tex.
 
-Cada lengua es un objeto con los mismos métodos: ESPANOL e INGLES, más
-abajo. Los métodos de ESPANOL devuelven, letra por letra, lo que
+Cada lengua es un objeto con los mismos métodos: ESPANOL, INGLES y
+POLACO, más abajo. Los métodos de ESPANOL devuelven, letra por letra, lo que
 escribía tools/gen_economia.py antes de que hubiera un cuaderno en
 inglés.
 """
 
+import re
 from string import Template
 
 
@@ -51,6 +54,13 @@ _MEDALLA = r"""\begin{center}
 
 class Espanol:
     codigo = "es"
+    nombre_lengua = "español"
+
+    # Cómo NO se escribe el dinero en los textos de una traducción
+    # (content/<lengua>/q*.json): tools/gen_economia.py los rechaza, con
+    # este aviso. El español es el cuaderno de partida: no se comprueba.
+    euro_mal = None
+    aviso_euro = ""
 
     # Los temas de cada semana: los de "Leo con lupa" (content/lupa/ en
     # "Aprendo a leer"), para que quien lleve los dos cuadernos se
@@ -389,6 +399,10 @@ class Ingles(Espanol):
     pesetas y los euros, escritos a la inglesa: €5."""
 
     codigo = "en"
+    nombre_lengua = "inglés"
+
+    euro_mal = re.compile(r"\d\s*€|€\s")
+    aviso_euro = "en inglés, el euro va delante del número, y pegado: €5"
 
     temas = [
         "Grandma's magnifying glass", "A new classmate", "The Magnifying Glass Club",
@@ -680,5 +694,351 @@ class Ingles(Espanol):
                 "left: " + ", ".join(f"€{q}" for q in quedas) + f"; at the end, €{quedas[-1]}")
 
 
+class Polaco(Espanol):
+    """"Poznaję ekonomię": el mismo cuaderno, en polaco, página a página,
+    como "First Economics" en inglés. Los personajes y lo que es de aquí
+    se quedan como en español (Lucía, Dani, "babcia Rosa", el roscón, los
+    churros), y el dinero son euros, escritos como en español: 5 € -- y
+    "euro" no se declina en polaco: 1 euro, 2 euro, 5 euro.
+
+    Lo difícil del polaco, para componer un enunciado, es el número: la
+    cosa va en singular con el 1 (1 piłka), en nominativo plural con el 2,
+    el 3 y el 4 (y el 22, el 23, el 24..., pero no el 12, el 13 ni el 14:
+    2 piłki) y en genitivo plural con los demás (5 piłek, 12 piłek); y el
+    caso, que cambia con lo que pide el verbo: "kupujesz piłkę"
+    (acusativo), "ile piłek?" (genitivo). Por eso cada cosa trae sus
+    cuatro formas: nominativo y acusativo singular, nominativo y genitivo
+    plural (el acusativo plural de una cosa, o de un animal, es su
+    nominativo plural)."""
+
+    codigo = "pl"
+    nombre_lengua = "polaco"
+
+    euro_mal = re.compile(r"€\s*\d|\d€")
+    aviso_euro = "en polaco, el euro va detrás del número, con un espacio, como en español: 5 €"
+
+    temas = [
+        "Lupa babci", "Nowy kolega", "Klub Lupy",
+        "Sprawa ciastek", "Ślady w cemencie", "Wtorkowy liść",
+        "Hałasy na strychu", "Lista zakupów", "Osiem lat",
+        "Gdzie jest Luna?", "Muzeum dinozaurów", "Jasełka",
+        "Czytelnik X zdemaskowany!",
+        "Wędrujący Trzej Królowie", "Wigilia i mapa", "Dwanaście winogron",
+        "Ciasto Trzech Króli", "Bałwan ranny ptaszek", "Peryskop Hugona",
+        "Dzień Pokoju", "Urodziny taty", "Karnawał", "List ze wsi",
+        "Zwiędłe kwiatki", "Planetarium", "Gniazdo w ogrodzie",
+        "Zdjęcie sprzed dwudziestu pięciu lat", "Słodkie grzanki, tym razem sama",
+        "Przebita opona", "Wywiad z panem Paco", "Dzień Książki",
+        "Stary plan", "Rayo ucieka", "Dzień Matki",
+        "Dani kończy sześć lat", "Pszczoły w parku", "Zielona szkoła",
+        "Oto kapsuła!", "Zakończenie roku szkolnego",
+        "Walizka", "Znowu na wsi", "Dziesięć kroków", "Pamiętnik Lucíi",
+        "Pszczoły pana Andrésa", "Noc spadających gwiazd",
+        "List od Hugona", "Wiejski festyn", "Skarb Rosy!",
+        "Mapa Daniego i Martína", "Powrót do miasta",
+        "Dani idzie do szkoły", "Znowu do szkoły",
+    ]
+
+    # "Medal za jesień!": \lblMedalla{#1}, en lang/pl.tex, pide el
+    # acusativo.
+    nombre_medalla = {1: "jesień", 2: "zimę", 3: "wiosnę"}
+    plantilla_medalla = Template(_MEDALLA % ("dni", "stron"))
+
+    # Nominativo y acusativo singular, nominativo y genitivo plural, y
+    # género: "Można zamienić 1 muszelkę na 2 karty. Ile kart dostaniesz
+    # za 3 muszelki?"
+    objetos = {
+        "lupa": ("lupa", "lupę", "lupy", "lup", "f"),
+        "cromo": ("karta", "kartę", "karty", "kart", "f"),
+        "canica": ("kulka", "kulkę", "kulki", "kulek", "f"),
+        "hucha": ("skarbonka", "skarbonkę", "skarbonki", "skarbonek", "f"),
+        "entrada": ("bilet", "bilet", "bilety", "biletów", "m"),
+        "uva": ("winogrono", "winogrono", "winogrona", "winogron", "n"),
+        "racimo": ("kiść winogron", "kiść winogron", "kiście winogron", "kiści winogron", "f"),
+        "roscon": ("roscón", "roscón", "roscony", "rosconów", "m"),
+        "carta": ("list", "list", "listy", "listów", "m"),
+        "telescopio": ("teleskop", "teleskop", "teleskopy", "teleskopów", "m"),
+        "antifaz": ("maska", "maskę", "maski", "masek", "f"),
+        "mapa": ("mapa", "mapę", "mapy", "map", "f"),
+        "leche": ("karton mleka", "karton mleka", "kartony mleka", "kartonów mleka", "m"),
+        "miel": ("słoik miodu", "słoik miodu", "słoiki miodu", "słoików miodu", "m"),
+        "tortuga": ("żółw", "żółwia", "żółwie", "żółwi", "m"),
+        "limon": ("cytryna", "cytrynę", "cytryny", "cytryn", "f"),
+        "caracol": ("ślimak", "ślimaka", "ślimaki", "ślimaków", "m"),
+        "manzana": ("jabłko", "jabłko", "jabłka", "jabłek", "n"),
+        "pelota": ("piłka", "piłkę", "piłki", "piłek", "f"),
+        "hueso": ("kość", "kość", "kości", "kości", "f"),
+        "sol": ("słońce", "słońce", "słońca", "słońc", "n"),
+        "toby": ("pies", "psa", "psy", "psów", "m"),
+        "huella": ("ślad", "ślad", "ślady", "śladów", "m"),
+        "globo": ("balonik", "balonik", "baloniki", "baloników", "m"),
+        "estrella": ("gwiazda", "gwiazdę", "gwiazdy", "gwiazd", "f"),
+        "hoja": ("liść", "liść", "liście", "liści", "m"),
+        "corazon": ("serce", "serce", "serca", "serc", "n"),
+        "caramelo": ("cukierek", "cukierka", "cukierki", "cukierków", "m"),
+        "pez": ("ryba", "rybę", "ryby", "ryb", "f"),
+        "lapiz": ("ołówek", "ołówek", "ołówki", "ołówków", "m"),
+        "libro": ("książka", "książkę", "książki", "książek", "f"),
+        "galleta": ("ciastko", "ciastko", "ciastka", "ciastek", "n"),
+        "castana": ("kasztan", "kasztan", "kasztany", "kasztanów", "m"),
+        "cesta": ("koszyk", "koszyk", "koszyki", "koszyków", "m"),
+        "regalo": ("prezent", "prezent", "prezenty", "prezentów", "m"),
+        "paraguas": ("parasol", "parasol", "parasole", "parasoli", "m"),
+        "arbol": ("drzewo", "drzewo", "drzewa", "drzew", "n"),
+        "coche": ("samochodzik", "samochodzik", "samochodziki", "samochodzików", "m"),
+        "trex": ("dinozaur", "dinozaura", "dinozaury", "dinozaurów", "m"),
+        "huevo": ("jajko", "jajko", "jajka", "jajek", "n"),
+        "gato": ("kot", "kota", "koty", "kotów", "m"),
+        "mochila": ("plecak", "plecak", "plecaki", "plecaków", "m"),
+        "plato": ("talerz", "talerz", "talerze", "talerzy", "m"),
+        "mandarina": ("mandarynka", "mandarynkę", "mandarynki", "mandarynek", "f"),
+        "osito": ("miś", "misia", "misie", "misiów", "m"),
+        "flor": ("kwiatek", "kwiatek", "kwiatki", "kwiatków", "m"),
+        "boton": ("guzik", "guzik", "guziki", "guzików", "m"),
+        "fresa": ("truskawka", "truskawkę", "truskawki", "truskawek", "f"),
+        "piruleta": ("lizak", "lizaka", "lizaki", "lizaków", "m"),
+        "ovillo": ("kłębek włóczki", "kłębek włóczki", "kłębki włóczki", "kłębków włóczki", "m"),
+        "bufanda": ("szalik", "szalik", "szaliki", "szalików", "m"),
+        "gorro": ("czapka", "czapkę", "czapki", "czapek", "f"),
+        "maceta": ("doniczka", "doniczkę", "doniczki", "doniczek", "f"),
+        "bici": ("rower", "rower", "rowery", "rowerów", "m"),
+        "tarta": ("tort", "tort", "torty", "tortów", "m"),
+        "abeja": ("pszczoła", "pszczołę", "pszczoły", "pszczół", "f"),
+        "moneda": ("moneta", "monetę", "monety", "monet", "f"),
+        "torrija": ("grzanka", "grzankę", "grzanki", "grzanek", "f"),
+        "zanahoria": ("marchewka", "marchewkę", "marchewki", "marchewek", "f"),
+        "tomate": ("pomidor", "pomidor", "pomidory", "pomidorów", "m"),
+        "pan": ("chleb", "chleb", "chleby", "chlebów", "m"),
+        "lechuga": ("sałata", "sałatę", "sałaty", "sałat", "f"),
+        "maleta": ("walizka", "walizkę", "walizki", "walizek", "f"),
+        "helado": ("lody", "lody", "porcje lodów", "porcji lodów", "p"),
+        "concha": ("muszelka", "muszelkę", "muszelki", "muszelek", "f"),
+        "cubo": ("wiaderko", "wiaderko", "wiaderka", "wiaderek", "n"),
+        "churro": ("churros", "churrosa", "churrosy", "churrosów", "m"),
+        "corona": ("korona", "koronę", "korony", "koron", "f"),
+        "muneco": ("bałwan", "bałwana", "bałwany", "bałwanów", "m"),
+        "pajaro": ("ptak", "ptaka", "ptaki", "ptaków", "m"),
+        "paloma": ("gołąb", "gołębia", "gołębie", "gołębi", "m"),
+        "vela": ("świeczka", "świeczkę", "świeczki", "świeczek", "f"),
+        "reloj": ("zegar", "zegar", "zegary", "zegarów", "m"),
+        "regadera": ("konewka", "konewkę", "konewki", "konewek", "f"),
+        "rueda": ("koło", "koło", "koła", "kół", "n"),
+        "cometa": ("latawiec", "latawiec", "latawce", "latawców", "m"),
+        "copo": ("płatek śniegu", "płatek śniegu", "płatki śniegu", "płatków śniegu", "m"),
+        "tarjeta": ("kartka", "kartkę", "kartki", "kartek", "f"),
+        "nube": ("chmura", "chmurę", "chmury", "chmur", "f"),
+        "gota": ("kropla", "kroplę", "krople", "kropli", "f"),
+        "rosa": ("róża", "różę", "róże", "róż", "f"),
+        "brote": ("kiełek", "kiełek", "kiełki", "kiełków", "m"),
+        "pollito": ("kurczątko", "kurczątko", "kurczątka", "kurczątek", "n"),
+        "mano": ("ręka", "rękę", "ręce", "rąk", "f"),
+        "gorrofiesta": ("czapeczka urodzinowa", "czapeczkę urodzinową", "czapeczki urodzinowe",
+                        "czapeczek urodzinowych", "f"),
+    }
+
+    @staticmethod
+    def _grupo(n):
+        """Qué forma lleva la cosa con el número n delante: 1, "1 piłka";
+        2, "2 piłki" (con el 2, el 3 y el 4, y el 22, el 23, el 24..., no
+        con el 12, el 13 ni el 14); 5, "5 piłek" (con todos los demás)."""
+        if n == 1:
+            return 1
+        if n % 10 in (2, 3, 4) and n % 100 not in (12, 13, 14):
+            return 2
+        return 5
+
+    def cosa(self, objeto, n):
+        """La cosa, detrás del número n, en nominativo: "1 piłka", "2 piłki",
+        "5 piłek"."""
+        nom, _, pl, gen, _ = self.objetos[objeto]
+        return {1: nom, 2: pl, 5: gen}[self._grupo(n)]
+
+    def acusativo(self, objeto, n=1):
+        """Lo mismo, en acusativo: "1 piłkę", "2 piłki", "5 piłek"."""
+        _, acc, pl, gen, _ = self.objetos[objeto]
+        return {1: acc, 2: pl, 5: gen}[self._grupo(n)]
+
+    def genitivo_plural(self, objeto):
+        """"ile piłek?"."""
+        return self.objetos[objeto][3]
+
+    def femenino(self, objeto):
+        return self.objetos[objeto][4] == "f"
+
+    def un(self, objeto):
+        """Sin artículo, y en acusativo, que es como sale casi siempre
+        ("kupujesz piłkę", "wystarczy ci na piłkę")."""
+        return self.acusativo(objeto, 1)
+
+    def el(self, objeto):
+        return self.objetos[objeto][0]
+
+    @staticmethod
+    def mayuscula(texto):
+        return texto[:1].upper() + texto[1:]
+
+    # euros() y euros_tabla(), como en español: "5 €", "5~€".
+
+    @classmethod
+    def _zostaje(cls, n):
+        """"zostaje 1", "zostają 2", "zostaje 5": el verbo, con el número."""
+        return f"{'zostają' if cls._grupo(n) == 2 else 'zostaje'} {n}"
+
+    @classmethod
+    def sobra(cls, n):
+        """"nic nie zostaje", "zostaje 1 €", "zostają 2 €", "zostaje 5 €"."""
+        return "nic nie zostaje" if n == 0 else f"{cls._zostaje(n)} €"
+
+    @staticmethod
+    def enumerar(cosas, frases=False, y="i"):
+        """"parasol, łyżkę i miotłę"; las frases, entre comillas polacas:
+        „...” / „...”."""
+        cosas = [c.rstrip(".") for c in cosas]
+        if frases:
+            return " / ".join(f"„{c}”" for c in cosas)
+        if len(cosas) == 1:
+            return cosas[0]
+        return ", ".join(cosas[:-1]) + f" {y} " + cosas[-1]
+
+    def describir_dinero(self, valores):
+        """Lo que se da, en acusativo: "banknot 10 €", "dwie monety po 2 €",
+        "banknot 5 € i dwie monety po 2 €"."""
+        monedas = {2: "dwie", 3: "trzy", 4: "cztery", 5: "pięć", 6: "sześć"}
+        billetes = {2: "dwa", 3: "trzy", 4: "cztery", 5: "pięć", 6: "sześć"}
+        partes = []
+        for v in sorted(set(valores), reverse=True):
+            k = valores.count(v)
+            if v >= 5:
+                nombre, cuantos = {1: "banknot", 2: "banknoty", 5: "banknotów"}[self._grupo(k)], billetes.get(k)
+            else:
+                nombre, cuantos = {1: "monetę", 2: "monety", 5: "monet"}[self._grupo(k)], monedas.get(k)
+            partes.append(f"{nombre} {v} €" if k == 1 else f"{cuantos} {nombre} po {v} €")
+        return partes[0] if len(partes) == 1 else self.enumerar(partes)
+
+    @staticmethod
+    def semana_hucha(n):
+        """Debajo de cada casilla de "Skarbonka": "1." (el primer tydzień)."""
+        return f"{n}."
+
+    _ALFABETO = "aąbcćdeęfghijklłmnńoóprsśtuwyzźż"
+
+    @classmethod
+    def orden_alfabetico(cls, palabra):
+        """El orden del alfabeto polaco: la "ł" va después de la "l", y la
+        "ś", después de la "s"; el espacio, antes que todas."""
+        return [-1 if c == " " else cls._ALFABETO.index(c) if c in cls._ALFABETO else 100 + ord(c)
+                for c in palabra]
+
+    # Las instrucciones le hablan a la niña o al niño, como en español.
+    def clasifica(self, cajas, cosas):
+        # Frases enteras: las que terminan en punto (o llevan coma).
+        frases = any(c[0][-1] in ".!?" or "," in c[0] for c in cosas)
+        return ("Połącz każdą rzecz z jej pudełkiem.",
+                "Przeczytaj każdą karteczkę i narysuj linię od jej kropki do pudełka, do którego pasuje.",
+                " ".join(f"{cajas[i]}: {self.enumerar([c[0] for c in cosas if c[1] == i], frases)}."
+                         for i in (0, 1)))
+
+    def une(self, pares):
+        return ("Połącz w pary.",
+                "Przeczytaj obie kolumny i narysuj linię od każdej kropki po lewej do kropki po prawej, "
+                "która do niej pasuje.",
+                "; ".join(f"{p[0]} → {p[1]}" for p in pares))
+
+    def vf(self, frases):
+        return ("Prawda czy fałsz?",
+                "Przeczytaj każde zdanie i zakreśl P, jeśli jest prawdziwe, albo F, jeśli jest fałszywe.",
+                ", ".join(f"{i}: {'P' if f[1] else 'F'}" for i, f in enumerate(frases, 1)))
+
+    def trueque(self, oa, na, ob, nb, de, n, otra, respuesta):
+        return (f"Można zamienić {na} {self.acusativo(oa, na)} na {nb} {self.acusativo(ob, nb)}. "
+                f"Ile {self.genitivo_plural(otra)} dostaniesz za {n} {self.acusativo(de, n)}?",
+                "Popatrz na wymianę na górze. Jeśli trzeba, narysuj te rzeczy i wpisz w okienko, ile dostaniesz.",
+                f"{respuesta} {self.acusativo(otra, respuesta)}")
+
+    def dinero(self, total):
+        return ("Ile tu jest pieniędzy?",
+                "Policz najpierw banknoty, a potem monety, i wpisz, ile euro jest razem.",
+                "Razem: \\huecoRespuesta\\ €",
+                f"{total} €")
+
+    cada_uno = "Każdy"
+
+    def reparte(self, objeto, total, entre, comida, cada_uno, cada_uno_tex, cada, sobran):
+        return (f"Podziel {total} {self.acusativo(objeto, total)} na {entre} "
+                f"{'osoby' if self._grupo(entre) == 2 else 'osób'}. Ile dostanie każdy? Czy coś zostanie?",
+                f"Rysuj {'na każdym talerzu' if comida else 'w każdej ramce'} to, co dostaje każdy, po jednym, "
+                "aż nie da się już dalej dzielić: to, czego nie da się podzielić, zostaje.",
+                f"{{\\fontsize{{26}}{{32}}\\selectfont {cada_uno_tex}: \\huecoRespuesta[20mm]\\hspace{{10mm}}"
+                "Zostaje: \\huecoRespuesta[20mm]}",
+                f"{cada_uno}: {cada}; " + ("nic nie zostaje" if not sobran else self._zostaje(sobran)))
+
+    def compra(self, compra, precios, total):
+        return (f"Kupujesz {self.enumerar([self.un(c) for c in compra])}. Ile płacisz?",
+                "Znajdź cenę każdej rzeczy, którą kupujesz, dodaj je i wpisz, ile płacisz razem.",
+                "Razem: \\huecoRespuesta\\ €",
+                " + ".join(str(precios[c]) for c in compra) + f" = {total} €")
+
+    def llega(self, tengo, si):
+        # "albo": wystarczy na każdą z osobna, nie na wszystkie razem.
+        return (f"Masz {tengo} €. Zakreśl to, co możesz kupić.",
+                "Popatrz na cenę każdej rzeczy: jeśli kosztuje tyle, ile masz, albo mniej, wystarczy ci pieniędzy.",
+                f"za {tengo} € możesz kupić {self.enumerar([self.un(o) for o in si], y='albo')}")
+
+    def cambio(self, objeto, precio, paga, pago):
+        return (f"{self.mayuscula(self.el(objeto))} kosztuje {precio} €. Dajesz "
+                f"{self.describir_dinero(paga)}. Ile dostaniesz reszty?",
+                "Reszta to to, co ci oddają: to, co dajesz, minus to, ile kosztuje. Jeśli to pomaga, "
+                "licz od ceny do tego, co dajesz.",
+                "Reszta: \\huecoRespuesta\\ €",
+                f"{pago} − {precio} = {pago - precio} €")
+
+    def problema(self):
+        return "Przeczytaj zadanie powoli. Jeśli to pomaga, narysuj je w ramce, a potem wpisz działanie i wynik."
+
+    def botes(self, falta, cantidad):
+        return ("To, co jest razem w trzech słoikach, to wszystkie pieniądze. Wpisz do pustego słoika, "
+                "ile w nim brakuje.",
+                f"{['oszczędzać', 'wydawać', 'dzielić się'][falta]}: {cantidad} €")
+
+    def hucha(self, tiene, cada, meta, semanas):
+        empieza = f"Masz w skarbonce {tiene} €." if tiene else "Twoja skarbonka jest pusta."
+        tygodnie = "tydzień" if semanas == 1 else "tygodnie" if self._grupo(semanas) == 2 else "tygodni"
+        return (f"{empieza} Jeśli co tydzień odłożysz {cada} €, po ilu tygodniach będziesz mieć {meta} €?",
+                "W każdej kratce zapisz, ile jest w skarbonce na koniec każdego tygodnia, aż dojdziesz do celu. "
+                "Potem policz tygodnie.",
+                "Liczba tygodni: \\huecoRespuesta",
+                f"{semanas} {tygodnie} (" + ", ".join(f"{tiene + cada * k}" for k in range(1, semanas + 1)) + " €)")
+
+    def ordena(self, numeros):
+        return ("W jakiej kolejności? Napisz 1, 2, 3...",
+                "Przeczytaj wszystkie kroki i wpisz w każdą kratkę jego numer: 1 przy pierwszym, 2 przy drugim...",
+                "od góry: " + ", ".join(str(x) for x in numeros))
+
+    def elige(self, tengo, cosas):
+        if len(cosas) == 2:
+            defecto = (f"Masz {tengo} €: wystarczy ci na {self.un(cosas[0][0])} albo na {self.un(cosas[1][0])}, "
+                       "ale nie na jedno i drugie. Co wybierasz?")
+        else:
+            defecto = f"Masz {tengo} €: wystarczy ci na jedną z tych rzeczy, ale nie na dwie. Co wybierasz?"
+        return (defecto,
+                "Zakreśl to, co wybierasz, i skreśl to, z czego rezygnujesz: wybrać jedno to zrezygnować "
+                "z drugiego. Potem wpisz, ile pieniędzy ci zostaje.",
+                "Zostaje mi: \\huecoRespuesta\\ €",
+                "każda odpowiedź jest dobra: " + "; ".join(f"{self.el(o)}: {self.sobra(tengo - p)}" for o, p in cosas))
+
+    def compara(self, barata, cara):
+        return ("Popatrz na cenę w obu sklepach. Zakreśl sklep, w którym jest taniej, i wpisz, ile oszczędzasz: "
+                "różnicę między dwiema cenami.",
+                "Oszczędzam: \\huecoRespuesta\\ €",
+                f"„{barata[0]}”: {barata[1]} €, a nie {cara[1]} €: oszczędzasz {cara[1] - barata[1]} €")
+
+    def cuentas(self, quedas):
+        return ("Ile zostaje po każdym wpisie?",
+                "Zacznij od tego, co jest na początku. Jeśli pieniądze przychodzą, dodaj je; jeśli wychodzą, "
+                "odejmij je. W każdą kratkę wpisz, ile zostaje.",
+                "zostaje: " + ", ".join(str(q) for q in quedas) + f" €; na koniec {quedas[-1]} €")
+
+
 ESPANOL = Espanol()
 INGLES = Ingles()
+POLACO = Polaco()

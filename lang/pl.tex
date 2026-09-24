@@ -1,0 +1,86 @@
+% lang/pl.tex
+% -----------------------------------------------------------------------
+% "Poznaję ekonomię": las cadenas de texto del cuaderno en polaco, las
+% mismas que lang/es.tex, una a una. polish.tex fija \booklang{polish}
+% antes de \input{preamble}, y preamble.tex lee este fichero en vez de
+% lang/es.tex. Lo que cambia cada día (los enunciados, las instrucciones
+% y la clave) lo escribe tools/gen_economia.py con tools/idiomas.py.
+% -----------------------------------------------------------------------
+
+% Total de días del cuaderno. tools/gen_economia.py --check comprueba que
+% coincide con su propio TOTAL_DIAS.
+\newcommand{\totaldias}{260}
+
+% La cabecera de cada día (\cabeceraDia, preamble.tex). "Część", como
+% "Part" en inglés: cada parte es una estación.
+\newcommand{\lblFecha}{Data}
+\newcommand{\lblNotas}{Uwagi}
+\newcommand{\lblDia}{Dzień}
+\newcommand{\lblSemana}{Tydzień}
+\newcommand{\lblTrimestre}{Część}
+\newcommand{\lblHecho}{Zrobione}
+\newcommand{\lblHechoSola}{samodzielnie}
+\newcommand{\lblHechoConAyuda}{z pomocą}
+\newcommand{\lblHechoConDificultad}{z trudem}
+
+% La caja de arriba, la misma todos los días.
+\newcommand{\lblHoy}{Dzisiaj}
+\newcommand{\lblPalabraSemana}{Słowo tygodnia}
+
+% Los títulos de las cajas de actividad.
+\newcommand{\lblClasifica}{Posortuj}
+\newcommand{\lblUne}{Połącz}
+\newcommand{\lblVF}{Prawda czy fałsz?}
+\newcommand{\lblTrueque}{Wymiana}
+\newcommand{\lblDibuja}{Narysuj}
+\newcommand{\lblRepasa}{Powtórka}
+\newcommand{\lblDinero}{Pieniądze}
+\newcommand{\lblReparte}{Podziel}
+\newcommand{\lblCompra}{Zakupy}
+\newcommand{\lblProblema}{Zadanie}
+\newcommand{\lblBotes}{Trzy słoiki}
+\newcommand{\lblHucha}{Skarbonka}
+\newcommand{\lblLlega}{Czy wystarczy?}
+\newcommand{\lblVuelta}{Reszta}
+\newcommand{\lblOrdena}{Ułóż po kolei}
+\newcommand{\lblElige}{Wybierz}
+\newcommand{\lblCompara}{Porównaj}
+\newcommand{\lblCuentas}{Moje rachunki}
+% Las columnas del cuaderno de cuentas: las del dinero, de 24 mm, y en
+% polaco las palabras son más largas (\ajustado, en preamble.tex, las
+% encoge si no caben).
+\newcommand{\lblQuePasa}{Co się dzieje}
+\newcommand{\lblEntra}{\ajustado{23mm}{Dostaję}}
+\newcommand{\lblSale}{\ajustado{23mm}{Wydaję}}
+\newcommand{\lblQueda}{Zostaje}
+\newcommand{\lblAlEmpezar}{Na początku}
+
+% El dinero en los dibujos (las etiquetas de precio, las monedas y los
+% billetes): el número y, detrás, el euro, como en español.
+\newcommand{\importe}[1]{#1\,€}
+
+% Los nombres de los tres botes (el tarro mide 30 mm).
+\newcommand{\lblAhorrar}{\ajustado{27mm}{Oszczędzać}}
+\newcommand{\lblGastar}{\ajustado{27mm}{Wydawać}}
+\newcommand{\lblCompartir}{\ajustado{27mm}{Dzielić się}}
+
+% Las dos letras de "Prawda czy fałsz?".
+\newcommand{\lblVerdad}{P}
+\newcommand{\lblMentira}{F}
+
+% La portada.
+\newcommand{\lblTituloPortada}{Poznaję ekonomię}
+\newcommand{\lblSubtituloPortada}{Pieniądze, praca i codzienne wybory}
+\newcommand{\lblSubtituloPortadaMetodo}{Zeszyt na każdy dzień: uczę się oszczędzać, wybierać, wymieniać się i dzielić -- razem z Lucíą i jej rodziną}
+\newcommand{\lblPortadaNombre}{Imię}
+\newcommand{\lblPortadaCurso}{Klasa}
+
+% La medalla del final de cada parte (T1-T3) y el cartel de cada diez
+% páginas ("Już 10 stron!": con 10, 20, 30..., siempre "stron").
+\newcommand{\lblMedalla}[1]{Medal za #1!}
+\newcommand{\lblMedallaAnimo}{Tak trzymaj, \rule{55mm}{0.4pt}!}
+\newcommand{\lblPaginasHechas}[1]{Już #1 stron!}
+
+% La clave de respuestas y el diccionario.
+\newcommand{\lblClave}{Odpowiedzi}
+\newcommand{\lblDiccionario}{Mój słowniczek ekonomiczny}

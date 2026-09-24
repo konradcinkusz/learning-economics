@@ -1,5 +1,5 @@
 {
-  "_comentario": "First Economics, Part 3 (spring, days 131-195): the English text of each day of Aprendo economía -- the day's story ('historia') and the text of its activity ('actividad', with its 'tipo') -- and the words of weeks 27-39 ('semanas'). Everything else is the one in content/q3.json, page by page: see cargar_ingles in tools/gen_economia.py and notes/02-english.md.",
+  "_comentario": "First Economics, Part 3 (spring, days 131-195): the English text of each day of Aprendo economía -- the day's story ('historia') and the text of its activity ('actividad', with its 'tipo') -- and the words of weeks 27-39 ('semanas'). Everything else is the one in content/q3.json, page by page: see cargar_traduccion in tools/gen_economia.py and notes/02-english.md.",
   "semanas": [
     {"semana": 27, "palabra": "euro", "definicion": "The money we use today in Spain and in many other countries in Europe.", "formas": ["euro", "euros"]},
     {"semana": 28, "palabra": "spending", "definicion": "The money that is used to buy or pay for something.", "formas": ["spending", "spend", "spends", "spent"]},

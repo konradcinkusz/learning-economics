@@ -1,5 +1,5 @@
 {
-  "_comentario": "First Economics, Part 4 (summer, days 196-260): the English text of each day of Aprendo economía -- the day's story ('historia') and the text of its activity ('actividad', with its 'tipo') -- and the words of weeks 40-52 ('semanas'). Everything else is the one in content/q4.json, page by page: see cargar_ingles in tools/gen_economia.py and notes/02-english.md.",
+  "_comentario": "First Economics, Part 4 (summer, days 196-260): the English text of each day of Aprendo economía -- the day's story ('historia') and the text of its activity ('actividad', with its 'tipo') -- and the words of weeks 40-52 ('semanas'). Everything else is the one in content/q4.json, page by page: see cargar_traduccion in tools/gen_economia.py and notes/02-english.md.",
   "semanas": [
     {"semana": 40, "palabra": "priority", "definicion": "What comes first, because it is the most important.", "formas": ["priority", "priorities"]},
     {"semana": 41, "palabra": "compare", "definicion": "To look at two or more things to see how they are alike and how they are different, like the prices in two shops.", "formas": ["compare", "compares", "compared", "comparing"]},

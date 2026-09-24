@@ -145,6 +145,7 @@ que se salga, y todas las cuentas y la clave, calculadas por el script.
 Se escribió en cinco fases, como *Aprendo los números*: ver "Las fases"
 en [`notes/01-plan.md`](notes/01-plan.md).
 
-**First Economics**, en obras: el motor en dos lenguas y el otoño (días
-1--65) en inglés, con sus 13 palabras, en color y en blanco y negro. Se
-escribe en tres fases: ver [`notes/02-english.md`](notes/02-english.md).
+**First Economics**, en obras: el motor en dos lenguas, y el otoño, el
+invierno y la primavera (días 1--195) en inglés, con sus 39 palabras, en
+color y en blanco y negro. Se escribe en tres fases: ver
+[`notes/02-english.md`](notes/02-english.md).

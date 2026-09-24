@@ -141,7 +141,7 @@ mano).
 | **Repasa** (los viernes) | La palabra de la semana, lo que ya sabe hacer, y un dibujo | 1 | tres cosas que marcar, y solo los viernes |
 | **Trueque** | 1 cromo = 3 canicas: ¿cuántas canicas por 2 cromos? | 2 | la cuenta, hasta el máximo del trimestre |
 | **El dinero** | Contar monedas y billetes | 3 | monedas y billetes del trimestre, hasta su máximo |
-| **Reparte** | Repartir entre varios, y lo que sobra | 4 | de 2 a 5 amigos, hasta 20 cosas |
+| **Reparte** | Repartir entre varios, y lo que sobra: la comida, en platos; lo demás, en recuadros | 4 | de 2 a 5 partes, hasta 20 cosas, al menos una en cada parte |
 | **La compra** | Sumar los precios de lo que se compra | 8 | los precios y el total, hasta el máximo |
 | **Problema** | Un problema con dinero | 8 | que el texto dice sus números, y el resultado |
 | **Los tres botes** | Repartir el dinero entre ahorrar, gastar y compartir | 9 | que los tres suman lo que hay |
@@ -174,8 +174,9 @@ los números*:
 
 1. **El motor, el diseño y las semanas 1--2** (días 1--10): el
    generador, la página, las primeras actividades, el diccionario, la
-   clave, las medallas y el diploma; el CI.
-2. **El otoño** (días 11--65).
+   clave, las medallas y el diploma; el CI. Hecho.
+2. **El otoño** (días 11--65): las nueve actividades con dinero y con
+   pasos, de *El dinero* a *Ordena*; la medalla de otoño. Hecho.
 3. **El invierno** (días 66--130).
 4. **La primavera** (días 131--195).
 5. **El verano** (días 196--260), y publicarlo.

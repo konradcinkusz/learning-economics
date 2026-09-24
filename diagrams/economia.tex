@@ -49,3 +49,35 @@
     \draw[line width=1.8pt] (-0.28,0.52) -- (0.12,0.58);
     \draw (-0.84,0.04) .. controls (-1.0,0.14) and (-0.96,0.36) .. (-0.82,0.3);
   \end{scope}}
+
+% Una entrada (de museo, de cine): el cartón, la raya de puntos por donde
+% se corta y una estrella.
+\newcommand{\objEntrada}{%
+  \filldraw[fill=white, rounded corners=1mm] (-0.95,-0.55) rectangle (0.95,0.55);
+  \draw[dashed, line width=0.8pt] (0.45,-0.55) -- (0.45,0.55);
+  \draw (-0.7,0.2) -- (0.15,0.2);
+  \draw (-0.7,-0.05) -- (0.05,-0.05);
+  \draw (-0.7,-0.3) -- (-0.1,-0.3);
+  \filldraw[fill=white, line join=round, shift={(0.7,0)}]
+    (90:0.2) -- (126:0.08) -- (162:0.2) -- (198:0.08) -- (234:0.2)
+    -- (270:0.08) -- (306:0.2) -- (342:0.08) -- (18:0.2) -- (54:0.08) -- cycle;}
+
+% --- Las piezas de las actividades con dinero ----------------------------
+
+% Una etiqueta de precio: el cartón, su agujero y el precio (#1 €). En
+% las unidades de las cosas, para ponerla debajo de una.
+\newcommand{\etiqueta}[1]{%
+  \filldraw[fill=white, line width=1pt, line join=round]
+    (-0.7,-0.38) -- (0.5,-0.38) -- (0.78,0) -- (0.5,0.38) -- (-0.7,0.38) -- cycle;
+  \draw[line width=0.8pt] (0.52,0) circle (0.07);
+  \node[font=\fontsize{17}{17}\selectfont\bfseries] at (-0.12,0) {#1\,€};}
+
+% Un bote de "Los tres botes": el tarro, su tapa y su nombre (#1), y
+% debajo lo que hay dentro (#2: una cantidad, o \huecoRespuesta). En cm.
+\newcommand{\bote}[2]{%
+  \begin{tikzpicture}[line width=1.2pt, line join=round, baseline=(current bounding box.center)]
+    \filldraw[fill=white, rounded corners=3mm] (-1.5,-1.8) rectangle (1.5,1.4);
+    \filldraw[fill=white, rounded corners=1mm] (-1.25,1.4) rectangle (1.25,1.85);
+    \node[font=\Large\bfseries] at (0,0.75) {#1};
+    \node at (0,-0.55) {\fontsize{30}{36}\selectfont\bfseries #2};
+  \end{tikzpicture}}

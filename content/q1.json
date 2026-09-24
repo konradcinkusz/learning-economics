@@ -1,82 +1,1639 @@
 {
   "_comentario": "Otoño (trimestre 1, días 1-65): las semanas 1-13 de «Leo con lupa», cada una con su idea y su palabra ('semanas'), y los días ('dias'): la historia del día (la lee la niña o el niño; el lunes dice la palabra de la semana), el dibujo de la caja de arriba ('objeto', de OBJETOS en tools/gen_economia.py) y una actividad. Ver notes/01-plan.md.",
   "semanas": [
-    {"semana": 1, "palabra": "valor",
-     "definicion": "Lo que vale una cosa: porque sirve, porque es bonita, porque hay pocas o porque la queremos.",
-     "formas": ["valor", "vale", "valen", "valía", "valían"]},
-    {"semana": 2, "palabra": "trueque",
-     "definicion": "Cambiar una cosa por otra, sin usar dinero.",
-     "formas": ["trueque", "trueques"]}
+    {
+      "semana": 1,
+      "palabra": "valor",
+      "definicion": "Lo que vale una cosa: porque sirve, porque es bonita, porque hay pocas o porque la queremos.",
+      "formas": [
+        "valor",
+        "vale",
+        "valen",
+        "valía",
+        "valían"
+      ]
+    },
+    {
+      "semana": 2,
+      "palabra": "trueque",
+      "definicion": "Cambiar una cosa por otra, sin usar dinero.",
+      "formas": [
+        "trueque",
+        "trueques"
+      ]
+    },
+    {
+      "semana": 3,
+      "palabra": "dinero",
+      "definicion": "Las monedas y los billetes con los que se compran y se venden las cosas.",
+      "formas": [
+        "dinero"
+      ]
+    },
+    {
+      "semana": 4,
+      "palabra": "escasez",
+      "definicion": "Cuando no hay bastante de algo para todos los que lo quieren.",
+      "formas": [
+        "escasez",
+        "escaso",
+        "escasa",
+        "escasea",
+        "escasean"
+      ]
+    },
+    {
+      "semana": 5,
+      "palabra": "impuestos",
+      "definicion": "El dinero que pagamos entre todos para las cosas de todos: las aceras, los parques, los colegios, los hospitales.",
+      "formas": [
+        "impuestos",
+        "impuesto"
+      ]
+    },
+    {
+      "semana": 6,
+      "palabra": "préstamo",
+      "definicion": "Dejar una cosa a alguien para que la use y después la devuelva.",
+      "formas": [
+        "préstamo",
+        "préstamos",
+        "prestar",
+        "presta",
+        "prestan",
+        "prestado",
+        "prestada",
+        "prestamos"
+      ]
+    },
+    {
+      "semana": 7,
+      "palabra": "reutilizar",
+      "definicion": "Volver a usar una cosa, en vez de tirarla.",
+      "formas": [
+        "reutilizar",
+        "reutiliza",
+        "reutilizan",
+        "reutilizamos",
+        "reutilizado"
+      ]
+    },
+    {
+      "semana": 8,
+      "palabra": "necesidad",
+      "definicion": "Lo que hace falta para vivir bien: comer, vestirse, una casa, ir al médico. Lo que nos gustaría tener, pero no nos hace falta, es un deseo.",
+      "formas": [
+        "necesidad",
+        "necesidades",
+        "necesito",
+        "necesita",
+        "necesitamos",
+        "necesitan"
+      ]
+    },
+    {
+      "semana": 9,
+      "palabra": "ahorro",
+      "definicion": "El dinero que guardamos hoy para usarlo más adelante.",
+      "formas": [
+        "ahorro",
+        "ahorros",
+        "ahorrar",
+        "ahorra",
+        "ahorran",
+        "ahorrado",
+        "ahorramos"
+      ]
+    },
+    {
+      "semana": 10,
+      "palabra": "recompensa",
+      "definicion": "Lo que recibe alguien por hacer algo bueno o útil.",
+      "formas": [
+        "recompensa",
+        "recompensas"
+      ]
+    },
+    {
+      "semana": 11,
+      "palabra": "precio",
+      "definicion": "Lo que hay que pagar por una cosa.",
+      "formas": [
+        "precio",
+        "precios"
+      ]
+    },
+    {
+      "semana": 12,
+      "palabra": "equipo",
+      "definicion": "Un grupo de personas que trabajan juntas: cada una hace una parte.",
+      "formas": [
+        "equipo",
+        "equipos"
+      ]
+    },
+    {
+      "semana": 13,
+      "palabra": "regalo",
+      "definicion": "Algo que se da a alguien sin pedir nada a cambio.",
+      "formas": [
+        "regalo",
+        "regalos",
+        "regala",
+        "regalan",
+        "regalar"
+      ]
+    }
   ],
   "dias": [
     {
-      "dia": 1, "semana": 1, "tema": "La lupa de la abuela", "objeto": "lupa",
+      "dia": 1,
+      "semana": 1,
+      "tema": "La lupa de la abuela",
+      "objeto": "lupa",
       "historia": "Un sábado, la abuela Rosa le regala a Lucía una lupa muy vieja, con el mango de madera. Era de su padre, que arreglaba relojes. En una tienda costaría poco, pero para Lucía tiene mucho valor.",
-      "actividad": {"tipo": "dibuja", "prompt": "Dibuja una cosa que tiene mucho valor para ti, aunque no cueste mucho dinero."}
+      "actividad": {
+        "tipo": "dibuja",
+        "prompt": "Dibuja una cosa que tiene mucho valor para ti, aunque no cueste mucho dinero."
+      }
     },
     {
-      "dia": 2, "semana": 1, "tema": "La lupa de la abuela", "objeto": "hoja",
+      "dia": 2,
+      "semana": 1,
+      "tema": "La lupa de la abuela",
+      "objeto": "hoja",
       "historia": "El domingo, Lucía mira con la lupa una hoja del jardín, y descubre sus caminitos. La lupa sirve para ver lo más pequeño. Una cosa que sirve para algo es una cosa útil.",
-      "actividad": {"tipo": "clasifica", "pregunta": "¿Por qué vale cada cosa?",
-        "cajas": ["Vale porque sirve", "Vale porque la queremos"],
-        "cosas": [["un paraguas", 0], ["una foto de la abuela", 1], ["una cuchara", 0],
-                  ["un dibujo de Dani", 1], ["una escoba", 0], ["la carta de una amiga", 1]]}
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Por qué vale cada cosa?",
+        "cajas": [
+          "Vale porque sirve",
+          "Vale porque la queremos"
+        ],
+        "cosas": [
+          [
+            "un paraguas",
+            0
+          ],
+          [
+            "una foto de la abuela",
+            1
+          ],
+          [
+            "una cuchara",
+            0
+          ],
+          [
+            "un dibujo de Dani",
+            1
+          ],
+          [
+            "una escoba",
+            0
+          ],
+          [
+            "la carta de una amiga",
+            1
+          ]
+        ]
+      }
     },
     {
-      "dia": 3, "semana": 1, "tema": "La lupa de la abuela", "objeto": "reloj",
+      "dia": 3,
+      "semana": 1,
+      "tema": "La lupa de la abuela",
+      "objeto": "reloj",
       "historia": "La abuela cuenta que en el taller de su padre había relojes de todas clases. Los más antiguos valían mucho dinero, porque ya quedaban muy pocos. Cuando hay pocas cosas iguales, valen más.",
-      "actividad": {"tipo": "vf", "frases": [
-        ["Una cosa vieja nunca vale nada.", false],
-        ["Hay cosas que valen mucho aunque cuesten poco dinero.", true],
-        ["Cuando hay muy pocas cosas iguales, valen más.", true],
-        ["Todo el mundo quiere las mismas cosas.", false]]}
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Una cosa vieja nunca vale nada.",
+            false
+          ],
+          [
+            "Hay cosas que valen mucho aunque cuesten poco dinero.",
+            true
+          ],
+          [
+            "Cuando hay muy pocas cosas iguales, valen más.",
+            true
+          ],
+          [
+            "Todo el mundo quiere las mismas cosas.",
+            false
+          ]
+        ]
+      }
     },
     {
-      "dia": 4, "semana": 1, "tema": "La lupa de la abuela", "objeto": "coche",
+      "dia": 4,
+      "semana": 1,
+      "tema": "La lupa de la abuela",
+      "objeto": "coche",
       "historia": "Dani quiere cambiar su coche de juguete por la lupa de Lucía. Lucía le dice que no: para ella, la lupa vale mucho más, porque era del padre de la abuela.",
-      "actividad": {"tipo": "une", "pregunta": "¿Por qué vale cada una?", "pares": [
-        ["El agua", "sirve para vivir"],
-        ["Un diamante", "hay muy pocos"],
-        ["La foto de la abuela", "la queremos mucho"],
-        ["Un paraguas", "sirve cuando llueve"]]}
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Por qué vale cada una?",
+        "pares": [
+          [
+            "El agua",
+            "sirve para vivir"
+          ],
+          [
+            "Un diamante",
+            "hay muy pocos"
+          ],
+          [
+            "La foto de la abuela",
+            "la queremos mucho"
+          ],
+          [
+            "Un paraguas",
+            "sirve cuando llueve"
+          ]
+        ]
+      }
     },
     {
-      "dia": 5, "semana": 1, "tema": "La lupa de la abuela", "objeto": "lupa",
+      "dia": 5,
+      "semana": 1,
+      "tema": "La lupa de la abuela",
+      "objeto": "lupa",
       "historia": "Por la noche, Lucía guarda la lupa en su caja de los tesoros. Allí tiene cosas que no valen dinero, pero que no cambiaría por nada: una concha, una piedra y una foto de Toby.",
-      "actividad": {"tipo": "repasa",
-        "checklist": ["Sé qué quiere decir valor.", "Sé que hay cosas que valen porque sirven.", "Sé que hay cosas que valen porque las queremos."],
-        "prompt": "Dibuja tu caja de los tesoros, con las cosas que más quieres."}
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué quiere decir valor.",
+          "Sé que hay cosas que valen porque sirven.",
+          "Sé que hay cosas que valen porque las queremos."
+        ],
+        "prompt": "Dibuja tu caja de los tesoros, con las cosas que más quieres."
+      }
     },
     {
-      "dia": 6, "semana": 2, "tema": "Un compañero nuevo", "objeto": "concha",
+      "dia": 6,
+      "semana": 2,
+      "tema": "Un compañero nuevo",
+      "objeto": "concha",
       "historia": "El lunes llega a clase un niño nuevo, Hugo, que viene de una ciudad junto al mar. En el recreo, Hugo le cambia a Sofía una concha por dos cromos. Cambiar una cosa por otra sin dinero es un trueque.",
-      "actividad": {"tipo": "trueque", "cambio": ["concha", 1, "cromo", 2], "pregunta": ["concha", 3]}
+      "actividad": {
+        "tipo": "trueque",
+        "cambio": [
+          "concha",
+          1,
+          "cromo",
+          2
+        ],
+        "pregunta": [
+          "concha",
+          3
+        ]
+      }
     },
     {
-      "dia": 7, "semana": 2, "tema": "Un compañero nuevo", "objeto": "cromo",
+      "dia": 7,
+      "semana": 2,
+      "tema": "Un compañero nuevo",
+      "objeto": "cromo",
       "historia": "A Sofía le encantan las conchas, y a Hugo, los cromos de animales. Por eso el trueque es bueno para los dos: cada uno da lo que le sobra y se queda con lo que más quiere.",
-      "actividad": {"tipo": "trueque", "cambio": ["cromo", 2, "canica", 1], "pregunta": ["cromo", 6]}
+      "actividad": {
+        "tipo": "trueque",
+        "cambio": [
+          "cromo",
+          2,
+          "canica",
+          1
+        ],
+        "pregunta": [
+          "cromo",
+          6
+        ]
+      }
     },
     {
-      "dia": 8, "semana": 2, "tema": "Un compañero nuevo", "objeto": "lapiz",
+      "dia": 8,
+      "semana": 2,
+      "tema": "Un compañero nuevo",
+      "objeto": "lapiz",
       "historia": "Lucía quiere el lápiz azul de Hugo, pero a Hugo no le gusta nada de lo que tiene Lucía. Si ninguno quiere lo del otro, no puede haber trueque.",
-      "actividad": {"tipo": "clasifica", "pregunta": "¿Es un trueque?",
-        "cajas": ["Es un trueque", "No es un trueque"],
-        "cosas": [["Te cambio mi bocadillo por tu manzana.", 0], ["Mamá paga el pan con una moneda.", 1],
-                  ["Te doy un cromo, y tú me das una canica.", 0], ["Papá compra un libro.", 1],
-                  ["Cambio mi lápiz por tu goma.", 0], ["La abuela paga el autobús.", 1]]}
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Es un trueque?",
+        "cajas": [
+          "Es un trueque",
+          "No es un trueque"
+        ],
+        "cosas": [
+          [
+            "Te cambio mi bocadillo por tu manzana.",
+            0
+          ],
+          [
+            "Mamá paga el pan con una moneda.",
+            1
+          ],
+          [
+            "Te doy un cromo, y tú me das una canica.",
+            0
+          ],
+          [
+            "Papá compra un libro.",
+            1
+          ],
+          [
+            "Cambio mi lápiz por tu goma.",
+            0
+          ],
+          [
+            "La abuela paga el autobús.",
+            1
+          ]
+        ]
+      }
     },
     {
-      "dia": 9, "semana": 2, "tema": "Un compañero nuevo", "objeto": "pez",
+      "dia": 9,
+      "semana": 2,
+      "tema": "Un compañero nuevo",
+      "objeto": "pez",
       "historia": "Hugo cuenta que, hace muchos años, en su ciudad los pescadores cambiaban pescado por pan. Hoy lo venden en el mercado, y con el dinero compran el pan que quieren.",
-      "actividad": {"tipo": "trueque", "cambio": ["pan", 1, "pez", 2], "pregunta": ["pez", 6]}
+      "actividad": {
+        "tipo": "trueque",
+        "cambio": [
+          "pan",
+          1,
+          "pez",
+          2
+        ],
+        "pregunta": [
+          "pez",
+          6
+        ]
+      }
     },
     {
-      "dia": 10, "semana": 2, "tema": "Un compañero nuevo", "objeto": "concha",
+      "dia": 10,
+      "semana": 2,
+      "tema": "Un compañero nuevo",
+      "objeto": "concha",
       "historia": "El viernes, Sofía le enseña a Hugo el parque del barrio, y Hugo le regala otra concha. Esta vez no quiere nada a cambio: es un regalo, no un trueque.",
-      "actividad": {"tipo": "repasa",
-        "checklist": ["Sé qué es un trueque.", "Sé que en un trueque los dos tienen que querer lo del otro.", "Sé cambiar cosas sin dinero."],
-        "prompt": "Dibuja un trueque: tú, un amigo, y las dos cosas que os cambiáis."}
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es un trueque.",
+          "Sé que en un trueque los dos tienen que querer lo del otro.",
+          "Sé cambiar cosas sin dinero."
+        ],
+        "prompt": "Dibuja un trueque: tú, un amigo, y las dos cosas que os cambiáis."
+      }
+    },
+    {
+      "dia": 11,
+      "semana": 3,
+      "tema": "El Club de la Lupa",
+      "objeto": "moneda",
+      "historia": "Lucía, Sofía y Hugo fundan el Club de la Lupa. Para comprar un cuaderno de detectives, cada uno pone su dinero en una caja: Lucía, 2 €; Sofía, 2 €, y Hugo, 1 €.",
+      "actividad": {
+        "tipo": "dinero",
+        "dinero": [
+          2,
+          2,
+          1
+        ],
+        "pregunta": "¿Cuánto dinero hay en la caja del club?"
+      }
+    },
+    {
+      "dia": 12,
+      "semana": 3,
+      "tema": "El Club de la Lupa",
+      "objeto": "concha",
+      "historia": "Con dinero es más fácil que con el trueque. Al señor de la papelería no le gustan las conchas de Hugo, pero sí las monedas: con ellas, él también compra lo que quiere.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Con dinero se pueden comprar cosas.",
+            true
+          ],
+          [
+            "El dinero crece en los árboles.",
+            false
+          ],
+          [
+            "Una moneda de 2 € vale más que una de 1 €.",
+            true
+          ],
+          [
+            "Un billete de 5 € vale menos que una moneda de 2 €.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 13,
+      "semana": 3,
+      "tema": "El Club de la Lupa",
+      "objeto": "libro",
+      "historia": "El cuaderno de detectives cuesta 5 €, lo mismo que las monedas de la caja. Hugo explica que cinco monedas de 1 € valen lo mismo que un billete de 5 €.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Qué vale lo mismo?",
+        "pares": [
+          [
+            "un billete de 5 €",
+            "cinco monedas de 1 €"
+          ],
+          [
+            "una moneda de 2 €",
+            "dos monedas de 1 €"
+          ],
+          [
+            "un billete de 10 €",
+            "dos billetes de 5 €"
+          ],
+          [
+            "un billete de 20 €",
+            "dos billetes de 10 €"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 14,
+      "semana": 3,
+      "tema": "El Club de la Lupa",
+      "objeto": "hucha",
+      "historia": "La abuela Rosa les regala para el club un billete de 10 € y dos monedas de 2 €. Sofía lo guarda todo en su hucha, porque es la tesorera del club.",
+      "actividad": {
+        "tipo": "dinero",
+        "dinero": [
+          10,
+          2,
+          2
+        ],
+        "pregunta": "¿Cuánto dinero le da la abuela al club?"
+      }
+    },
+    {
+      "dia": 15,
+      "semana": 3,
+      "tema": "El Club de la Lupa",
+      "objeto": "lupa",
+      "historia": "Con su primer dinero, el club compra el cuaderno. En la primera página, Lucía escribe: «Club de la Lupa. Socios: Lucía, Sofía y Hugo».",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé para qué sirve el dinero.",
+          "Sé cuánto vale cada moneda y cada billete.",
+          "Sé contar dinero hasta 20 €."
+        ],
+        "prompt": "Dibuja el cuaderno del Club de la Lupa, y el dinero que costó."
+      }
+    },
+    {
+      "dia": 16,
+      "semana": 4,
+      "tema": "El caso de las galletas",
+      "objeto": "galleta",
+      "historia": "Mamá compra un paquete de doce galletas. En casa son cinco, y todos quieren muchas: cuando no hay bastante para todos, hay escasez.",
+      "actividad": {
+        "tipo": "reparte",
+        "objeto": "galleta",
+        "total": 12,
+        "entre": 5
+      }
+    },
+    {
+      "dia": 17,
+      "semana": 4,
+      "tema": "El caso de las galletas",
+      "objeto": "galleta",
+      "historia": "El martes, el bote de las galletas aparece vacío, y hay migas hasta el salón. ¿Quién se las ha comido? Ahora no queda ninguna para merendar.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Si hay pocas galletas y muchos niños, no llegan para todos.",
+            true
+          ],
+          [
+            "Cuando algo escasea, se puede repartir.",
+            true
+          ],
+          [
+            "El agua nunca se acaba, aunque la malgastemos.",
+            false
+          ],
+          [
+            "Si uno coge más de lo que le toca, a otro le falta.",
+            true
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 18,
+      "semana": 4,
+      "tema": "El caso de las galletas",
+      "objeto": "mandarina",
+      "historia": "Para merendar, Papá trae mandarinas, y Lucía propone repartirlas a partes iguales. Así nadie se enfada, y nadie se queda sin nada.",
+      "actividad": {
+        "tipo": "reparte",
+        "objeto": "mandarina",
+        "total": 11,
+        "entre": 3
+      }
+    },
+    {
+      "dia": 19,
+      "semana": 4,
+      "tema": "El caso de las galletas",
+      "objeto": "pelota",
+      "historia": "En el recreo hay tres columpios y ocho niños que quieren subir. Marta propone hacer turnos: así, aunque los columpios escasean, todos se columpian un rato.",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Hay para todos?",
+        "cajas": [
+          "Hay para todos",
+          "No hay para todos"
+        ],
+        "cosas": [
+          [
+            "10 lápices para 10 niños",
+            0
+          ],
+          [
+            "3 columpios para 8 niños",
+            1
+          ],
+          [
+            "5 cuentos para 5 niños",
+            0
+          ],
+          [
+            "4 sillas para 6 niños",
+            1
+          ],
+          [
+            "2 balones para 2 equipos",
+            0
+          ],
+          [
+            "2 bicis para 7 niños",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 20,
+      "semana": 4,
+      "tema": "El caso de las galletas",
+      "objeto": "galleta",
+      "historia": "Mamá compra otro paquete de galletas y lo esconde en la balda más alta. Esta vez, cada uno tendrá su parte.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es la escasez.",
+          "Sé repartir cosas entre varios.",
+          "Sé que, cuando no hay para todos, se pueden hacer turnos."
+        ],
+        "prompt": "Dibuja cómo repartirías 6 galletas entre 3 amigos."
+      }
+    },
+    {
+      "dia": 21,
+      "semana": 5,
+      "tema": "Huellas en el cemento",
+      "objeto": "arbol",
+      "historia": "Unos operarios arreglan la acera de la calle de Lucía. Papá cuenta que no la paga él solo: la pagamos entre todos los vecinos, con los impuestos.",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿De quién es?",
+        "cajas": [
+          "Es de todos",
+          "Es de alguien"
+        ],
+        "cosas": [
+          [
+            "el parque",
+            0
+          ],
+          [
+            "la bici de Lucía",
+            1
+          ],
+          [
+            "la acera",
+            0
+          ],
+          [
+            "la casa de Pedro",
+            1
+          ],
+          [
+            "la biblioteca",
+            0
+          ],
+          [
+            "la mochila de Hugo",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 22,
+      "semana": 5,
+      "tema": "Huellas en el cemento",
+      "objeto": "libro",
+      "historia": "Con los impuestos se pagan muchas cosas: el colegio de Lucía, la biblioteca del barrio, los médicos del hospital y las farolas de la calle.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "El colegio público lo pagamos entre todos.",
+            true
+          ],
+          [
+            "Las farolas de la calle son de una sola familia.",
+            false
+          ],
+          [
+            "Los impuestos sirven para las cosas de todos.",
+            true
+          ],
+          [
+            "En el parque, cada uno puede romper lo que quiera.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 23,
+      "semana": 5,
+      "tema": "Huellas en el cemento",
+      "objeto": "huella",
+      "historia": "En el cemento fresco aparecen unas huellas pequeñas. Hugo dice que hay que avisar a los operarios: si la acera se estropea, la volvemos a pagar entre todos.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Para qué sirve cada uno?",
+        "pares": [
+          [
+            "El colegio",
+            "enseña a los niños"
+          ],
+          [
+            "El hospital",
+            "cura a los enfermos"
+          ],
+          [
+            "La biblioteca",
+            "presta libros"
+          ],
+          [
+            "Los bomberos",
+            "apagan los fuegos"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 24,
+      "semana": 5,
+      "tema": "Huellas en el cemento",
+      "objeto": "gato",
+      "historia": "Los operarios alisan otra vez el cemento, y ponen una valla para que nadie lo pise. Lucía piensa que ellos también trabajan para todos los vecinos.",
+      "actividad": {
+        "tipo": "dibuja",
+        "prompt": "Dibuja una cosa de tu barrio que es de todos, y a alguien usándola."
+      }
+    },
+    {
+      "dia": 25,
+      "semana": 5,
+      "tema": "Huellas en el cemento",
+      "objeto": "flor",
+      "historia": "El sábado, la acera ya está seca y lisa. Dani la recorre con su patinete, y dice que es la acera más bonita del barrio.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué son los impuestos.",
+          "Sé qué cosas son de todos.",
+          "Sé que lo que es de todos hay que cuidarlo."
+        ],
+        "prompt": "Dibuja tu parque favorito, con las cosas que pagamos entre todos."
+      }
+    },
+    {
+      "dia": 26,
+      "semana": 6,
+      "tema": "La hoja de los martes",
+      "objeto": "libro",
+      "historia": "La biblioteca del barrio es pequeña, pero tiene muchos libros. Tomás, el bibliotecario, los presta gratis: te los llevas a casa, y después los devuelves. Eso es un préstamo.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "En la biblioteca se compran los libros.",
+            false
+          ],
+          [
+            "Un libro prestado hay que devolverlo.",
+            true
+          ],
+          [
+            "Si cuidas lo que te prestan, te lo volverán a prestar.",
+            true
+          ],
+          [
+            "Un préstamo es un regalo.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 27,
+      "semana": 6,
+      "tema": "La hoja de los martes",
+      "objeto": "hoja",
+      "historia": "Tomás les enseña un libro de árboles que alguien devuelve cada martes con una hoja dentro. Si cada vecino se comprara ese libro, gastarían mucho más que compartiéndolo.",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Se compra o se presta?",
+        "cajas": [
+          "Lo compramos",
+          "Nos lo prestan"
+        ],
+        "cosas": [
+          [
+            "el pan de cada día",
+            0
+          ],
+          [
+            "un libro de la biblioteca",
+            1
+          ],
+          [
+            "unos zapatos nuevos",
+            0
+          ],
+          [
+            "la bici de un amigo, una tarde",
+            1
+          ],
+          [
+            "un helado",
+            0
+          ],
+          [
+            "el paraguas de la vecina",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 28,
+      "semana": 6,
+      "tema": "La hoja de los martes",
+      "objeto": "lapiz",
+      "historia": "En clase, Hugo le presta a Lucía su lápiz azul. Al final del día, Lucía se lo devuelve y le da las gracias: así, la próxima vez, Hugo se lo volverá a prestar.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Quién presta cada cosa?",
+        "pares": [
+          [
+            "Tomás",
+            "presta libros"
+          ],
+          [
+            "Hugo",
+            "presta su lápiz azul"
+          ],
+          [
+            "La vecina",
+            "presta el paraguas"
+          ],
+          [
+            "El banco",
+            "presta dinero"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 29,
+      "semana": 6,
+      "tema": "La hoja de los martes",
+      "objeto": "libro",
+      "historia": "Tomás ha comprado doce libros nuevos para la biblioteca, y los quiere repartir entre tres estanterías, los mismos en cada una.",
+      "actividad": {
+        "tipo": "reparte",
+        "objeto": "libro",
+        "total": 12,
+        "entre": 3,
+        "pregunta": "Reparte 12 libros entre 3 estanterías. ¿Cuántos van en cada una? ¿Sobra alguno?",
+        "cada": "En cada una"
+      }
+    },
+    {
+      "dia": 30,
+      "semana": 6,
+      "tema": "La hoja de los martes",
+      "objeto": "hoja",
+      "historia": "El viernes, Lucía devuelve su libro a tiempo, y Tomás le presta otro. La biblioteca es como una gran estantería que compartimos todos.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es un préstamo.",
+          "Sé que lo prestado se devuelve.",
+          "Sé cuidar lo que me prestan."
+        ],
+        "prompt": "Dibuja la biblioteca del barrio, con Tomás y muchos libros."
+      }
+    },
+    {
+      "dia": 31,
+      "semana": 7,
+      "tema": "Ruidos en el desván",
+      "objeto": "cesta",
+      "historia": "Mamá sube al desván a ordenar cajas viejas, y encuentra la cuna de Dani y una bici pequeña. —Esto aún sirve —dice—. Lo podemos reutilizar, o dárselo a quien lo necesite.",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Se puede volver a usar?",
+        "cajas": [
+          "Se puede reutilizar",
+          "Hay que tirarlo"
+        ],
+        "cosas": [
+          [
+            "un bote de cristal",
+            0
+          ],
+          [
+            "una piel de plátano",
+            1
+          ],
+          [
+            "una caja de zapatos",
+            0
+          ],
+          [
+            "un pañuelo de papel usado",
+            1
+          ],
+          [
+            "un cuento viejo",
+            0
+          ],
+          [
+            "un yogur caducado",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 32,
+      "semana": 7,
+      "tema": "Ruidos en el desván",
+      "objeto": "bici",
+      "historia": "La bici pequeña de Lucía ya no le vale, pero a Dani sí. Así no hay que comprar otra, y la familia ahorra dinero.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Lo que ya no usas puede servirle a otro.",
+            true
+          ],
+          [
+            "Todo lo viejo hay que tirarlo.",
+            false
+          ],
+          [
+            "Reutilizar ayuda a ahorrar dinero.",
+            true
+          ],
+          [
+            "Una bici solo la puede usar una persona.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 33,
+      "semana": 7,
+      "tema": "Ruidos en el desván",
+      "objeto": "cesta",
+      "historia": "Por la noche se oye un ruido en el desván: toc, toc, toc. Dani se asusta, pero Lucía le dice que el club lo investigará. Mientras, Mamá aprovecha las cajas vacías para guardar juguetes.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Qué se puede hacer con cada cosa?",
+        "pares": [
+          [
+            "Un bote de cristal",
+            "un lapicero"
+          ],
+          [
+            "Una caja de zapatos",
+            "una casa de muñecas"
+          ],
+          [
+            "Una camiseta vieja",
+            "un trapo"
+          ],
+          [
+            "Un rollo de papel",
+            "un catalejo"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 34,
+      "semana": 7,
+      "tema": "Ruidos en el desván",
+      "objeto": "boton",
+      "historia": "La abuela guarda en una lata los botones de la ropa vieja. Cuando a alguien se le cae uno, ya tiene otro, sin ir a la tienda.",
+      "actividad": {
+        "tipo": "reparte",
+        "objeto": "boton",
+        "total": 16,
+        "entre": 3,
+        "pregunta": "La abuela tiene 16 botones para 3 camisas. ¿Cuántos le pone a cada una? ¿Sobra alguno?",
+        "cada": "A cada una"
+      }
+    },
+    {
+      "dia": 35,
+      "semana": 7,
+      "tema": "Ruidos en el desván",
+      "objeto": "cesta",
+      "historia": "El sábado, la familia lleva al mercadillo solidario del barrio la ropa que ya no les vale. Otros niños la usarán este invierno.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es reutilizar.",
+          "Sé darle otro uso a las cosas.",
+          "Sé que reutilizar ayuda a ahorrar."
+        ],
+        "prompt": "Dibuja algo nuevo que harías con una caja de zapatos."
+      }
+    },
+    {
+      "dia": 36,
+      "semana": 8,
+      "tema": "La lista de la compra",
+      "objeto": "pan",
+      "historia": "El sábado, Papá va al mercado con Lucía y con Dani. En la lista hay pan, leche y fruta: son necesidades, cosas que hacen falta. Dani quiere añadir caramelos.",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Lo necesito, o lo quiero?",
+        "cajas": [
+          "Lo necesito",
+          "Lo quiero"
+        ],
+        "cosas": [
+          [
+            "pan",
+            0
+          ],
+          [
+            "un videojuego",
+            1
+          ],
+          [
+            "un abrigo",
+            0
+          ],
+          [
+            "caramelos",
+            1
+          ],
+          [
+            "agua",
+            0
+          ],
+          [
+            "un robot de juguete",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 37,
+      "semana": 8,
+      "tema": "La lista de la compra",
+      "objeto": "manzana",
+      "historia": "En el puesto de la fruta, cada cosa tiene su precio escrito en una etiqueta. Papá compra un kilo de manzanas y uno de mandarinas.",
+      "actividad": {
+        "tipo": "compra",
+        "cosas": [
+          [
+            "manzana",
+            2
+          ],
+          [
+            "mandarina",
+            3
+          ],
+          [
+            "fresa",
+            4
+          ]
+        ],
+        "compra": [
+          "manzana",
+          "mandarina"
+        ],
+        "pregunta": "Papá compra un kilo de manzanas y uno de mandarinas. ¿Cuánto paga?"
+      }
+    },
+    {
+      "dia": 38,
+      "semana": 8,
+      "tema": "La lista de la compra",
+      "objeto": "caramelo",
+      "historia": "Papá le explica a Dani que los caramelos no son una necesidad, sino un deseo: le gustan, pero no le hacen falta. Hoy, el dinero es para lo de la lista.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "El pan es una necesidad.",
+            true
+          ],
+          [
+            "Los caramelos hacen falta para vivir.",
+            false
+          ],
+          [
+            "Un abrigo en invierno es una necesidad.",
+            true
+          ],
+          [
+            "Todo lo que queremos es una necesidad.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 39,
+      "semana": 8,
+      "tema": "La lista de la compra",
+      "objeto": "pez",
+      "historia": "Mientras Papá compra el pescado, Dani lleva la bolsa del pan y Lucía repasa la lista. Con una lista no se olvida nada, y no se gasta de más.",
+      "actividad": {
+        "tipo": "problema",
+        "texto": "Papá compra pan por 2 € y pescado por 9 €. ¿Cuánto gasta en total?",
+        "operacion": [
+          2,
+          "+",
+          9
+        ]
+      }
+    },
+    {
+      "dia": 40,
+      "semana": 8,
+      "tema": "La lista de la compra",
+      "objeto": "cesta",
+      "historia": "De vuelta a casa, Lucía tacha todo lo que han comprado. Pero falta algo: ¡la bolsa del pan se ha quedado en el mercado!",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es una necesidad.",
+          "Sé qué es un deseo.",
+          "Sé hacer una lista de la compra."
+        ],
+        "prompt": "Escribe y dibuja tu lista de la compra para el fin de semana."
+      }
+    },
+    {
+      "dia": 41,
+      "semana": 9,
+      "tema": "Ocho años",
+      "objeto": "tarta",
+      "historia": "Hoy Lucía cumple ocho años, y la abuela Rosa le regala un sobre con 10 €. Lucía decide repartirlos en tres botes: uno para gastar, otro para su ahorro y otro para compartir.",
+      "actividad": {
+        "tipo": "botes",
+        "total": 10,
+        "botes": [
+          5,
+          3,
+          2
+        ],
+        "falta": 2,
+        "pregunta": "Lucía tiene 10 €. Pone 5 € en el bote de ahorrar y 3 € en el de gastar. ¿Cuánto pone en el de compartir?"
+      }
+    },
+    {
+      "dia": 42,
+      "semana": 9,
+      "tema": "Ocho años",
+      "objeto": "regalo",
+      "historia": "Por la tarde, Papá le da a Lucía su paga de la semana: un billete de 5 € y dos monedas de 2 €. Lucía lo cuenta todo antes de guardarlo.",
+      "actividad": {
+        "tipo": "dinero",
+        "dinero": [
+          5,
+          2,
+          2
+        ],
+        "pregunta": "¿Cuánto dinero le da Papá a Lucía?"
+      }
+    },
+    {
+      "dia": 43,
+      "semana": 9,
+      "tema": "Ocho años",
+      "objeto": "hucha",
+      "historia": "Lucía quiere un libro de detectives que cuesta 16 €. En su hucha ya tiene 8 €. Si ahorra 2 € cada semana, ¿cuándo podrá comprarlo?",
+      "actividad": {
+        "tipo": "hucha",
+        "tiene": 8,
+        "cada": 2,
+        "meta": 16
+      }
+    },
+    {
+      "dia": 44,
+      "semana": 9,
+      "tema": "Ocho años",
+      "objeto": "caramelo",
+      "historia": "Dani también quiere ahorrar, pero cada vez que tiene una moneda, se compra un caramelo. Lucía le explica que ahorrar es esperar un poco para tener algo mejor.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Ahorrar es guardar dinero para más adelante.",
+            true
+          ],
+          [
+            "Si gastas todo el dinero, también ahorras.",
+            false
+          ],
+          [
+            "Ahorrando un poco cada semana, se junta mucho.",
+            true
+          ],
+          [
+            "La hucha sirve para gastar más deprisa.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 45,
+      "semana": 9,
+      "tema": "Ocho años",
+      "objeto": "hucha",
+      "historia": "Antes de dormir, Lucía agita su hucha y escucha las monedas. Suena más que ayer, y dentro de unas semanas sonará todavía más.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es ahorrar.",
+          "Sé repartir mi dinero en tres botes.",
+          "Sé calcular cuánto tardo en ahorrar para algo."
+        ],
+        "prompt": "Dibuja tu hucha, y lo que te gustaría comprar con lo que ahorres."
+      }
+    },
+    {
+      "dia": 46,
+      "semana": 10,
+      "tema": "¿Dónde está Luna?",
+      "objeto": "gato",
+      "historia": "Pedro no encuentra a su gata, Luna. El club hace un cartel para las farolas: «Se busca gata blanca. Quien la encuentre tendrá una recompensa».",
+      "actividad": {
+        "tipo": "dibuja",
+        "prompt": "Dibuja el cartel del club para encontrar a Luna, con la recompensa."
+      }
+    },
+    {
+      "dia": 47,
+      "semana": 10,
+      "tema": "¿Dónde está Luna?",
+      "objeto": "moneda",
+      "historia": "Pedro ofrece 5 € de recompensa a quien encuentre a Luna. Dani dice que él la buscaría igual, sin recompensa, porque quiere mucho a Luna.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Una recompensa es lo que recibes por hacer algo útil.",
+            true
+          ],
+          [
+            "Solo ayudamos a los demás si nos pagan.",
+            false
+          ],
+          [
+            "Una recompensa puede ser dinero, un regalo o un «gracias».",
+            true
+          ],
+          [
+            "Una recompensa hay que devolverla.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 48,
+      "semana": 10,
+      "tema": "¿Dónde está Luna?",
+      "objeto": "estrella",
+      "historia": "Muchos vecinos buscan a Luna por el barrio. Unos la buscan por la recompensa, y otros, sobre todo, porque quieren ayudar a Pedro.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Qué recompensa tiene cada cosa?",
+        "pares": [
+          [
+            "Estudiar",
+            "aprendes"
+          ],
+          [
+            "Ahorrar cada semana",
+            "te compras lo que querías"
+          ],
+          [
+            "Ayudar a un vecino",
+            "te da las gracias"
+          ],
+          [
+            "Trabajar",
+            "cobras un sueldo"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 49,
+      "semana": 10,
+      "tema": "¿Dónde está Luna?",
+      "objeto": "cesta",
+      "historia": "Mientras buscan a Luna, el club cuenta el dinero de su caja: quieren comprarle un cascabel nuevo cuando aparezca.",
+      "actividad": {
+        "tipo": "dinero",
+        "dinero": [
+          5,
+          2,
+          1,
+          1
+        ],
+        "pregunta": "¿Cuánto dinero tiene el club en su caja?"
+      }
+    },
+    {
+      "dia": 50,
+      "semana": 10,
+      "tema": "¿Dónde está Luna?",
+      "objeto": "gato",
+      "historia": "Pedro dice que, cuando Luna aparezca, le dará la recompensa al club. Lucía ya sabe qué harán con ella: comprar comida para los gatos del refugio.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es una recompensa.",
+          "Sé que a veces ayudamos sin recompensa.",
+          "Sé contar el dinero de una recompensa."
+        ],
+        "prompt": "Dibuja lo que harías tú con una recompensa de 5 €."
+      }
+    },
+    {
+      "dia": 51,
+      "semana": 11,
+      "tema": "El museo de los dinosaurios",
+      "objeto": "entrada",
+      "historia": "La clase de Lucía va al museo de los dinosaurios. La entrada de un niño tiene un precio de 3 €, y la de un adulto, de 6 €.",
+      "actividad": {
+        "tipo": "problema",
+        "texto": "Marta paga su entrada, que cuesta 6 €, y la de Lucía, que cuesta 3 €. ¿Cuánto paga Marta en total?",
+        "operacion": [
+          6,
+          "+",
+          3
+        ]
+      }
+    },
+    {
+      "dia": 52,
+      "semana": 11,
+      "tema": "El museo de los dinosaurios",
+      "objeto": "trex",
+      "historia": "En la tienda del museo hay un dinosaurio de goma que cuesta 4 €. Lucía lleva 5 € en el bolsillo, y se pregunta: ¿me llega?",
+      "actividad": {
+        "tipo": "llega",
+        "tengo": 5,
+        "cosas": [
+          [
+            "trex",
+            4
+          ],
+          [
+            "libro",
+            7
+          ],
+          [
+            "lapiz",
+            1
+          ],
+          [
+            "pelota",
+            6
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 53,
+      "semana": 11,
+      "tema": "El museo de los dinosaurios",
+      "objeto": "moneda",
+      "historia": "Lucía paga el dinosaurio con un billete de 5 €. La cajera le devuelve una moneda de 1 €: eso es la vuelta, lo que sobra de lo que ha pagado.",
+      "actividad": {
+        "tipo": "cambio",
+        "cosa": [
+          "libro",
+          7
+        ],
+        "paga": [
+          10
+        ]
+      }
+    },
+    {
+      "dia": 54,
+      "semana": 11,
+      "tema": "El museo de los dinosaurios",
+      "objeto": "lapiz",
+      "historia": "Hugo quiere comprar un lápiz y un dinosaurio de goma. Antes de ir a pagar, suma los precios, para saber cuánto dinero necesita.",
+      "actividad": {
+        "tipo": "compra",
+        "cosas": [
+          [
+            "lapiz",
+            2
+          ],
+          [
+            "trex",
+            4
+          ],
+          [
+            "libro",
+            8
+          ]
+        ],
+        "compra": [
+          "lapiz",
+          "trex"
+        ]
+      }
+    },
+    {
+      "dia": 55,
+      "semana": 11,
+      "tema": "El museo de los dinosaurios",
+      "objeto": "trex",
+      "historia": "En el autobús de vuelta, Lucía mira su dinosaurio de goma con la lupa. Le costó 4 €, pero para ella vale mucho más: le recuerda un día estupendo.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es el precio.",
+          "Sé si me llega el dinero para algo.",
+          "Sé calcular la vuelta."
+        ],
+        "prompt": "Dibuja la tienda del museo, con los precios de las cosas."
+      }
+    },
+    {
+      "dia": 56,
+      "semana": 12,
+      "tema": "La función de Navidad",
+      "objeto": "estrella",
+      "historia": "La clase prepara una obra de Navidad. Marta reparte el trabajo: unos pintan, otros cosen los trajes y otros ensayan. Así trabajan en equipo.",
+      "actividad": {
+        "tipo": "ordena",
+        "pregunta": "¿En qué orden se prepara la obra?",
+        "pasos": [
+          "Se escribe la obra.",
+          "Se reparten los papeles.",
+          "Se ensaya muchas veces.",
+          "Se hace la función."
+        ]
+      }
+    },
+    {
+      "dia": 57,
+      "semana": 12,
+      "tema": "La función de Navidad",
+      "objeto": "lapiz",
+      "historia": "En equipo, cada uno hace lo que mejor sabe: Sofía pinta los decorados, Hugo hace las luces, Lucía cose la estrella y Paco monta el escenario. Si cada uno lo hiciera todo solo, tardarían muchísimo.",
+      "actividad": {
+        "tipo": "une",
+        "pregunta": "¿Qué hace cada uno?",
+        "pares": [
+          [
+            "Sofía",
+            "pinta los decorados"
+          ],
+          [
+            "Hugo",
+            "hace las luces"
+          ],
+          [
+            "Lucía",
+            "cose la estrella"
+          ],
+          [
+            "Paco",
+            "monta el escenario"
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 58,
+      "semana": 12,
+      "tema": "La función de Navidad",
+      "objeto": "boton",
+      "historia": "Para los trajes hacen falta muchos botones. Cuatro mamás se reparten el trabajo, y cada una cose los mismos.",
+      "actividad": {
+        "tipo": "reparte",
+        "objeto": "boton",
+        "total": 20,
+        "entre": 4,
+        "pregunta": "Hay 20 botones y 4 mamás que cosen. ¿Cuántos cose cada una? ¿Sobra alguno?",
+        "cada": "Cada una"
+      }
+    },
+    {
+      "dia": 59,
+      "semana": 12,
+      "tema": "La función de Navidad",
+      "objeto": "estrella",
+      "historia": "El martes, la estrella dorada ya no está en el escenario. Sin ella no puede haber función, así que todo el equipo se pone a buscarla.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "En un equipo, todos hacen exactamente lo mismo.",
+            false
+          ],
+          [
+            "En equipo se tarda menos que solo.",
+            true
+          ],
+          [
+            "Si uno se equivoca, el equipo le puede ayudar.",
+            true
+          ],
+          [
+            "Trabajar en equipo es hacer cada uno lo que le da la gana.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 60,
+      "semana": 12,
+      "tema": "La función de Navidad",
+      "objeto": "estrella",
+      "historia": "El viernes, la función es un éxito, y todos salen a saludar juntos. Marta dice que el aplauso es para todo el equipo.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es un equipo.",
+          "Sé que en un equipo cada uno hace una parte.",
+          "Sé ordenar los pasos de un trabajo."
+        ],
+        "prompt": "Dibuja la función de Navidad de la clase de Lucía."
+      }
+    },
+    {
+      "dia": 61,
+      "semana": 13,
+      "tema": "¡Lector X, descubierto!",
+      "objeto": "regalo",
+      "historia": "Todo el trimestre, alguien le ha dejado a Lucía notas y adivinanzas firmadas por «Lector X». No pide nada a cambio: son regalos de verdad.",
+      "actividad": {
+        "tipo": "clasifica",
+        "pregunta": "¿Es un regalo?",
+        "cajas": [
+          "Es un regalo",
+          "No es un regalo"
+        ],
+        "cosas": [
+          [
+            "La abuela te da una bufanda.",
+            0
+          ],
+          [
+            "Compras un cuento en la tienda.",
+            1
+          ],
+          [
+            "Sofía te hace un dibujo.",
+            0
+          ],
+          [
+            "Cambias un cromo por una canica.",
+            1
+          ],
+          [
+            "Dani te da un abrazo.",
+            0
+          ],
+          [
+            "Pagas el pan en la panadería.",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 62,
+      "semana": 13,
+      "tema": "¡Lector X, descubierto!",
+      "objeto": "lapiz",
+      "historia": "Para Navidad, Lucía quiere hacer ella misma los regalos: un marcapáginas para Papá y un dibujo para la abuela. Solo tiene que comprar cartulina y un lazo.",
+      "actividad": {
+        "tipo": "problema",
+        "texto": "La cartulina cuesta 2 € y el lazo, 1 €. ¿Cuánto gasta Lucía en los regalos?",
+        "operacion": [
+          2,
+          "+",
+          1
+        ]
+      }
+    },
+    {
+      "dia": 63,
+      "semana": 13,
+      "tema": "¡Lector X, descubierto!",
+      "objeto": "corazon",
+      "historia": "Dani no tiene dinero para regalos, así que regala abrazos y canciones. La abuela dice que son sus regalos favoritos.",
+      "actividad": {
+        "tipo": "vf",
+        "frases": [
+          [
+            "Un regalo tiene que costar mucho dinero.",
+            false
+          ],
+          [
+            "Un dibujo hecho por ti puede ser un gran regalo.",
+            true
+          ],
+          [
+            "Si pides algo a cambio, ya no es un regalo.",
+            true
+          ],
+          [
+            "Solo se hacen regalos en los cumpleaños.",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "dia": 64,
+      "semana": 13,
+      "tema": "¡Lector X, descubierto!",
+      "objeto": "caramelo",
+      "historia": "En Nochebuena, la abuela trae una bolsa de caramelos para toda la familia. Lucía propone repartirlos a partes iguales.",
+      "actividad": {
+        "tipo": "reparte",
+        "objeto": "caramelo",
+        "total": 13,
+        "entre": 4,
+        "pregunta": "Hay 13 caramelos para Papá, Mamá, Lucía y Dani. ¿Cuántos le tocan a cada uno? ¿Sobra alguno?"
+      }
+    },
+    {
+      "dia": 65,
+      "semana": 13,
+      "tema": "¡Lector X, descubierto!",
+      "objeto": "regalo",
+      "historia": "El viernes, el club descubre a Lector X: son Papá, que escribe las notas, y Dani, que inventa las adivinanzas. Lucía les da las gracias con un abrazo, que también es un regalo.",
+      "actividad": {
+        "tipo": "repasa",
+        "checklist": [
+          "Sé qué es un regalo.",
+          "Sé que un regalo hecho a mano también vale mucho.",
+          "Sé repartir a partes iguales."
+        ],
+        "prompt": "Dibuja un regalo que podrías hacer tú, sin gastar dinero."
+      }
     }
   ]
 }

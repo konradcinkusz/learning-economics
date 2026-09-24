@@ -82,7 +82,7 @@ SEMANAS_POR_TRIMESTRE = 13
 # para "First Economics", que se escribe también por partes: sus días
 # son los primeros de "Aprendo economía".
 DIAS_ESCRITOS = None
-DIAS_ESCRITOS_INGLES = 195
+DIAS_ESCRITOS_INGLES = None
 
 ULTIMO_DIA_TRIMESTRE = {1: 65, 2: 130, 3: 195, 4: 260}
 

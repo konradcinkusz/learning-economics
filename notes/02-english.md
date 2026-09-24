@@ -107,5 +107,7 @@ cuántos días están escritos.
    *Compare* y *Money in and out*. **Hecho.**
 2. **El invierno y la primavera** (días 66--195), con sus 26 palabras,
    de *choose* a *sell*. **Hecho.**
-3. **El verano** (días 196--260), y publicarlo: la página de descarga y
-   Pages con los cuatro PDF.
+3. **El verano** (días 196--260), con sus 13 palabras, de *priority* a
+   *economics*, y publicarlo: el cuaderno entero
+   (`DIAS_ESCRITOS_INGLES = None`), la página de descarga y Pages con
+   los cuatro PDF. **Hecho.**

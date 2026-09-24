@@ -68,13 +68,16 @@ plan, en [`notes/02-english.md`](notes/02-english.md).
 **[⬇ PDF (color)](https://konradcinkusz.github.io/learning-economics/aprendo-economia.pdf)**
 · **[⬇ PDF (blanco y negro)](https://konradcinkusz.github.io/learning-economics/aprendo-economia-bn.pdf)**
 
+*First Economics*: **[⬇ PDF (colour)](https://konradcinkusz.github.io/learning-economics/first-economics.pdf)**
+· **[⬇ PDF (black and white)](https://konradcinkusz.github.io/learning-economics/first-economics-bw.pdf)**
+
 Enlaces fijos, publicados por GitHub Pages en cada push a `main` (ver
 `.github/workflows/pages.yml`). Las dos versiones tienen exactamente el
 mismo contenido y la misma paginación: nada en el cuaderno se distingue
 solo por el color. Mientras Pages no esté activado, los mismos PDF están
 en la pestaña *Actions* → el último run de *Build* → artefactos
-`pdf-color` / `pdf-bw` -- y los de *First Economics*, mientras se
-escribe, `pdf-english` / `pdf-english-bw`.
+`pdf-color` / `pdf-bw` -- y los de *First Economics*, `pdf-english` /
+`pdf-english-bw`.
 
 ## Construir el PDF a mano
 
@@ -145,7 +148,8 @@ que se salga, y todas las cuentas y la clave, calculadas por el script.
 Se escribió en cinco fases, como *Aprendo los números*: ver "Las fases"
 en [`notes/01-plan.md`](notes/01-plan.md).
 
-**First Economics**, en obras: el motor en dos lenguas, y el otoño, el
-invierno y la primavera (días 1--195) en inglés, con sus 39 palabras, en
-color y en blanco y negro. Se escribe en tres fases: ver
+**First Economics**, también completo: los 260 días en inglés, con sus
+52 palabras (de *value* a *economics*), sus medallas, sus respuestas, *My
+economics dictionary* y su diploma, en color y en blanco y negro,
+publicado junto al español. Se escribió en tres fases: ver
 [`notes/02-english.md`](notes/02-english.md).

@@ -38,3 +38,15 @@ def test_external_html_links_ignored_and_unlinked_reported():
 def test_no_published_pdfs_is_a_problem():
     problemas, _ = c.revisar("nothing", '<a href="a.pdf">x</a>', f"[a]({URL}a.pdf)")
     assert problemas
+
+
+def test_main_exit_code_is_the_ci_gate(tmp_path, monkeypatch):
+    (tmp_path / ".github" / "workflows").mkdir(parents=True)
+    (tmp_path / "docs").mkdir()
+    (tmp_path / ".github" / "workflows" / "pages.yml").write_text(PAGES, encoding="utf-8")
+    (tmp_path / "README.md").write_text(f"[a]({URL}a.pdf)", encoding="utf-8")
+    (tmp_path / "docs" / "index.html").write_text('<a href="a.pdf">x</a>', encoding="utf-8")
+    monkeypatch.setattr(c, "ROOT", tmp_path)
+    assert c.main() == 0
+    (tmp_path / "docs" / "index.html").write_text('<a href="gone.pdf">x</a>', encoding="utf-8")
+    assert c.main() == 1

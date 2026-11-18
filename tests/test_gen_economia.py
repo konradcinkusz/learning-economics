@@ -161,3 +161,22 @@ def test_escapar_latex_specials_and_nbsp_euro():
 def test_dice_matches_whole_words_only():
     assert g.dice("El precio sube.", ["precio"])
     assert not g.dice("Los precios suben.", ["precio"])
+
+
+def test_check_reports_missing_generated_files(tmp_path, monkeypatch, capsys):
+    """A clean checkout has no generated-*.tex: --check must say 'NO GENERADO'
+    (not 'DESACTUALIZADO') and fail."""
+    import shutil
+    import subprocess
+    import sys
+    from pathlib import Path
+
+    root = Path(g.__file__).resolve().parent.parent
+    copia = tmp_path / "repo"
+    shutil.copytree(root, copia, ignore=shutil.ignore_patterns(
+        ".git", "*.pdf", "__pycache__", "generated-*.tex", ".pytest_cache"))
+    r = subprocess.run([sys.executable, str(copia / "tools" / "gen_economia.py"), "--check"],
+                       capture_output=True, text=True)
+    assert r.returncode == 1
+    assert "NO GENERADO" in r.stderr
+    assert "DESACTUALIZADO" not in r.stderr

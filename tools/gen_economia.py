@@ -1277,9 +1277,18 @@ def main():
         resumen.append(f"{cuaderno.nombre} ({len(dias)} días{obras})")
 
     if check_only:
+        faltan = [r for r, _ in salidas if not r.exists()]
+        if faltan:
+            # Un checkout limpio no trae lo generado (.gitignore): no es
+            # que esté desactualizado, es que nadie lo ha generado aún.
+            print(
+                f"NO GENERADO: faltan {len(faltan)} fichero(s) generados "
+                f"(p. ej. {faltan[0].relative_to(ROOT)}) -- ejecuta `make generate`.",
+                file=sys.stderr,
+            )
+            return 1
         for ruta, contenido in salidas:
-            actual = ruta.read_text(encoding="utf-8") if ruta.exists() else None
-            if actual != contenido:
+            if ruta.read_text(encoding="utf-8") != contenido:
                 print(
                     f"DESACTUALIZADO: {ruta.relative_to(ROOT)} no coincide con su JSON "
                     "-- ejecuta `make generate`.",

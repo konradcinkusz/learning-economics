@@ -8,7 +8,7 @@ PL_BW = polish-bw
 
 .PHONY: all all-formats english polish generate build build-bw build-english \
         build-english-bw build-polish build-polish-bw check check-bw check-english \
-        check-english-bw check-polish check-polish-bw test links clean watch
+        check-english-bw check-polish check-polish-bw test links vocab clean watch
 
 # "Aprendo economía": main.tex en color y main-bw.tex en blanco y negro,
 # con el mismo body.tex y el mismo contenido generado -- lo único que
@@ -87,6 +87,9 @@ test:
 
 links:
 	python3 tools/check_links.py
+
+vocab:
+	python3 tools/vocab_report.py
 
 clean:
 	latexmk -C $(MAIN).tex

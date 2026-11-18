@@ -116,6 +116,11 @@ make generate     # solo regenera los .tex de los tres cuadernos desde el JSON
 make build        # solo compila en color (asume que ya está generado)
 make build-bw     # solo compila en blanco y negro
 make check        # lee main.log + 1 día = 1 página (main.aux) + valida el JSON
+make check-bw     # lo mismo para main-bw; y check-english, check-english-bw,
+                  # check-polish, check-polish-bw (todos validan también el JSON)
+make test         # pytest de las herramientas (pip install -r requirements.txt); sin LaTeX
+make links        # los enlaces a PDF de docs/index.html y README, contra pages.yml
+make vocab        # aviso: palabras de la semana usadas antes de su semana
 make clean
 ```
 
@@ -139,8 +144,11 @@ diagrams/objetos.tex           -- las cosas de Aprendo los números, con las mon
 diagrams/economia.tex          -- las cosas nuevas de este cuaderno: la lupa, los cromos, la hucha...
 tools/gen_economia.py          -- JSON -> LaTeX, la escalera del dinero, las comprobaciones, la clave y el diccionario
 tools/idiomas.py               -- lo que se escribe en la página, en español, en inglés y en polaco
-tools/checklog.py              -- lee el .log de LuaLaTeX correctamente (de Aprendo a leer)
-tools/check_pages.py           -- comprueba que cada día ocupa una sola página (de Aprendo a leer)
+tools/checklog.py              -- lee el .log de LuaLaTeX correctamente (el mismo que en Aprendo a leer)
+tools/check_pages.py           -- cada día ocupa una sola página, y el día 1 cae en la 5 (adaptado de Aprendo a leer: no es idéntico)
+tools/check_links.py           -- los enlaces a PDF de docs/index.html y de este README existen en pages.yml
+tools/vocab_report.py          -- aviso (no falla): palabras de la semana usadas antes de su semana
+tests/                         -- pytest, con fixtures sintéticas negativas para las herramientas
 docs/index.html                -- la página que publica .github/workflows/pages.yml
 notes/01-plan.md               -- el plan: las 52 semanas, las actividades, las comprobaciones y las fases
 notes/02-english.md            -- el plan de "First Economics"

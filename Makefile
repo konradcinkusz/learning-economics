@@ -8,7 +8,7 @@ PL_BW = polish-bw
 
 .PHONY: all all-formats english polish generate build build-bw build-english \
         build-english-bw build-polish build-polish-bw check check-bw check-english \
-        check-english-bw check-polish check-polish-bw clean watch
+        check-english-bw check-polish check-polish-bw test links vocab clean watch
 
 # "Aprendo economía": main.tex en color y main-bw.tex en blanco y negro,
 # con el mismo body.tex y el mismo contenido generado -- lo único que
@@ -58,22 +58,38 @@ check:
 check-bw:
 	python3 tools/checklog.py $(BW).log
 	python3 tools/check_pages.py $(BW).aux
+	python3 tools/gen_economia.py --check
 
 check-english:
 	python3 tools/checklog.py $(EN).log
 	python3 tools/check_pages.py $(EN).aux
+	python3 tools/gen_economia.py --check
 
 check-english-bw:
 	python3 tools/checklog.py $(EN_BW).log
 	python3 tools/check_pages.py $(EN_BW).aux
+	python3 tools/gen_economia.py --check
 
 check-polish:
 	python3 tools/checklog.py $(PL).log
 	python3 tools/check_pages.py $(PL).aux
+	python3 tools/gen_economia.py --check
 
 check-polish-bw:
 	python3 tools/checklog.py $(PL_BW).log
 	python3 tools/check_pages.py $(PL_BW).aux
+	python3 tools/gen_economia.py --check
+
+# Tests de las herramientas (pytest, ver requirements.txt) y los enlaces a
+# PDF de docs/index.html y README.md contra pages.yml. Sin LaTeX.
+test:
+	python3 -m pytest -q tests
+
+links:
+	python3 tools/check_links.py
+
+vocab:
+	python3 tools/vocab_report.py
 
 clean:
 	latexmk -C $(MAIN).tex

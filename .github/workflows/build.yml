@@ -51,6 +51,16 @@ jobs:
       - name: Valida el contenido (escalera, calendario, actividades, las tres lenguas)
         run: python3 tools/gen_economia.py --check
 
+      # Los enlaces a PDF de docs/index.html y README.md existen en pages.yml.
+      - name: Comprueba los enlaces a los PDF
+        run: python3 tools/check_links.py
+
+      # Pruebas de las propias herramientas, con fixtures negativas.
+      - name: Pruebas de las herramientas
+        run: |
+          python3 -m pip install -r requirements.txt
+          python3 -m pytest -q tests
+
   build:
     name: PDF (${{ matrix.variant }})
     needs: gates
